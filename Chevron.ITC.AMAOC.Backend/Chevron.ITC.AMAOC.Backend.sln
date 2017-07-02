@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chevron.ITC.AMAOC.Backend", "Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend.csproj", "{D0A14FA8-C385-4814-A2C0-E945D02CCFCF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Chevron.ITC.AMAOC.DataObjects", "Chevron.ITC.AMAOC.DataObjects\Chevron.ITC.AMAOC.DataObjects.shproj", "{4E8B8259-2C5D-4E19-AD30-1279878BCFA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
