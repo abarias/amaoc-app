@@ -3,6 +3,7 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44322</IISExpressSSLPort>
+    <NameOfLastUsedPublishProfile>cvxitcamaocapp - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
