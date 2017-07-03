@@ -1,4 +1,7 @@
-﻿using Owin;
+﻿using Microsoft.Owin;
+using Owin;
+
+[assembly: OwinStartup(typeof(Chevron.ITC.AMAOC.Backend.Startup))]
 
 namespace Chevron.ITC.AMAOC.Backend
 {
@@ -6,7 +9,7 @@ namespace Chevron.ITC.AMAOC.Backend
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            ConfigureMobileApp(app);
         }
     }
 }
