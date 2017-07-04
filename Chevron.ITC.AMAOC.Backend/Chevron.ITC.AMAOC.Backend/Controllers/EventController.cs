@@ -13,6 +13,7 @@ using System.Web.Http.OData;
 
 namespace Chevron.ITC.AMAOC.Backend.Controllers
 {
+    [Authorize]
     public class EventController : TableController<Event>
    {
         protected override void Initialize(HttpControllerContext controllerContext)

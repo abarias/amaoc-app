@@ -33,7 +33,7 @@ namespace Chevron.ITC.AMAOC.Backend
             config.EnableSystemDiagnosticsTracing();
 
             new MobileAppConfiguration()
-            .UseDefaultConfiguration()
+            .UseDefaultConfiguration()            
             .ApplyTo(config);
 
 
@@ -60,16 +60,6 @@ namespace Chevron.ITC.AMAOC.Backend
                 {
                     // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
                     AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(AadInstance, Tenant, DefaultPolicy)))
-                });
-
-                app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-                new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-                {
-                    Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
-                    //TokenValidationParameters = new TokenValidationParameters
-                    //{
-                    //    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
-                    //},
                 });
             }
 
