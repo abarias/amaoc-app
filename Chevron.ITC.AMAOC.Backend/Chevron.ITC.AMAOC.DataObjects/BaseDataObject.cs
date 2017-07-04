@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chevron.ITC.AMAOC.Helpers;
+using System;
 
 #if BACKEND
 using Microsoft.Azure.Mobile.Server;
@@ -33,7 +34,7 @@ namespace Chevron.ITC.AMAOC.DataObjects
 
         public string RemoteId { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("Id")]
+        [Newtonsoft.Json.JsonProperty("id")]
         public string Id { get; set; }
 
         [Microsoft.WindowsAzure.MobileServices.Version]
