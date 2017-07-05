@@ -17,7 +17,7 @@ namespace Chevron.ITC.AMAOC.Services
     public class AzureDataStore : IDataStore<Event>
     {
         public bool UseAuthentication => true;
-        public MobileServiceAuthenticationProvider AuthProvider => MobileServiceAuthenticationProvider.Facebook;
+        public MobileServiceAuthenticationProvider AuthProvider => MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory;
 
         bool isInitialized;
         IMobileServiceSyncTable<Event> itemsTable;

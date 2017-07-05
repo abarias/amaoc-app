@@ -1,4 +1,4 @@
-﻿using Chevron.ITC.AMAOC.Backend.Helpers;
+﻿using Chevron.ITC.AMAOC.Helpers;
 using System;
 
 #if BACKEND

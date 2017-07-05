@@ -12,8 +12,8 @@ namespace Chevron.ITC.AMAOC
     public partial class App : Application
     {
         //MUST use HTTPS, neglecting to do so will result in runtime errors on iOS
-        public static bool AzureNeedsSetup => AzureMobileAppUrl == "http://cvxitcamaocapp.azurewebsites.net";
-        public static string AzureMobileAppUrl = "http://cvxitcamaocapp.azurewebsites.net";
+        public static bool AzureNeedsSetup => AzureMobileAppUrl == "https://cvxitcamaocapp.azurewebsites.net";
+        public static string AzureMobileAppUrl = "https://cvxitcamaocapp.azurewebsites.net";
         // Azure AD B2C Coordinates
         public static string Tenant = "chevronitcama.onmicrosoft.com";
         public static string ClientID = "7493eff3-078c-4f58-a5f2-effaa18acbfb";
@@ -37,7 +37,7 @@ namespace Chevron.ITC.AMAOC
 
         public static void SetMainPage()
         {
-            if (!AzureNeedsSetup && !Settings.IsLoggedIn)
+            if (!Settings.IsLoggedIn)
             {
                 Current.MainPage = new NavigationPage(new LoginPage())
                 {

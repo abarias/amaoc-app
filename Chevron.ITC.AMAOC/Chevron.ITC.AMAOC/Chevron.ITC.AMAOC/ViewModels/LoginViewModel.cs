@@ -58,6 +58,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             if (dataStore.UseAuthentication)
             {
+                //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);
                 var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);
                 if (user == null)
                 {
