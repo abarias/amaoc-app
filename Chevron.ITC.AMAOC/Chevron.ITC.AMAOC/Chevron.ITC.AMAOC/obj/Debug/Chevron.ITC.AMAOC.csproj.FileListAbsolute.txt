@@ -41,3 +41,13 @@ C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.NewItemPage.xaml.g.cs
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.dll
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.pdb
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.csproj.App.config
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.csprojResolveAssemblyReference.cache
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.App.xaml.g.cs
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.AboutPage.xaml.g.cs
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.ItemDetailPage.xaml.g.cs
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.ItemsPage.xaml.g.cs
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.LoginPage.xaml.g.cs
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.NewItemPage.xaml.g.cs
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.pdb
