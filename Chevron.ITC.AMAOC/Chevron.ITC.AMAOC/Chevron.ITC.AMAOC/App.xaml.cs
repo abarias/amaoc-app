@@ -6,7 +6,6 @@ using Chevron.ITC.AMAOC.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Microsoft.Identity.Client;
-using System.Configuration;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Chevron.ITC.AMAOC
@@ -18,15 +17,15 @@ namespace Chevron.ITC.AMAOC
         public static bool AzureNeedsSetup => AzureMobileAppUrl == "https://cvxitcamaocapp.azurewebsites.net";
         public static string AzureMobileAppUrl = "https://cvxitcamaocapp.azurewebsites.net";
         // Azure AD B2C Coordinates
-        public static string Tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-        public static string ClientId = ConfigurationManager.AppSettings["ida:ClientId"];
-        public static string PolicySignUpSignIn = ConfigurationManager.AppSettings["ida:SignUpSignInPolicyId"];
+        public static string Tenant = "chevronitcama.onmicrosoft.com";
+        public static string ClientId = "7493eff3-078c-4f58-a5f2-effaa18acbfb";
+        public static string PolicySignUpSignIn = "B2C_1_AMAOCAppSignUp";
         public static string PolicyEditProfile = "B2C_1_AMAOCAppEditProfile";
         public static string PolicyResetPassword = "B2C_1_AMAOCAppPassReset";        
         public static string DefaultPolicy = PolicySignUpSignIn;
 
 
-
+        public static string[] Scopes = { ClientId };
 
         public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";
         public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
@@ -41,7 +40,7 @@ namespace Chevron.ITC.AMAOC
 
             DependencyService.Register<AzureDataStore>();
 
-            PCA = new PublicClientApplication(ClientID, Authority);
+            PCA = new PublicClientApplication(ClientId, Authority);
             //PCA.RedirectUri = $"msal{ClientID}://auth";
             PCA.RedirectUri = $"com.onmicrosoft.chevronitcama.amaocapp://auth";
 

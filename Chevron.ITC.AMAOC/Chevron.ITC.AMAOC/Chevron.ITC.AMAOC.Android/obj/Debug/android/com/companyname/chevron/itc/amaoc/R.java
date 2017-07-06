@@ -2579,6 +2579,7 @@ containing a value of this type.
         public static final int action_mode_bar_stub=0x7f070056;
         public static final int action_mode_close_button=0x7f07003c;
         public static final int activity_chooser_view_content=0x7f07003d;
+        public static final int agentWebView=0x7f07009a;
         public static final int alertTitle=0x7f070049;
         public static final int always=0x7f07001e;
         public static final int beginning=0x7f07001b;
@@ -2792,8 +2793,10 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f030036;
         public static final int tabbar=0x7f030037;
         public static final int toolbar=0x7f030038;
+        public static final int webauthenticationbroker=0x7f030039;
     }
     public static final class string {
+        public static final int ApplicationName=0x7f080026;
         public static final int abc_action_bar_home_description=0x7f08000f;
         public static final int abc_action_bar_home_description_format=0x7f080010;
         public static final int abc_action_bar_home_subtitle_description_format=0x7f080011;
@@ -2813,7 +2816,7 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with=0x7f08001f;
         public static final int abc_shareactionprovider_share_with_application=0x7f080020;
         public static final int abc_toolbar_collapse_description=0x7f080021;
-        public static final int app_name=0x7f080026;
+        public static final int app_name=0x7f080027;
         public static final int appbar_scrolling_view_behavior=0x7f080023;
         public static final int bottom_sheet_behavior=0x7f080024;
         public static final int character_counter_pattern=0x7f080025;

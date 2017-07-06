@@ -51,3 +51,6 @@ C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.NewItemPage.xaml.g.cs
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.dll
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.pdb
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\bin\Debug\Microsoft.Identity.Client.dll
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\bin\Debug\Microsoft.Identity.Client.xml

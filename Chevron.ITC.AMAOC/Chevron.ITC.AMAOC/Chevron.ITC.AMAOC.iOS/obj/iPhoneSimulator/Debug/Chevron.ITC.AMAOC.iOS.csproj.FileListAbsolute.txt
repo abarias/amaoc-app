@@ -94,3 +94,5 @@ C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\obj\iPhoneSimulator\Debug\Chevron.ITC.AMAOC.iOS.csproj.Chevron.ITC.AMAOC.iOS.exe.config
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\obj\iPhoneSimulator\Debug\Chevron.ITC.AMAOC.iOS.exe
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\obj\iPhoneSimulator\Debug\Chevron.ITC.AMAOC.iOS.pdb
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\bin\iPhoneSimulator\Debug\Microsoft.Identity.Client.dll
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\bin\iPhoneSimulator\Debug\Microsoft.Identity.Client.xml

@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.Identity.Client;
 
 namespace Chevron.ITC.AMAOC.iOS
 {
@@ -18,5 +19,11 @@ namespace Chevron.ITC.AMAOC.iOS
 
 			return base.FinishedLaunching(app, options);
 		}
-	}
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+            return true;
+        }
+    }
 }

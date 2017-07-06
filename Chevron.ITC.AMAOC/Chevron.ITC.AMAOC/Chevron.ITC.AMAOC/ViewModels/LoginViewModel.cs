@@ -7,6 +7,12 @@ using Chevron.ITC.AMAOC.Services;
 
 using Xamarin.Forms;
 using Chevron.ITC.AMAOC.DataObjects;
+using Newtonsoft.Json.Linq;
+using Microsoft.Identity.Client;
+using System.Collections.Generic;
+using System;
+using System.Text;
+using System.Linq;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
@@ -48,6 +54,17 @@ namespace Chevron.ITC.AMAOC.ViewModels
             }
         }
 
+        private static IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)
+        {
+            foreach (var user in users)
+            {
+                string userIdentifier = Base64UrlDecode(user.Identifier.Split('.')[0]);
+                if (userIdentifier.EndsWith(policy.ToLower())) return user;
+            }
+
+            return null;
+        }
+
         public static async Task<bool> TryLoginAsync()
         {
             var authentication = DependencyService.Get<IAuthenticator>();
@@ -58,24 +75,64 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             if (dataStore.UseAuthentication)
             {
-                //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);
-                var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);
-                if (user == null)
+                //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);                
+
+                try
                 {
-                    MessagingCenter.Send(new MessagingCenterAlert
-                    {
-                        Title = "Sign In Error",
-                        Message = "Unable to sign in, please check your credentials and try again.",
-                        Cancel = "OK"
-                    }, "message");
-                    return false;
+                    AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+                    JObject user = ParseIdToken(ar.IdToken);
+                    Settings.AuthToken = ar.AccessToken;
+                    Settings.UserId = user["name"]?.ToString() ?? string.Empty;
+                }
+                catch (Exception ex)
+                {
+                    // Checking the exception message 
+                    // should ONLY be done for B2C
+                    // reset and not any other error.
+                    if (ex.Message.Contains("AADB2C90118"))
+                    { }
+                        //OnPasswordReset();
+                    // Alert if any exception excludig user cancelling sign-in dialog
+                    else if (((ex as MsalException)?.ErrorCode != "authentication_canceled")) { }
+                        //await DisplayAlert($"Exception:", ex.ToString(), "Dismiss");
                 }
 
-                Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
-                Settings.UserId = user?.UserId ?? string.Empty;
+                
+
+                //if (user == null)
+                //{
+                //    MessagingCenter.Send(new MessagingCenterAlert
+                //    {
+                //        Title = "Sign In Error",
+                //        Message = "Unable to sign in, please check your credentials and try again.",
+                //        Cancel = "OK"
+                //    }, "message");
+                //    return false;
+                //}
+
+                //Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
+                //Settings.UserId = user?.UserId ?? string.Empty;
             }
 
             return true;
         }
+
+        private static string Base64UrlDecode(string s)
+        {
+            s = s.Replace('-', '+').Replace('_', '/');
+            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
+            var byteArray = Convert.FromBase64String(s);
+            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
+            return decoded;
+        }
+
+        static JObject ParseIdToken(string idToken)
+        {
+            // Get the piece with actual user info
+            idToken = idToken.Split('.')[1];
+            idToken = Base64UrlDecode(idToken);
+            return JObject.Parse(idToken);
+        }
+
     }
 }
