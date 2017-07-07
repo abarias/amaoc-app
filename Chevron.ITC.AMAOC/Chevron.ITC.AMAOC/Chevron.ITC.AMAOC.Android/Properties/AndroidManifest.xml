@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.Chevron.ITC.AMAOC">
 	<uses-sdk android:minSdkVersion="15" />
-  <application android:label="@string/app_name"></application>
+  <application android:label="@string/app_name">
+    <activity android:name="microsoft.identity.client.BrowserTabActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="com.onmicrosoft.chevronitcama.amaocapp" android:host="auth" />
+      </intent-filter>
+    </activity>
+  </application>  
 </manifest>

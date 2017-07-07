@@ -3,6 +3,7 @@ using Chevron.ITC.AMAOC.DataObjects;
 using Chevron.ITC.AMAOC.Services;
 
 using Xamarin.Forms;
+using Chevron.ITC.AMAOC.Abstractions;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
@@ -11,7 +12,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
         /// <summary>
         /// Get the azure service instance
         /// </summary>
-        public IDataStore<Event> DataStore => DependencyService.Get<IDataStore<Event>>();
+        public IBaseStore<Event> DataStore => DependencyService.Get<IBaseStore<Event>>();
 
         bool isBusy = false;
         public bool IsBusy

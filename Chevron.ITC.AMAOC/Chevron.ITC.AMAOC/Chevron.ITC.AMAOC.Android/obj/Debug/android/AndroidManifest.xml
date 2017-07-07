@@ -7,6 +7,14 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <application android:label="@string/app_name" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <activity android:name="md546a182019d6511bfce654d61824a1f9f.BrowserTabActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="com.onmicrosoft.chevronitcama.amaocapp" android:host="auth" />
+      </intent-filter>
+    </activity>
     <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:theme="@style/MyTheme" android:name="md5301e791be920327796ce3a6b98575c4d.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

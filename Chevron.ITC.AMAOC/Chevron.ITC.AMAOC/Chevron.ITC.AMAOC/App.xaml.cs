@@ -25,7 +25,7 @@ namespace Chevron.ITC.AMAOC
         public static string DefaultPolicy = PolicySignUpSignIn;
 
 
-        public static string[] Scopes = { ClientId };
+        public static string[] Scopes = { "" };
 
         public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";
         public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
@@ -38,10 +38,10 @@ namespace Chevron.ITC.AMAOC
         {
             InitializeComponent();
 
-            DependencyService.Register<AzureDataStore>();
+            DependencyService.Register<StoreManager>();
 
             PCA = new PublicClientApplication(ClientId, Authority);
-            //PCA.RedirectUri = $"msal{ClientID}://auth";
+            
             PCA.RedirectUri = $"com.onmicrosoft.chevronitcama.amaocapp://auth";
 
             SetMainPage();

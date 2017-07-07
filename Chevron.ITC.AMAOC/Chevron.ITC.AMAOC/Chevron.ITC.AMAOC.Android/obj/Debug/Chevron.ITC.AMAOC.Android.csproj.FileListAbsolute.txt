@@ -112,7 +112,6 @@ C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.Forms.Xaml.dll
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.pdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.dll.config
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\FormsViewGroup.pdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\FormsViewGroup.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
@@ -155,7 +154,6 @@ C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\uploadflags.txt
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.Android.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Chevron.ITC.AMAOC.Android.dll.mdb
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Chevron.ITC.AMAOC.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Plugin.Connectivity.Abstractions.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Plugin.Connectivity.dll.mdb
@@ -173,3 +171,6 @@ C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Microsoft.Identity.Client.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.Android.Support.CustomTabs.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Microsoft.Identity.Client.xml

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System;
 using System.Text;
 using System.Linq;
+using Chevron.ITC.AMAOC.Abstractions;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
@@ -70,49 +71,47 @@ namespace Chevron.ITC.AMAOC.ViewModels
             var authentication = DependencyService.Get<IAuthenticator>();
             authentication.ClearCookies();
 
-            var dataStore = DependencyService.Get<IDataStore<Event>>() as AzureDataStore;
+            var dataStore = DependencyService.Get<IBaseStore<Event>>() as StoreManager;
             await dataStore.InitializeAsync();
+           
+            //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);                
 
-            if (dataStore.UseAuthentication)
+            try
             {
-                //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);                
-
-                try
-                {
-                    AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
-                    JObject user = ParseIdToken(ar.IdToken);
-                    Settings.AuthToken = ar.AccessToken;
-                    Settings.UserId = user["name"]?.ToString() ?? string.Empty;
-                }
-                catch (Exception ex)
-                {
-                    // Checking the exception message 
-                    // should ONLY be done for B2C
-                    // reset and not any other error.
-                    if (ex.Message.Contains("AADB2C90118"))
-                    { }
-                        //OnPasswordReset();
-                    // Alert if any exception excludig user cancelling sign-in dialog
-                    else if (((ex as MsalException)?.ErrorCode != "authentication_canceled")) { }
-                        //await DisplayAlert($"Exception:", ex.ToString(), "Dismiss");
-                }
+                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
+                JObject user = ParseIdToken(ar.IdToken);
+                Settings.AuthToken = ar.AccessToken;
+                Settings.UserId = user["name"]?.ToString() ?? string.Empty;
+            }
+            catch (Exception ex)
+            {
+                // Checking the exception message 
+                // should ONLY be done for B2C
+                // reset and not any other error.
+                if (ex.Message.Contains("AADB2C90118"))
+                { }
+                    //OnPasswordReset();
+                // Alert if any exception excludig user cancelling sign-in dialog
+                else if (((ex as MsalException)?.ErrorCode != "authentication_canceled")) { }
+                    //await DisplayAlert($"Exception:", ex.ToString(), "Dismiss");
+            }
 
                 
 
-                //if (user == null)
-                //{
-                //    MessagingCenter.Send(new MessagingCenterAlert
-                //    {
-                //        Title = "Sign In Error",
-                //        Message = "Unable to sign in, please check your credentials and try again.",
-                //        Cancel = "OK"
-                //    }, "message");
-                //    return false;
-                //}
+            //if (user == null)
+            //{
+            //    MessagingCenter.Send(new MessagingCenterAlert
+            //    {
+            //        Title = "Sign In Error",
+            //        Message = "Unable to sign in, please check your credentials and try again.",
+            //        Cancel = "OK"
+            //    }, "message");
+            //    return false;
+            //}
 
-                //Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
-                //Settings.UserId = user?.UserId ?? string.Empty;
-            }
+            //Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
+            //Settings.UserId = user?.UserId ?? string.Empty;
+            
 
             return true;
         }

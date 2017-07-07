@@ -50,5 +50,22 @@ namespace Chevron.ITC.AMAOC.Helpers
                 AppSettings.AddOrUpdateValue<string>(UserIdKey, value);
             }
         }
+
+        const string DatabaseIdKey = "azure_database";
+        static readonly int DatabaseIdDefault = 0;
+
+        public static int DatabaseId
+        {
+            get { return AppSettings.GetValueOrDefault<int>(DatabaseIdKey, DatabaseIdDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<int>(DatabaseIdKey, value);
+            }
+        }
+
+        public static int UpdateDatabaseId()
+        {
+            return DatabaseId++;
+        }
     }
 }
