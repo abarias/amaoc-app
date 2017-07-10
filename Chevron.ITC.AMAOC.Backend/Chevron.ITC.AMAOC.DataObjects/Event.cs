@@ -17,7 +17,7 @@ namespace Chevron.ITC.AMAOC.DataObjects
 
         public string Location { get; set; }
 
-        public int CreatedByEmployeeId { get; set; }
+        public string CreatedByEmployeeId { get; set; }
 
         public DateTimeOffset? StartTime { get; set; }
 

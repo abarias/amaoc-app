@@ -8,15 +8,16 @@ using Chevron.ITC.AMAOC.DataObjects;
 
 namespace Chevron.ITC.AMAOC.Views
 {
-    public partial class ItemsPage : ContentPage
-    {
-        EventsViewModel viewModel;
+    public partial class EventsPage : ContentPage
+    {        
+        EventsViewModel vm;
+        EventsViewModel viewModel => vm ?? (vm = BindingContext as EventsViewModel);
 
-        public ItemsPage()
+        public EventsPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new EventsViewModel();
+            BindingContext = new EventsViewModel(Navigation);
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -25,15 +26,15 @@ namespace Chevron.ITC.AMAOC.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new EventDetailViewModel(item)));
+            await Navigation.PushAsync(new EventDetailPage(new EventDetailViewModel(item)));
 
             // Manually deselect item
-            ItemsListView.SelectedItem = null;
+            EventsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewItemPage());
+            await Navigation.PushAsync(new NewEventPage());
         }
 
         protected override void OnAppearing()

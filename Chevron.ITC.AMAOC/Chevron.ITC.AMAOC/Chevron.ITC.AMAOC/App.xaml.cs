@@ -6,6 +6,7 @@ using Chevron.ITC.AMAOC.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Microsoft.Identity.Client;
+using Chevron.ITC.AMAOC.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Chevron.ITC.AMAOC
@@ -25,9 +26,9 @@ namespace Chevron.ITC.AMAOC
         public static string DefaultPolicy = PolicySignUpSignIn;
 
 
-        public static string[] Scopes = { "" };
+        public static string[] Scopes = { "https://chevronitcama.onmicrosoft.com/amaocapp/read" };
 
-        public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";
+        public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";        
         public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
 
         public static UIParent UiParent = null;
@@ -38,7 +39,7 @@ namespace Chevron.ITC.AMAOC
         {
             InitializeComponent();
 
-            DependencyService.Register<StoreManager>();
+            BaseViewModel.Init();
 
             PCA = new PublicClientApplication(ClientId, Authority);
             
@@ -49,7 +50,7 @@ namespace Chevron.ITC.AMAOC
 
         public static void SetMainPage()
         {
-            if (!Settings.IsLoggedIn)
+            if (!Settings.Current.IsLoggedIn)
             {
                 Current.MainPage = new NavigationPage(new LoginPage())
                 {
@@ -69,7 +70,7 @@ namespace Chevron.ITC.AMAOC
             {
                 Children =
                 {
-                    new NavigationPage(new ItemsPage())
+                    new NavigationPage(new EventsPage())
                     {
                         Title = "Browse",
                         Icon = Device.OnPlatform("tab_feed.png",null,null)

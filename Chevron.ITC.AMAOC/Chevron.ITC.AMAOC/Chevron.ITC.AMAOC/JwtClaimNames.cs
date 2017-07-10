@@ -10,9 +10,9 @@ namespace Chevron.ITC.AMAOC
     {
         public const string Expiration = "exp";
 
-        public const string GivenName = "given_name";
+        public const string FullName = "name";
 
-        public const string FamilyName = "family_name";
+        public const string CAI = "extension_CAI";
 
         public const string Subject = "sub";
     }

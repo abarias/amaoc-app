@@ -12,16 +12,12 @@ namespace Chevron.ITC.AMAOC.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\AnthonyBernard\\Documents\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC." +
-        "AMAOC\\Chevron.ITC.AMAOC\\Views\\ItemsPage.xaml")]
-    public partial class ItemsPage : global::Xamarin.Forms.ContentPage {
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView ItemsListView;
+        "AMAOC\\Chevron.ITC.AMAOC\\Views\\NewEventPage.xaml")]
+    public partial class NewEventPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ItemsPage));
-            ItemsListView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "ItemsListView");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(NewEventPage));
         }
     }
 }

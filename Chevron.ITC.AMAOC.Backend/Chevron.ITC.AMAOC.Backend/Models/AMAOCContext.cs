@@ -14,11 +14,10 @@ namespace Chevron.ITC.AMAOC.Backend.Models
 		private const string connectionStringName = "Name=MS_TableConnectionString";
 
 		public AMAOCContext() : base(connectionStringName)
-        {
-            
+        {            
         }
 
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Conventions.Add(
 				new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(

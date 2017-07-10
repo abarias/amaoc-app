@@ -6,6 +6,8 @@ namespace Chevron.ITC.AMAOC.DataObjects
     public class Employee : BaseDataObject
     {
         public string FullName { get; set; }
+        
+        public string UserId { get; set; }
 
         public string CAI { get; set; }
 

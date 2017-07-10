@@ -15,17 +15,17 @@ namespace Chevron.ITC.AMAOC.ViewModels
         public ObservableRangeCollection<Event> Events { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public EventsViewModel()
+        public EventsViewModel(INavigation navigation) : base(navigation)
         {
             Title = "Browse";
             Events = new ObservableRangeCollection<Event>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Event>(this, "AddItem", async (obj, ocevent) =>
+            MessagingCenter.Subscribe<NewEventPage, Event>(this, "AddItem", async (obj, ocevent) =>
             {
                 var _item = ocevent as Event;
                 Events.Add(_item);
-                await DataStore.AddItemAsync(_item);
+                await StoreManager.EventStore.InsertAsync(_item);
             });
         }
 
@@ -39,7 +39,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             try
             {
                 Events.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await StoreManager.EventStore.GetItemsAsync(true);
                 Events.ReplaceRange(items);
             }
             catch (Exception ex)

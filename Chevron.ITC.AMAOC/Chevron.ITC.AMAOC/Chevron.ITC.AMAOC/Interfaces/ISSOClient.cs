@@ -9,7 +9,7 @@ namespace Chevron.ITC.AMAOC.Interfaces
 {
     public interface ISSOClient
     {
-        Task<AccountResponse> LoginAsync(string username, string password);
+        Task<AccountResponse> LoginAsync(string accessToken);
 
         Task LogoutAsync();
     }

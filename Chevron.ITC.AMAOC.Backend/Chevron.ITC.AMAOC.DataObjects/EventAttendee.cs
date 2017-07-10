@@ -1,11 +1,11 @@
 ﻿using System;
 namespace Chevron.ITC.AMAOC.DataObjects
 {
-    public class EventAttendee
+    public class EventAttendee : BaseDataObject
     {
-        public int EventId { get; set; }
+        public string EventId { get; set; }
 
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
 
         public bool hasGivenFeedback { get; set; }
 

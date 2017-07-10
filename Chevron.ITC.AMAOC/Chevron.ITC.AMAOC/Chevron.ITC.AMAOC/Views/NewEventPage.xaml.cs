@@ -7,11 +7,11 @@ using Chevron.ITC.AMAOC.DataObjects;
 
 namespace Chevron.ITC.AMAOC.Views
 {
-    public partial class NewItemPage : ContentPage
+    public partial class NewEventPage : ContentPage
     {
         public Event Item { get; set; }
 
-        public NewItemPage()
+        public NewEventPage()
         {
             InitializeComponent();
 

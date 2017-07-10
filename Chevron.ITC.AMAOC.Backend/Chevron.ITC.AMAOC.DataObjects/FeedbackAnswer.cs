@@ -1,11 +1,11 @@
 ﻿using System;
 namespace Chevron.ITC.AMAOC.DataObjects
 {
-    public class FeedbackAnswer
+    public class FeedbackAnswer : BaseDataObject
     {
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
 
-        public int FeedbackQuestionId { get; set; }
+        public string FeedbackQuestionId { get; set; }
 
         public string Answer { get; set; }
 

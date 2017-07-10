@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Chevron.ITC.AMAOC.Helpers
+namespace Chevron.ITC.AMAOC.Backend.Helpers
 {
     /// <summary>
     /// Observable object with INotifyPropertyChanged implemented

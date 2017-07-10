@@ -14,15 +14,19 @@ using System;
 using System.Text;
 using System.Linq;
 using Chevron.ITC.AMAOC.Abstractions;
+using Chevron.ITC.AMAOC.Interfaces;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        static ISSOClient client;
         public LoginViewModel()
         {
             SignInCommand = new Command(async () => await SignIn());
             NotNowCommand = new Command(App.GoToMainPage);
+
+            client = DependencyService.Get<ISSOClient>();
         }
 
         string message = string.Empty;
@@ -30,6 +34,13 @@ namespace Chevron.ITC.AMAOC.ViewModels
         {
             get { return message; }
             set { message = value; OnPropertyChanged(); }
+        }
+
+        string email;
+        public string Email
+        {
+            get { return email; }
+            set { SetProperty(ref email, value); }
         }
 
         public ICommand NotNowCommand { get; }
@@ -50,7 +61,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 Message = string.Empty;
                 IsBusy = false;
 
-                if (Settings.IsLoggedIn)
+                if (Settings.Current.IsLoggedIn)
                     App.GoToMainPage();
             }
         }
@@ -66,22 +77,45 @@ namespace Chevron.ITC.AMAOC.ViewModels
             return null;
         }
 
-        public static async Task<bool> TryLoginAsync()
+        public async Task<bool> TryLoginAsync()
         {
-            var authentication = DependencyService.Get<IAuthenticator>();
-            authentication.ClearCookies();
+            //var authentication = DependencyService.Get<IAuthenticator>();
+            //authentication.ClearCookies();
+            AccountResponse result = null;
+            //var dataStore = DependencyService.Get<IBaseStore<Event>>() as StoreManager;
+            //await dataStore.InitializeAsync();
 
-            var dataStore = DependencyService.Get<IBaseStore<Event>>() as StoreManager;
-            await dataStore.InitializeAsync();
-           
             //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);                
 
             try
-            {
-                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
-                JObject user = ParseIdToken(ar.IdToken);
-                Settings.AuthToken = ar.AccessToken;
-                Settings.UserId = user["name"]?.ToString() ?? string.Empty;
+            {                
+                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), UIBehavior.ForceLogin, string.Empty, null, App.Authority, App.UiParent);
+                JObject user = ParseIdToken(ar.IdToken);                
+                result = await client.LoginAsync(ar.AccessToken);
+
+                if (result?.Success ?? false)
+                {
+                    Settings.UserId = user["sub"]?.ToString() ?? string.Empty;
+                    Settings.Email = user["emails"][0]?.ToString() ?? string.Empty;
+                    Settings.FullName = user["name"]?.ToString() ?? string.Empty;
+                    Settings.CAI = user["extension_CAI"]?.ToString() ?? string.Empty;
+                    try
+                    {
+                        await StoreManager.SyncAllAsync(true);
+                        Settings.Current.LastSync = DateTime.UtcNow;
+                        Settings.Current.HasSyncedData = true;
+                        await Finish();
+                        //Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
+                        //Settings.UserId = user?.UserId ?? string.Empty;
+                    }
+                    catch (Exception ex)
+                    {
+                        //if sync doesn't work don't worry it is alright we can recover later
+                        //Logger.Report(ex);
+                    }
+                    
+                    Settings.FirstRun = false;
+                }
             }
             catch (Exception ex)
             {
@@ -90,13 +124,11 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 // reset and not any other error.
                 if (ex.Message.Contains("AADB2C90118"))
                 { }
-                    //OnPasswordReset();
+                //OnPasswordReset();
                 // Alert if any exception excludig user cancelling sign-in dialog
                 else if (((ex as MsalException)?.ErrorCode != "authentication_canceled")) { }
-                    //await DisplayAlert($"Exception:", ex.ToString(), "Dismiss");
+                //await DisplayAlert($"Exception:", ex.ToString(), "Dismiss");
             }
-
-                
 
             //if (user == null)
             //{
@@ -109,11 +141,26 @@ namespace Chevron.ITC.AMAOC.ViewModels
             //    return false;
             //}
 
-            //Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
-            //Settings.UserId = user?.UserId ?? string.Empty;
-            
-
             return true;
+        }
+
+        async Task Finish()
+        {
+            if (Settings.FirstRun)
+            {
+                var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
+                if (emp == null)
+                {
+                    var newEmp = new Employee
+                    {
+                        CAI = Settings.CAI,
+                        Email = Settings.Email,
+                        FullName = Settings.FullName,
+                        UserId = Settings.UserId
+                    };
+                    await StoreManager.EmployeeStore.InsertAsync(newEmp);
+                }
+            }
         }
 
         private static string Base64UrlDecode(string s)

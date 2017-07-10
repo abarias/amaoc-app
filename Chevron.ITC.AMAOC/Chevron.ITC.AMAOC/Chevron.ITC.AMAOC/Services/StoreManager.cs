@@ -30,6 +30,7 @@ namespace Chevron.ITC.AMAOC.Services
 
             var taskList = new List<Task<bool>>();
             taskList.Add(EventStore.SyncAsync());
+            taskList.Add(EmployeeStore.SyncAsync());
 
 
             //if (syncUserSpecific)
@@ -50,6 +51,7 @@ namespace Chevron.ITC.AMAOC.Services
         {
             Settings.UpdateDatabaseId();
             EventStore.DropTable();
+            EmployeeStore.DropTable();
             IsInitialized = false;
             return Task.FromResult(true);
         }
@@ -74,7 +76,8 @@ namespace Chevron.ITC.AMAOC.Services
                 var path = $"syncstore{dbId}.db";
                 MobileService = new MobileServiceClient(App.AzureMobileAppUrl);
                 store = new MobileServiceSQLiteStore(path);                
-                store.DefineTable<Event>();                
+                store.DefineTable<Event>();
+                store.DefineTable<Employee>();
                 store.DefineTable<StoreSettings>();                
             }
 
@@ -85,11 +88,12 @@ namespace Chevron.ITC.AMAOC.Services
         }
 
         IEventStore eventStore;
+        IEmployeeStore employeeStore;
         public IEventStore EventStore => eventStore ?? (eventStore = DependencyService.Get<IEventStore>());
-
+        public IEmployeeStore EmployeeStore => employeeStore ?? (employeeStore = DependencyService.Get<IEmployeeStore>());
         #endregion
 
-        public async Task<MobileServiceUser> LoginAsync(string username, string password)
+        public async Task<MobileServiceUser> LoginAsync(string accessToken)
         {
             if (!IsInitialized)
             {
@@ -97,10 +101,9 @@ namespace Chevron.ITC.AMAOC.Services
             }
 
             var credentials = new JObject();
-            credentials["email"] = username;
-            credentials["password"] = password;
+            credentials["access_token"] = accessToken;            
 
-            MobileServiceUser user = await MobileService.LoginAsync("Xamarin", credentials);
+            MobileServiceUser user = await MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, credentials);
 
             await CacheToken(user);
 

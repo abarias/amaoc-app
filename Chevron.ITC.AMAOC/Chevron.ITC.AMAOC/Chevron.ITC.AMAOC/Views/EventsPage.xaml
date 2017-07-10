@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Chevron.ITC.AMAOC.Views.ItemsPage"
+             x:Class="Chevron.ITC.AMAOC.Views.EventsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
   <ContentPage.ToolbarItems>
@@ -9,8 +9,8 @@
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
     <StackLayout>
-      <ListView x:Name="ItemsListView"
-				ItemsSource="{Binding Items}"
+      <ListView x:Name="EventsListView"
+				ItemsSource="{Binding Events}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
                 RefreshCommand="{Binding LoadItemsCommand}"
@@ -22,15 +22,12 @@
           <DataTemplate>
             <ViewCell>
               <StackLayout Padding="10">
-                <Label Text="{Binding Name}"
+                                <Image Source="{Binding Status}"/>
+                                <Label Text="{Binding Name}"
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="16"/>
-                <Label Text="{Binding Abstract}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13"/>
-              </StackLayout>
+                            </StackLayout>
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
