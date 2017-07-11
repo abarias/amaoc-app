@@ -22,7 +22,7 @@
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;MOBILE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Abstractions\IEmployeeStore.cs" />
+    <Compile Include="Abstractions\IEventAttendeeStore.cs" />
     <Compile Include="Abstractions\IEventStore.cs" />
     <Compile Include="Abstractions\IStoreManager.cs" />
     <Compile Include="App.xaml.cs">
@@ -57,6 +58,7 @@
     <Compile Include="Services\SSOClient.cs" />
     <Compile Include="Services\StoreManager.cs" />
     <Compile Include="Stores\EmployeeStore.cs" />
+    <Compile Include="Stores\EventAttendeeStore.cs" />
     <Compile Include="Stores\EventStore.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

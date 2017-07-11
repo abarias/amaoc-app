@@ -31,6 +31,7 @@ namespace Chevron.ITC.AMAOC.Services
             var taskList = new List<Task<bool>>();
             taskList.Add(EventStore.SyncAsync());
             taskList.Add(EmployeeStore.SyncAsync());
+            taskList.Add(EventAttendeeStore.SyncAsync());
 
 
             //if (syncUserSpecific)
@@ -52,6 +53,7 @@ namespace Chevron.ITC.AMAOC.Services
             Settings.UpdateDatabaseId();
             EventStore.DropTable();
             EmployeeStore.DropTable();
+            EventAttendeeStore.DropTable();
             IsInitialized = false;
             return Task.FromResult(true);
         }
@@ -78,7 +80,8 @@ namespace Chevron.ITC.AMAOC.Services
                 store = new MobileServiceSQLiteStore(path);                
                 store.DefineTable<Event>();
                 store.DefineTable<Employee>();
-                store.DefineTable<StoreSettings>();                
+                store.DefineTable<StoreSettings>();
+                store.DefineTable<EventAttendee>();
             }
 
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler()).ConfigureAwait(false);
@@ -89,8 +92,10 @@ namespace Chevron.ITC.AMAOC.Services
 
         IEventStore eventStore;
         IEmployeeStore employeeStore;
+        IEventAttendeeStore eventAttendeeStore;
         public IEventStore EventStore => eventStore ?? (eventStore = DependencyService.Get<IEventStore>());
         public IEmployeeStore EmployeeStore => employeeStore ?? (employeeStore = DependencyService.Get<IEmployeeStore>());
+        public IEventAttendeeStore EventAttendeeStore => eventAttendeeStore ?? (eventAttendeeStore = DependencyService.Get<IEventAttendeeStore>());
         #endregion
 
         public async Task<MobileServiceUser> LoginAsync(string accessToken)

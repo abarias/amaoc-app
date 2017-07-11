@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace Chevron.ITC.AMAOC.Abstractions
 {
     public interface IEventStore : IBaseStore<Event>
-    {
+    {        
     }
 }

@@ -146,9 +146,9 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
         async Task Finish()
         {
+            var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
             if (Settings.FirstRun)
-            {
-                var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
+            {                
                 if (emp == null)
                 {
                     var newEmp = new Employee
@@ -156,11 +156,13 @@ namespace Chevron.ITC.AMAOC.ViewModels
                         CAI = Settings.CAI,
                         Email = Settings.Email,
                         FullName = Settings.FullName,
-                        UserId = Settings.UserId
+                        UserId = Settings.UserId,
+                        Id = Settings.UserId
                     };
                     await StoreManager.EmployeeStore.InsertAsync(newEmp);
-                }
+                }                
             }
+            Settings.TotalPoints = emp.TotalPointsEarned.ToString();
         }
 
         private static string Base64UrlDecode(string s)

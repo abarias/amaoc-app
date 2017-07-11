@@ -127,6 +127,21 @@ namespace Chevron.ITC.AMAOC.Helpers
             }
         }
 
+        const string TotalPointsKey = "totalpoints_key";
+        readonly string TotalPointsDefault = string.Empty;
+        public string TotalPoints
+        {
+            get { return AppSettings.GetValueOrDefault<string>(TotalPointsKey, TotalPointsDefault); }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue(TotalPointsKey, value))
+                {
+                    OnPropertyChanged();
+                    //OnPropertyChanged(nameof(UserDisplayName));
+                }
+            }
+        }
+
         const string DatabaseIdKey = "azure_database";
         static readonly int DatabaseIdDefault = 0;
 

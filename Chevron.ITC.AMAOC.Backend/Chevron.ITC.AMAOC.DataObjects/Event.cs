@@ -17,6 +17,8 @@ namespace Chevron.ITC.AMAOC.DataObjects
 
         public string Location { get; set; }
 
+        public bool IsCompleted { get; set; }
+
         public string CreatedByEmployeeId { get; set; }
 
         public DateTimeOffset? StartTime { get; set; }
@@ -26,5 +28,29 @@ namespace Chevron.ITC.AMAOC.DataObjects
         public virtual Employee CreatedByEmployee { get; set; }
 
         public virtual ICollection<EventAttendee> Attendees { get; set; }
+
+#if MOBILE
+        string statusImage;
+        [Newtonsoft.Json.JsonIgnore]
+        public string StatusImage
+        {
+            get { return statusImage; }
+            set
+            {
+                SetProperty(ref statusImage, value);
+            }
+        }
+
+        bool feedbackLeft;
+        [Newtonsoft.Json.JsonIgnore]
+        public bool FeedbackLeft
+        {
+            get { return feedbackLeft; }
+            set
+            {
+                SetProperty(ref feedbackLeft, value);
+            }
+        }
+#endif
     }
 }

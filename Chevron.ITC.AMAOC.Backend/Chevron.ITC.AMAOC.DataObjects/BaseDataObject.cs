@@ -4,7 +4,7 @@ using System;
 #if BACKEND
 using Microsoft.Azure.Mobile.Server;
 #elif MOBILE
-using MvvmHelpers;
+//using MvvmHelpers;
 #endif
 
 namespace Chevron.ITC.AMAOC.DataObjects

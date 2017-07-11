@@ -21,13 +21,15 @@
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout Padding="10">
-                                <Image Source="{Binding Status}"/>
+              <StackLayout Orientation="Vertical">              
+              <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="{Binding StatusImage}" />
                                 <Label Text="{Binding Name}"
-                       LineBreakMode="NoWrap"
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="16"/>
-                            </StackLayout>
+              </StackLayout>
+              </StackLayout>
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>

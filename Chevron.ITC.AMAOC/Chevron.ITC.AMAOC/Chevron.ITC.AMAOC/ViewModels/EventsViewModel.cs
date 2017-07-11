@@ -17,7 +17,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
         public EventsViewModel(INavigation navigation) : base(navigation)
         {
-            Title = "Browse";
+            Title = "Your OC Journey";
             Events = new ObservableRangeCollection<Event>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
