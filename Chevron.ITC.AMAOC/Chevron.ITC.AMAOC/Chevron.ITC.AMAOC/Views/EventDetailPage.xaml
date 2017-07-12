@@ -2,9 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chevron.ITC.AMAOC.Views.EventDetailPage"
-             Title="{Binding Title}">
-	<StackLayout Spacing="20" Padding="15">
-		<Label Text="{Binding Event.Name}" FontSize="Medium"/>
-        <Label Text="{Binding Event.Abstract}" FontSize="Small"/>
-    </StackLayout>
+             xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+             Title="OC Event Details"
+             NavigationPage.BackButtonTitle="OC Events"
+             BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:EventDateDisplayConverter x:Key="EventDateDisplayConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <local:AlwaysScrollView>
+        <StackLayout Spacing="0">
+            <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                             Spacing="{DynamicResource CardSpacing}"
+                             Padding="{DynamicResource CardPadding}">
+                <local:CardView>
+                    <StackLayout Padding="0" Spacing="0" BackgroundColor="White">
+                        <local:HeaderDivider/>
+                        <StackLayout Padding="{StaticResource StandardPadding}" >
+                            <StackLayout Padding="32,16,32,0">
+                                <Image
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Aspect="AspectFit"
+                                HeightRequest="150">
+                                    <Image.Source>
+                                        <FileImageSource File="{Binding Event.StatusImage}" />
+                                    </Image.Source>
+                                </Image>
+                            </StackLayout>
+                            <StackLayout Spacing="0">
+                                <Label Text="{Binding Event.Name}" Style="{DynamicResource AMAOCListItemTextStyle}" StyleId="EventName"/>
+                                <Label
+                                    x:Name="EventDate"
+                                    Text="{Binding Event, Converter={StaticResource EventDateDisplayConverter}}"
+                                    Style="{DynamicResource EventDetailTextStyle}"
+                                    TextColor="White"
+                                    StyleId="EventDate"/>
+                                <Label Text="{Binding Event.Location}" TextColor="{StaticResource Primary}"/>
+                            </StackLayout>
+                            <StackLayout Padding="0,16">
+                                <Label Text="{Binding Event.Abstract}"  Style="{DynamicResource EventListItemTextStyle}" StyleId="EventAbstract"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <local:SectionDivider/>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+            </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
 </ContentPage>
