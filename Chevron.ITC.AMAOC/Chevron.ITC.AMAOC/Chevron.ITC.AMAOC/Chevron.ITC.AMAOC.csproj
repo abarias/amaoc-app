@@ -50,6 +50,12 @@
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="InvalidTokenException.cs" />
+    <Compile Include="MockStores\BaseStore.cs" />
+    <Compile Include="MockStores\EmployeeStore.cs" />
+    <Compile Include="MockStores\EventAttendeeStore.cs" />
+    <Compile Include="MockStores\EventStore.cs" />
+    <Compile Include="MockStores\SSOClient.cs" />
+    <Compile Include="MockStores\StoreManager.cs" />
     <Compile Include="Models\BaseDataObject.cs" />
     <Compile Include="Models\SSOUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

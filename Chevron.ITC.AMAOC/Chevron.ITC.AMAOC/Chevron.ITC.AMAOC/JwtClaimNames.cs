@@ -15,5 +15,7 @@ namespace Chevron.ITC.AMAOC
         public const string CAI = "extension_CAI";
 
         public const string Subject = "sub";
+
+        public const string Email = "emails";
     }
 }

@@ -35,11 +35,16 @@ namespace Chevron.ITC.AMAOC.Services
             }
         }
 
-        public async Task<AccountResponse> LoginAsync(string accessToken)
+        public async Task<AccountResponse> LoginAsync(string idToken, string accessToken)
         {
             MobileServiceUser user = await storeManager.LoginAsync(accessToken);
 
-            return AccountFromMobileServiceUser(user);
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            return AccountFromMobileServiceUser(idToken);
         }
 
         public async Task LogoutAsync()
@@ -47,22 +52,18 @@ namespace Chevron.ITC.AMAOC.Services
             await storeManager.LogoutAsync();
         }
 
-        private AccountResponse AccountFromMobileServiceUser(MobileServiceUser user)
-        {
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
-
-            IDictionary<string, string> claims = JwtUtility.GetClaims(user.MobileServiceAuthenticationToken);
+        private AccountResponse AccountFromMobileServiceUser(string idToken)
+        {            
+            IDictionary<string, string> claims = JwtUtility.GetClaims(idToken);
 
             var account = new AccountResponse();
             account.Success = true;
             account.User = new User
             {
-                UserId = claims[JwtClaimNames.Subject]
-                //FullName = claims[JwtClaimNames.FullName],
-                //CAI = claims[JwtClaimNames.CAI]
+                UserId = claims[JwtClaimNames.Subject],
+                FullName = claims[JwtClaimNames.FullName],
+                CAI = claims[JwtClaimNames.CAI],
+                Email = claims[JwtClaimNames.Email][0].ToString()
             };
 
             return account;

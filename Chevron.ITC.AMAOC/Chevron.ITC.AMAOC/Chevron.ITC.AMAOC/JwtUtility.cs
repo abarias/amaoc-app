@@ -39,7 +39,7 @@ namespace Chevron.ITC.AMAOC
             return null;
         }
 
-        private static string GetDecodedPayload(string tokenPayload)
+        public static string GetDecodedPayload(string tokenPayload)
         {
             if (tokenPayload.Length % 4 == 1)
             {

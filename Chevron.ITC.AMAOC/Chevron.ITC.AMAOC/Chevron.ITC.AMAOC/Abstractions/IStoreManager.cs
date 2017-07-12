@@ -13,6 +13,7 @@ namespace Chevron.ITC.AMAOC.Abstractions
 
         IEventStore EventStore { get; }
         IEmployeeStore EmployeeStore { get; }
+        IEventAttendeeStore EventAttendeeStore { get; }
 
         Task<bool> SyncAllAsync(bool syncUserSpecific);
         Task DropEverythingAsync();

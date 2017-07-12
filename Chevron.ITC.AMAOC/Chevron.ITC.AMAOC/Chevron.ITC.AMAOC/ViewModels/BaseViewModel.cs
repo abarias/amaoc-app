@@ -26,11 +26,22 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
         public static void Init(bool mock = false)
         {            
-            DependencyService.Register<IEventStore, Chevron.ITC.AMAOC.Stores.EventStore>();
-            DependencyService.Register<IEmployeeStore, Chevron.ITC.AMAOC.Stores.EmployeeStore>();
-            DependencyService.Register<IEventAttendeeStore, Chevron.ITC.AMAOC.Stores.EventAttendeeStore>();
-            DependencyService.Register<ISSOClient, Chevron.ITC.AMAOC.Services.SSOClient>();
-            DependencyService.Register<IStoreManager, Chevron.ITC.AMAOC.Services.StoreManager>();
+            if (mock)
+            {
+                DependencyService.Register<IEventStore, Chevron.ITC.AMAOC.MockStores.EventStore>();
+                DependencyService.Register<IEmployeeStore, Chevron.ITC.AMAOC.MockStores.EmployeeStore>();
+                DependencyService.Register<IEventAttendeeStore, Chevron.ITC.AMAOC.MockStores.EventAttendeeStore>();
+                DependencyService.Register<ISSOClient, Chevron.ITC.AMAOC.MockStores.SSOClient>();
+                DependencyService.Register<IStoreManager, Chevron.ITC.AMAOC.MockStores.StoreManager>();
+            }
+            else
+            { 
+                DependencyService.Register<IEventStore, Chevron.ITC.AMAOC.Stores.EventStore>();
+                DependencyService.Register<IEmployeeStore, Chevron.ITC.AMAOC.Stores.EmployeeStore>();
+                DependencyService.Register<IEventAttendeeStore, Chevron.ITC.AMAOC.Stores.EventAttendeeStore>();
+                DependencyService.Register<ISSOClient, Chevron.ITC.AMAOC.Services.SSOClient>();
+                DependencyService.Register<IStoreManager, Chevron.ITC.AMAOC.Services.StoreManager>();
+            }
         }
 
         public Settings Settings

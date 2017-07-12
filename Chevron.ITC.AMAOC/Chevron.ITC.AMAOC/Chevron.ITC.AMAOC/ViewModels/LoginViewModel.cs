@@ -70,7 +70,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
         {
             foreach (var user in users)
             {
-                string userIdentifier = Base64UrlDecode(user.Identifier.Split('.')[0]);
+                string userIdentifier = JwtUtility.GetDecodedPayload(user.Identifier.Split('.')[0]);
                 if (userIdentifier.EndsWith(policy.ToLower())) return user;
             }
 
@@ -79,34 +79,26 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
         public async Task<bool> TryLoginAsync()
         {
-            //var authentication = DependencyService.Get<IAuthenticator>();
-            //authentication.ClearCookies();
-            AccountResponse result = null;
-            //var dataStore = DependencyService.Get<IBaseStore<Event>>() as StoreManager;
-            //await dataStore.InitializeAsync();
-
-            //var user = await authentication.LoginAsync(dataStore.MobileService, dataStore.AuthProvider, App.LoginParameters);                
-
+            AccountResponse result = null;              
+            
             try
-            {                
-                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), UIBehavior.ForceLogin, string.Empty, null, App.Authority, App.UiParent);
-                JObject user = ParseIdToken(ar.IdToken);                
-                result = await client.LoginAsync(ar.AccessToken);
+            {
+                //AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), UIBehavior.ForceLogin, string.Empty, null, App.Authority, App.UiParent);                          
+                //result = await client.LoginAsync(ar.IdToken, ar.AccessToken);
+                result = await client.LoginAsync("TestIdToken", "TestAccessToken");
 
                 if (result?.Success ?? false)
                 {
-                    Settings.UserId = user["sub"]?.ToString() ?? string.Empty;
-                    Settings.Email = user["emails"][0]?.ToString() ?? string.Empty;
-                    Settings.FullName = user["name"]?.ToString() ?? string.Empty;
-                    Settings.CAI = user["extension_CAI"]?.ToString() ?? string.Empty;
+                    Settings.UserId = result.User?.UserId ?? string.Empty;
+                    Settings.Email = result.User?.Email ?? string.Empty;
+                    Settings.FullName = result.User?.FullName ?? string.Empty;
+                    Settings.CAI = result.User?.CAI ?? string.Empty;
                     try
                     {
                         await StoreManager.SyncAllAsync(true);
                         Settings.Current.LastSync = DateTime.UtcNow;
                         Settings.Current.HasSyncedData = true;
-                        await Finish();
-                        //Settings.AuthToken = user?.MobileServiceAuthenticationToken ?? string.Empty;
-                        //Settings.UserId = user?.UserId ?? string.Empty;
+                        await Finish();                        
                     }
                     catch (Exception ex)
                     {
@@ -164,23 +156,5 @@ namespace Chevron.ITC.AMAOC.ViewModels
             }
             Settings.TotalPoints = emp.TotalPointsEarned.ToString();
         }
-
-        private static string Base64UrlDecode(string s)
-        {
-            s = s.Replace('-', '+').Replace('_', '/');
-            s = s.PadRight(s.Length + (4 - s.Length % 4) % 4, '=');
-            var byteArray = Convert.FromBase64String(s);
-            var decoded = Encoding.UTF8.GetString(byteArray, 0, byteArray.Count());
-            return decoded;
-        }
-
-        static JObject ParseIdToken(string idToken)
-        {
-            // Get the piece with actual user info
-            idToken = idToken.Split('.')[1];
-            idToken = Base64UrlDecode(idToken);
-            return JObject.Parse(idToken);
-        }
-
     }
 }
