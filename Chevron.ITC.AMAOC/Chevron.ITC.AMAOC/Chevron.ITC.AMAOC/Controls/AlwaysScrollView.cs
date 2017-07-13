@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Chevron.ITC.AMAOC.Controls
+namespace Chevron.ITC.AMAOC
 {
     public class AlwaysScrollView : ScrollView
     {

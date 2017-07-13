@@ -11,8 +11,8 @@
 namespace Chevron.ITC.AMAOC {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\AnthonyBernard\\Documents\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC." +
-        "AMAOC\\Chevron.ITC.AMAOC\\App.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
+        "ITC.AMAOC\\App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

@@ -3,8 +3,9 @@ using Xamarin.Forms;
 using Chevron.ITC.AMAOC.DataObjects;
 using System.Globalization;
 using System.Diagnostics;
+using Chevron.ITC.AMAOC.Extensions;
 
-namespace Chevron.ITC.AMAOC.Converters
+namespace Chevron.ITC.AMAOC
 {
     class EventDateDisplayConverter : IValueConverter
     {
@@ -69,10 +70,10 @@ namespace Chevron.ITC.AMAOC.Converters
         {
             try
             {
-                if (!(value is DateTime))
+                if (!(value is DateTimeOffset))
                     return string.Empty;
 
-                return ((DateTime)value).ToEasternTimeZone().Day;
+                return ((DateTimeOffset)value).Day;
             }
             catch (Exception ex)
             {
@@ -96,10 +97,10 @@ namespace Chevron.ITC.AMAOC.Converters
         {
             try
             {
-                if (!(value is DateTime))
+                if (!(value is DateTimeOffset))
                     return string.Empty;
 
-                return ((DateTime)value).ToEasternTimeZone().DayOfWeek.ToString().Substring(0, 3).ToUpperInvariant();
+                return ((DateTimeOffset)value).DayOfWeek.ToString().Substring(0, 3).ToUpperInvariant();
             }
             catch (Exception ex)
             {

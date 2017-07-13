@@ -26,7 +26,7 @@ namespace Chevron.ITC.AMAOC.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new EventDetailPage(new EventDetailViewModel(item)));
+            await Navigation.PushAsync(new EventDetailPage(item));
 
             // Manually deselect item
             EventsListView.SelectedItem = null;

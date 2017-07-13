@@ -51,6 +51,24 @@ namespace Chevron.ITC.AMAOC.DataObjects
                 SetProperty(ref feedbackLeft, value);
             }
         }
+
+        EventStatus eventStatus;
+        [Newtonsoft.Json.JsonIgnore]
+        public EventStatus OCEventStatus
+        {
+            get { return eventStatus; }
+            set
+            {
+                SetProperty(ref eventStatus, value);
+            }
+        }
+
+        public enum EventStatus
+        {
+            Completed,
+            Missed,
+            NotStarted
+        }                
 #endif
     }
 }

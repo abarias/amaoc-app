@@ -5,18 +5,10 @@ namespace Chevron.ITC.AMAOC.ViewModels
 {
     public class EventDetailViewModel : BaseViewModel
     {
-        public Event Item { get; set; }
-        public EventDetailViewModel(Event item = null)
+        public Event Event { get; set; }
+        public EventDetailViewModel(Event ocEvent = null)
         {
-            Title = item.Name;
-            Item = item;
-        }
-
-        int quantity = 1;
-        public int Quantity
-        {
-            get { return quantity; }
-            set { SetProperty(ref quantity, value); }
-        }
+           Event = ocEvent;
+        }        
     }
 }

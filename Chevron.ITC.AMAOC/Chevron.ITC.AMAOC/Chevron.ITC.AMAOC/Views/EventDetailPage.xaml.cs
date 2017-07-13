@@ -1,4 +1,5 @@
 ﻿
+using Chevron.ITC.AMAOC.DataObjects;
 using Chevron.ITC.AMAOC.ViewModels;
 
 using Xamarin.Forms;
@@ -7,7 +8,7 @@ namespace Chevron.ITC.AMAOC.Views
 {
     public partial class EventDetailPage : ContentPage
     {
-        EventDetailViewModel viewModel;
+        EventDetailViewModel vm;
 
         // Note - The Xamarin.Forms Previewer requires a default, parameterless constructor to render a page.
         public EventDetailPage()
@@ -15,11 +16,11 @@ namespace Chevron.ITC.AMAOC.Views
             InitializeComponent();
         }
 
-        public EventDetailPage(EventDetailViewModel viewModel)
+        public EventDetailPage(Event ocEvent)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            BindingContext = vm = new EventDetailViewModel(ocEvent);
         }
     }
 }

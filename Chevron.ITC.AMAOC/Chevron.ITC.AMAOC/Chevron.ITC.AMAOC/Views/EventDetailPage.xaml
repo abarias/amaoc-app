@@ -9,6 +9,10 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:EventDateDisplayConverter x:Key="EventDateDisplayConverter" />
+            <local:EventStatusImageConverter x:Key="EventStatusImageConverter" />
+            <local:EventNameConverter x:Key="EventNameConverter" />
+            <local:EventLocationVisibleConverter x:Key="EventLocationVisibleConverter" />
+            <local:EventPointsLabelConverter x:Key="EventPointsLabelConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <local:AlwaysScrollView>
@@ -26,28 +30,50 @@
                                 Grid.Row="1"
                                 HorizontalOptions="FillAndExpand"
                                 VerticalOptions="FillAndExpand"
-                                Aspect="AspectFit"
-                                HeightRequest="150">
+                                Aspect="AspectFit">
                                     <Image.Source>
-                                        <FileImageSource File="{Binding Event.StatusImage}" />
+                                        <FileImageSource File="{Binding Event.OCEventStatus, Converter={StaticResource EventStatusImageConverter}}" />
                                     </Image.Source>
                                 </Image>
                             </StackLayout>
                             <StackLayout Spacing="0">
-                                <Label Text="{Binding Event.Name}" Style="{DynamicResource AMAOCListItemTextStyle}" StyleId="EventName"/>
+                                <Label Text="{Binding Event, Converter={StaticResource EventNameConverter}}" 
+                                       Style="{DynamicResource EventTitleStyle}" 
+                                       StyleId="EventName"
+                                       LineBreakMode="WordWrap"
+                                       XAlign="Center"
+                                       HorizontalOptions="Center"/>
                                 <Label
                                     x:Name="EventDate"
                                     Text="{Binding Event, Converter={StaticResource EventDateDisplayConverter}}"
-                                    Style="{DynamicResource EventDetailTextStyle}"
-                                    TextColor="White"
-                                    StyleId="EventDate"/>
-                                <Label Text="{Binding Event.Location}" TextColor="{StaticResource Primary}"/>
+                                    Style="{DynamicResource EventDetailTextStyle}"                                   
+                                    StyleId="EventDate"
+                                    HorizontalOptions="Center"/>
+                                <Label Text="{Binding Event.Location}" TextColor="{StaticResource Primary}" HorizontalOptions="Center"
+                                       IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventLocationVisibleConverter}}"/>
                             </StackLayout>
+                            <local:SectionDivider/>
                             <StackLayout Padding="0,16">
                                 <Label Text="{Binding Event.Abstract}"  Style="{DynamicResource EventListItemTextStyle}" StyleId="EventAbstract"/>
                             </StackLayout>
                         </StackLayout>
                         <local:SectionDivider/>
+                        <!-- points -->
+                        <StackLayout Spacing="0">
+                            <Label Text="{Binding Event.OCEventStatus, Converter={StaticResource EventPointsLabelConverter}}" 
+                                       Style="{DynamicResource EventTitleStyle}" 
+                                       StyleId="EventPointsLabel"
+                                       LineBreakMode="WordWrap"
+                                       XAlign="Center"
+                                       HorizontalOptions="Center"/>
+                            <Label
+                                    x:Name="EventPoints"
+                                    Text="{Binding Event.Points}"
+                                    Style="{DynamicResource EventTitleStyle}"                                   
+                                    StyleId="EventPoints"
+                                    HorizontalOptions="Center"/>
+                            
+                        </StackLayout>
                         <local:FooterDivider/>
                     </StackLayout>
                 </local:CardView>

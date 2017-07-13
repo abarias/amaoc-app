@@ -29,13 +29,21 @@ namespace Chevron.ITC.AMAOC.MockStores
             foreach (var ev in events)
             {
                 string statusImage = "check.png";
+                Event.EventStatus eventStatus = Event.EventStatus.Completed;
                 var isAttended = await eventAttendees.IsAttended(ev.Id);
                 if (!isAttended && ev.IsCompleted)
+                {
                     statusImage = "minus.png";
+                    eventStatus = Event.EventStatus.Missed;
+                }
                 else if (!isAttended && !ev.IsCompleted)
+                {
                     statusImage = "detail.png";
+                    eventStatus = Event.EventStatus.NotStarted;
+                }
 
                 ev.StatusImage = statusImage;
+                ev.OCEventStatus = eventStatus;
             }
             
             return events;

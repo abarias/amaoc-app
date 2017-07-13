@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Chevron.ITC.AMAOC.Controls {
+namespace Chevron.ITC.AMAOC {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\AnthonyBernard\\Documents\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC." +
-        "AMAOC\\Chevron.ITC.AMAOC\\Controls\\SectionDivider.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
+        "ITC.AMAOC\\Controls\\SectionDivider.xaml")]
     public partial class SectionDivider : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

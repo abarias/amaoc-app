@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Chevron.ITC.AMAOC.Controls
+namespace Chevron.ITC.AMAOC
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SectionDivider : ContentView
