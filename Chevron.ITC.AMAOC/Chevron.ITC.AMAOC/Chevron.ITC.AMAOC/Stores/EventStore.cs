@@ -37,7 +37,11 @@ namespace Chevron.ITC.AMAOC.Stores
             return events;
         
         }
-        
+
+        public Task<Event> GetAppIndexEvent(string id)
+        {
+            throw new NotImplementedException();
+        }
 
         public override string Identifier => "Event";
         public EventStore()

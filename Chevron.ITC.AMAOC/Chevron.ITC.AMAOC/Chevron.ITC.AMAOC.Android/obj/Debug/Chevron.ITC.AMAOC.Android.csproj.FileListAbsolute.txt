@@ -247,3 +247,8 @@ C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\MvvmHelpers.dll
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\MvvmHelpers.pdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\MvvmHelpers.xml
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\MvvmHelpers.dll
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\MvvmHelpers.pdb
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\MvvmHelpers.xml
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\FormsToolkit.dll
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\FormsToolkit.xml

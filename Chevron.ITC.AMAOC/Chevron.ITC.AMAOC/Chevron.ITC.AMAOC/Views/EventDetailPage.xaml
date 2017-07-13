@@ -13,6 +13,9 @@
             <local:EventNameConverter x:Key="EventNameConverter" />
             <local:EventLocationVisibleConverter x:Key="EventLocationVisibleConverter" />
             <local:EventPointsLabelConverter x:Key="EventPointsLabelConverter" />
+            <local:EventPointsVisibleConverter x:Key="EventPointsVisibleConverter" />
+            <local:EventFeedbackVisibleConverter x:Key="EventFeedbackVisibleConverter" />
+            <local:EventAttendanceVisibleConverter x:Key="EventAttendanceVisibleConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <local:AlwaysScrollView>
@@ -52,27 +55,77 @@
                                 <Label Text="{Binding Event.Location}" TextColor="{StaticResource Primary}" HorizontalOptions="Center"
                                        IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventLocationVisibleConverter}}"/>
                             </StackLayout>
-                            <local:SectionDivider/>
-                            <StackLayout Padding="0,16">
-                                <Label Text="{Binding Event.Abstract}"  Style="{DynamicResource EventListItemTextStyle}" StyleId="EventAbstract"/>
-                            </StackLayout>
                         </StackLayout>
                         <local:SectionDivider/>
+                        <StackLayout Padding="{StaticResource StandardPadding}">
+                            <Label Text="{Binding Event.Abstract}"  Style="{DynamicResource EventListItemTextStyle}" StyleId="EventAbstract"/>
+                        </StackLayout>
+                        <local:SectionDivider IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventPointsVisibleConverter}}"></local:SectionDivider>
                         <!-- points -->
-                        <StackLayout Spacing="0">
-                            <Label Text="{Binding Event.OCEventStatus, Converter={StaticResource EventPointsLabelConverter}}" 
-                                       Style="{DynamicResource EventTitleStyle}" 
+                        <StackLayout Padding="0,16" IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventPointsVisibleConverter}}">
+                            <Label Text="{Binding Event, Converter={StaticResource EventPointsLabelConverter}}" 
+                                       Style="{DynamicResource TitleStyle}"                                        
                                        StyleId="EventPointsLabel"
                                        LineBreakMode="WordWrap"
                                        XAlign="Center"
+                                       FontAttributes="Bold"
+                                       TextColor="Goldenrod"
                                        HorizontalOptions="Center"/>
-                            <Label
-                                    x:Name="EventPoints"
-                                    Text="{Binding Event.Points}"
-                                    Style="{DynamicResource EventTitleStyle}"                                   
-                                    StyleId="EventPoints"
-                                    HorizontalOptions="Center"/>
-                            
+                        </StackLayout>
+
+                        <!-- feedback button -->
+                        <local:SectionDivider IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventFeedbackVisibleConverter}}"></local:SectionDivider>
+                        <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White" 
+                            IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventFeedbackVisibleConverter}}">
+                            <Button
+                             Text="Give Feedback"                                     
+                            x:Name="ButtonFeedback"
+                            StyleId="FeedbackButton">
+
+                                <Button.FontAttributes>
+                                    <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                                </Button.FontAttributes>
+                                <Button.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource PrimaryDark}" WinPhone="{StaticResource PrimaryDark}" iOS="Transparent"/>
+                                </Button.BackgroundColor>
+                                <Button.TextColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="White" WinPhone="White" iOS="{StaticResource PrimaryDark}"/>
+                                </Button.TextColor>
+                                <Button.BorderWidth>
+                                    <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
+                                </Button.BorderWidth>
+                                <Button.BorderColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}"/>
+                                </Button.BorderColor>
+                            </Button>
+                        </StackLayout>
+
+                        <!-- attendance button -->
+                        <local:SectionDivider IsVisible="{Binding Event, Converter={StaticResource EventAttendanceVisibleConverter}}"></local:SectionDivider>
+                        <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White" 
+                            IsVisible="{Binding Event, Converter={StaticResource EventAttendanceVisibleConverter}}">
+                            <Label Text="To confirm your attendance, please approach your speaker to scan the unlock code and earn points." Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
+                            <Button
+                             Text="Confirm Attendance"                                     
+                            x:Name="ButtonAttendance"
+                            StyleId="AttendanceButton">
+
+                                <Button.FontAttributes>
+                                    <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                                </Button.FontAttributes>
+                                <Button.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource PrimaryDark}" WinPhone="{StaticResource PrimaryDark}" iOS="Transparent"/>
+                                </Button.BackgroundColor>
+                                <Button.TextColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="White" WinPhone="White" iOS="{StaticResource PrimaryDark}"/>
+                                </Button.TextColor>
+                                <Button.BorderWidth>
+                                    <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
+                                </Button.BorderWidth>
+                                <Button.BorderColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}"/>
+                                </Button.BorderColor>
+                            </Button>
                         </StackLayout>
                         <local:FooterDivider/>
                     </StackLayout>

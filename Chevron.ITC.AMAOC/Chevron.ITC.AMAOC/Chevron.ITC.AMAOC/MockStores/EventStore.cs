@@ -13,7 +13,7 @@ namespace Chevron.ITC.AMAOC.MockStores
     {
         List<Event> Events { get; }
         IEventAttendeeStore eventAttendees;
-
+        bool initialized = false;
         public EventStore()
         {
             Events = new List<Event>();
@@ -49,8 +49,20 @@ namespace Chevron.ITC.AMAOC.MockStores
             return events;
         }
 
+        public async override Task<Event> GetItemAsync(string id)
+        {
+            if (!initialized)
+                await InitializeStore();
+
+            return Events.FirstOrDefault(s => s.Id == id);
+        }
+
         public override async Task InitializeStore()
         {
+            if (initialized)
+                return;
+
+            initialized = true;
             if (Events.Count != 0)
                 return;
 
@@ -151,6 +163,11 @@ namespace Chevron.ITC.AMAOC.MockStores
                 Points = 30,
                 IsCompleted = true
             });
+        }
+
+        public Task<Event> GetAppIndexEvent(string id)
+        {
+            return GetItemAsync(id);
         }
     }
 }

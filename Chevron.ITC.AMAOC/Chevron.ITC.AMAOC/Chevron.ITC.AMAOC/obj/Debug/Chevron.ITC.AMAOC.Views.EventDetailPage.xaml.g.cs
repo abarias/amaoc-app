@@ -11,21 +11,25 @@
 namespace Chevron.ITC.AMAOC.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
-        "ITC.AMAOC\\Views\\EventDetailPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\AnthonyBernard\\Documents\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC." +
+        "AMAOC\\Chevron.ITC.AMAOC\\Views\\EventDetailPage.xaml")]
     public partial class EventDetailPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label EventDate;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label EventPoints;
+        private global::Xamarin.Forms.Button ButtonFeedback;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button ButtonAttendance;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(EventDetailPage));
             EventDate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "EventDate");
-            EventPoints = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "EventPoints");
+            ButtonFeedback = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonFeedback");
+            ButtonAttendance = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "ButtonAttendance");
         }
     }
 }

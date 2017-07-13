@@ -34,9 +34,9 @@ namespace Chevron.ITC.AMAOC
         public static UIParent UiParent = null;
 
         public static IDictionary<string, string> LoginParameters => null;
-
+        
         public App()
-        {
+        {            
             InitializeComponent();
 
             BaseViewModel.Init(true);
@@ -48,15 +48,11 @@ namespace Chevron.ITC.AMAOC
             SetMainPage();
         }
 
-        public static void SetMainPage()
+        public void SetMainPage()
         {
             if (!Settings.Current.IsLoggedIn)
             {
-                Current.MainPage = new NavigationPage(new LoginPage())
-                {
-                    BarBackgroundColor = (Color)Current.Resources["Primary"],
-                    BarTextColor = Color.White
-                };
+                MainPage = new AMAOCNavigationPage(new LoginPage());                
             }
             else
             {
@@ -66,22 +62,19 @@ namespace Chevron.ITC.AMAOC
 
         public static void GoToMainPage()
         {
-            Current.MainPage = new TabbedPage
+            switch (Device.OS)
             {
-                Children =
-                {
-                    new NavigationPage(new EventsPage())
-                    {
-                        Title = "Browse",
-                        Icon = Device.OnPlatform("tab_feed.png",null,null)
-                    },
-                    new NavigationPage(new AboutPage())
-                    {
-                        Title = "About",
-                        Icon = Device.OnPlatform("tab_about.png",null,null)
-                    },
-                }
-            };
+                case TargetPlatform.Android:
+                    Current.MainPage = new RootPageAndroid();
+                    break;
+                case TargetPlatform.iOS:
+                    //MainPage = new EvolveNavigationPage(new RootPageiOS());
+                    break;
+                case TargetPlatform.Windows:
+                case TargetPlatform.WinPhone:                    
+                default:
+                    throw new NotImplementedException();
+            }
         }
     }
 }

@@ -117,3 +117,6 @@ C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\obj\iPhoneSimulator\Debug\optimized\trophy.png
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\obj\iPhoneSimulator\Debug\optimized\trophy@2x.png
 C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\obj\iPhoneSimulator\Debug\optimized\trophy@3x.png
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\bin\iPhoneSimulator\Debug\MvvmHelpers.dll
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\bin\iPhoneSimulator\Debug\MvvmHelpers.pdb
+C:\Users\AnthonyBernard\Documents\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.iOS\bin\iPhoneSimulator\Debug\MvvmHelpers.xml

@@ -79,15 +79,16 @@ namespace Chevron.ITC.AMAOC
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var eventStatus = (Event.EventStatus)value;
+            var eventStatus = (Event)value;
+            var points = eventStatus.Points;
             try
             {
-                switch (eventStatus)
+                switch (eventStatus.OCEventStatus)
                 {
                     case Event.EventStatus.Completed:
-                        return $"Points gained: ";
+                        return $"Points gained: {points}";
                     case Event.EventStatus.NotStarted:
-                        return $"Possible points: ";
+                        return $"Possible points: {points}";
                 }
 
             }
@@ -96,6 +97,77 @@ namespace Chevron.ITC.AMAOC
                 Debug.WriteLine("Unable to convert: " + ex);
             }
             return string.Empty;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class EventPointsVisibleConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            try
+            {
+                if ((Event.EventStatus)value == Event.EventStatus.Missed)                
+                    return false;                
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to convert: " + ex);
+            }
+            return true;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class EventFeedbackVisibleConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            try
+            {
+                if ((Event.EventStatus)value != Event.EventStatus.Completed)
+                    return false;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to convert: " + ex);
+            }
+            return true;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class EventAttendanceVisibleConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            try
+            {
+                var ocEvent = value as Event;
+                if (DateTime.Today.DayOfYear == ocEvent.StartTime?.DayOfYear &&
+                    ocEvent.OCEventStatus == Event.EventStatus.NotStarted)
+                    return true;
+                                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to convert: " + ex);
+            }
+            return false;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
