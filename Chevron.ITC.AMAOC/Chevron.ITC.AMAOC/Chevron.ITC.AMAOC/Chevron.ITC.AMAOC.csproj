@@ -76,6 +76,7 @@
     <Compile Include="MockStores\StoreManager.cs" />
     <Compile Include="Models\AppPage.cs" />
     <Compile Include="Models\BaseDataObject.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\SSOUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Abstractions\IBaseStore.cs" />
@@ -109,7 +110,11 @@
     <Compile Include="Views\NewEventPage.xaml.cs">
       <DependentUpon>NewEventPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NotificationsPage.xaml.cs">
+      <DependentUpon>NotificationsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RootPageAndroid.cs" />
+    <Compile Include="Views\RootPageiOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -220,6 +225,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\NotificationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -68,7 +68,7 @@ namespace Chevron.ITC.AMAOC
                     Current.MainPage = new RootPageAndroid();
                     break;
                 case TargetPlatform.iOS:
-                    //MainPage = new EvolveNavigationPage(new RootPageiOS());
+                    Current.MainPage = new AMAOCNavigationPage(new RootPageiOS());
                     break;
                 case TargetPlatform.Windows:
                 case TargetPlatform.WinPhone:                    
