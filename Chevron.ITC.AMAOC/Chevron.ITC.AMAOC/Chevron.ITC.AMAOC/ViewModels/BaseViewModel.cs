@@ -17,6 +17,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
         //public IBaseStore<Event> DataStore => DependencyService.Get<IBaseStore<Event>>();
         protected IStoreManager StoreManager { get; } = DependencyService.Get<IStoreManager>();
 
+        protected ILogger Logger { get; } = DependencyService.Get<ILogger>();
+
         protected INavigation Navigation { get; }
        
         public BaseViewModel(INavigation navigation = null)
@@ -31,6 +33,10 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 DependencyService.Register<IEventStore, Chevron.ITC.AMAOC.MockStores.EventStore>();
                 DependencyService.Register<IEmployeeStore, Chevron.ITC.AMAOC.MockStores.EmployeeStore>();
                 DependencyService.Register<IEventAttendeeStore, Chevron.ITC.AMAOC.MockStores.EventAttendeeStore>();
+                DependencyService.Register<IFeedbackQuestionStore, Chevron.ITC.AMAOC.MockStores.FeedbackQuestionStore>();
+                DependencyService.Register<IFeedbackAnswerStore, Chevron.ITC.AMAOC.MockStores.FeedbackAnswerStore>();
+                DependencyService.Register<IFeedbackAnswerFreeTextStore, Chevron.ITC.AMAOC.MockStores.FeedbackAnswerFreeTextStore>();
+                DependencyService.Register<IEventRatingCommentStore, Chevron.ITC.AMAOC.MockStores.EventRatingCommentStore>();
                 DependencyService.Register<ISSOClient, Chevron.ITC.AMAOC.MockStores.SSOClient>();
                 DependencyService.Register<IStoreManager, Chevron.ITC.AMAOC.MockStores.StoreManager>();
             }

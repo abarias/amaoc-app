@@ -52,6 +52,60 @@ namespace Chevron.ITC.AMAOC.Helpers
             }
         }
 
+        public void SaveReminderId(string id, string calId)
+        {
+            AppSettings.AddOrUpdateValue<string>(GetReminderId(id), calId);
+        }
+
+        string GetReminderId(string id)
+        {
+            return "reminder_" + id;
+        }
+
+        public string GetEventId(string id)
+        {
+            return AppSettings.GetValueOrDefault(GetReminderId(id), string.Empty);
+        }
+
+        public void RemoveReminderId(string id)
+        {
+            AppSettings.Remove(GetReminderId(id));
+        }
+
+        const string HasSetReminderKey = "set_a_reminder";
+        static readonly bool HasSetReminderDefault = false;
+
+        public bool HasSetReminder
+        {
+            get { return AppSettings.GetValueOrDefault<bool>(HasSetReminderKey, HasSetReminderDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<bool>(HasSetReminderKey, value);
+            }
+        }
+
+        const string AMAOCCalendarIdKey = "amaoc_calendar";
+        static readonly string AMAOCCalendarIdDefault = string.Empty;
+        public string AMAOCCalendarId
+        {
+            get { return AppSettings.GetValueOrDefault<string>(AMAOCCalendarIdKey, AMAOCCalendarIdDefault); }
+            set { AppSettings.AddOrUpdateValue<string>(AMAOCCalendarIdKey, value); }
+        }
+
+
+        const string PushNotificationsEnabledKey = "push_enabled";
+        static readonly bool PushNotificationsEnabledDefault = false;
+
+        public bool PushNotificationsEnabled
+        {
+            get { return AppSettings.GetValueOrDefault<bool>(PushNotificationsEnabledKey, PushNotificationsEnabledDefault); }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue<bool>(PushNotificationsEnabledKey, value))
+                    OnPropertyChanged();
+            }
+        }
+
         const string FirstRunKey = "first_run";
         static readonly bool FirstRunDefault = true;
 
@@ -218,6 +272,16 @@ namespace Chevron.ITC.AMAOC.Helpers
                 OnPropertyChanged();
             }
         }
+
+        #region Helpers
+
+        public string UserDisplayName => IsLoggedIn ? $"{FullName}" : "Sign In";
+
+        public string UserAvatar => IsLoggedIn ? Gravatar.GetURL(Email) : "profile_generic.png";
+
+        //public bool HasFilters => (ShowPastSessions || FavoritesOnly || (!string.IsNullOrWhiteSpace(FilteredCategories) && !ShowAllCategories));
+
+        #endregion
 
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;

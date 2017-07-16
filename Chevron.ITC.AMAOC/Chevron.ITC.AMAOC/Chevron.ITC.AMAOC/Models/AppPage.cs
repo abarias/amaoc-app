@@ -13,6 +13,7 @@ namespace Chevron.ITC.AMAOC
     }
     public enum AppPage
     {        
+        Feed,
         Events,
         Ranking,
         EventsInfo,

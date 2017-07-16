@@ -100,16 +100,29 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "Chevron.ITC.AMAOC.Android.dll" comes first in this list. */
 		"Chevron.ITC.AMAOC.Android.dll",
 		"Chevron.ITC.AMAOC.dll",
+		"FormsToolkit.Android.dll",
+		"FormsToolkit.dll",
 		"FormsViewGroup.dll",
+		"HockeySDK.AndroidBindings.dll",
+		"HockeySDK.dll",
 		"Microsoft.Identity.Client.dll",
 		"Microsoft.WindowsAzure.Mobile.dll",
 		"Microsoft.WindowsAzure.Mobile.Ext.dll",
 		"Microsoft.WindowsAzure.Mobile.SQLiteStore.dll",
+		"MvvmHelpers.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Calendars.Abstractions.dll",
+		"Plugin.Calendars.dll",
 		"Plugin.Connectivity.Abstractions.dll",
 		"Plugin.Connectivity.dll",
+		"Plugin.CurrentActivity.dll",
+		"Plugin.Permissions.Abstractions.dll",
+		"Plugin.Permissions.dll",
 		"Plugin.Settings.Abstractions.dll",
 		"Plugin.Settings.dll",
+		"Refractored.Controls.CircleImageView.dll",
+		"Refractored.XamForms.PullToRefresh.dll",
+		"Refractored.XamForms.PullToRefresh.Droid.dll",
 		"SQLitePCL.dll",
 		"SQLitePCL.Ext.dll",
 		"SQLitePCLRaw.batteries_green.dll",
@@ -118,6 +131,7 @@ class MonoPackageManager_Resources {
 		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"System.Net.Http.Extensions.dll",
 		"System.Net.Http.Primitives.dll",
+		"UrlImageViewHelper.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.CustomTabs.dll",
 		"Xamarin.Android.Support.Design.dll",
@@ -131,10 +145,8 @@ class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
-		"FormsToolkit.dll",
-		"MvvmHelpers.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_23";
+	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_24";
 }

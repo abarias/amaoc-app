@@ -16,6 +16,7 @@
             <local:EventPointsVisibleConverter x:Key="EventPointsVisibleConverter" />
             <local:EventFeedbackVisibleConverter x:Key="EventFeedbackVisibleConverter" />
             <local:EventAttendanceVisibleConverter x:Key="EventAttendanceVisibleConverter" />
+            <local:HasReminderTextConverter x:Key="HasReminderTextConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <local:AlwaysScrollView>
@@ -73,6 +74,33 @@
                                        HorizontalOptions="Center"/>
                         </StackLayout>
 
+                        <!-- reminder button -->
+                        <local:SectionDivider IsVisible="{Binding ShowReminder}"></local:SectionDivider>
+                        <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White" 
+                            IsVisible="{Binding ShowReminder}">
+                            <Button StyleId="ReminderButton"                                        
+                                        Text="{Binding IsReminderSet, Converter={StaticResource HasReminderTextConverter}"
+                                        BackgroundColor="{StaticResource PrimaryDark}"
+                                        Command="{Binding ReminderCommand}">
+
+                                <Button.FontAttributes>
+                                    <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                                </Button.FontAttributes>
+                                <Button.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource PrimaryDark}" WinPhone="{StaticResource PrimaryDark}" iOS="Transparent"/>
+                                </Button.BackgroundColor>
+                                <Button.TextColor>
+                                    <OnPlatform x:TypeArguments="Color" Android="White" WinPhone="White" iOS="{StaticResource PrimaryDark}"/>
+                                </Button.TextColor>
+                                <Button.BorderWidth>
+                                    <OnPlatform x:TypeArguments="x:Double" iOS="1"/>
+                                </Button.BorderWidth>
+                                <Button.BorderColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ButtonBorder}"/>
+                                </Button.BorderColor>
+                            </Button>
+                        </StackLayout>
+                        
                         <!-- feedback button -->
                         <local:SectionDivider IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventFeedbackVisibleConverter}}"></local:SectionDivider>
                         <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White" 

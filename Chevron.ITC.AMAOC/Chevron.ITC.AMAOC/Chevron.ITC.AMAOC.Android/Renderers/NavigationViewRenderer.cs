@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -10,29 +9,34 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Forms.Platform.Android;
+using Android.Support.Design.Widget;
 using Xamarin.Forms;
 using Chevron.ITC.AMAOC.Droid;
 using Android.Support.Design.Widget;
 using FormsToolkit;
-
+using Chevron.ITC.AMAOC;
+using Chevron.ITC.AMAOC.Helpers;
 
 [assembly: ExportRenderer(typeof(Chevron.ITC.AMAOC.NavigationView), typeof(NavigationViewRenderer))]
 namespace Chevron.ITC.AMAOC.Droid
 {
-    public class NavigationViewRenderer : ViewRenderer<Chevron.ITC.AMAOC.NavigationView, NavigationView>
+    public class NavigationViewRenderer : ViewRenderer<Chevron.ITC.AMAOC.NavigationView, Android.Support.Design.Widget.NavigationView>
     {
-        NavigationView navView;
+        Android.Support.Design.Widget.NavigationView navView;
         ImageView profileImage;
         TextView profileName;
+        TextView profileCAI;
+        TextView profilePoints;
         protected override void OnElementChanged(ElementChangedEventArgs<Chevron.ITC.AMAOC.NavigationView> e)
         {
 
             base.OnElementChanged(e);
             if (e.OldElement != null || Element == null)
                 return;
-
+            
+            
             var view = Inflate(Forms.Context, Resource.Layout.nav_view, null);
-            navView = view.JavaCast<NavigationView>();
+            navView = view.JavaCast<Android.Support.Design.Widget.NavigationView>();
 
 
             navView.NavigationItemSelected += NavView_NavigationItemSelected;
@@ -43,12 +47,16 @@ namespace Chevron.ITC.AMAOC.Droid
             var header = navView.GetHeaderView(0);
             profileImage = header.FindViewById<ImageView>(Resource.Id.profile_image);
             profileName = header.FindViewById<TextView>(Resource.Id.profile_name);
+            profileCAI = header.FindViewById<TextView>(Resource.Id.cai);
+            profilePoints = header.FindViewById<TextView>(Resource.Id.total_points);
 
             profileImage.Click += (sender, e2) => NavigateToLogin();
             profileName.Click += (sender, e2) => NavigateToLogin();
 
             UpdateName();
             UpdateImage();
+            UpdateCAI();
+            UpdatePoints();
 
             navView.SetCheckedItem(Resource.Id.nav_feed);
         }
@@ -58,7 +66,7 @@ namespace Chevron.ITC.AMAOC.Droid
             if (Settings.Current.IsLoggedIn)
                 return;
 
-            XamarinEvolve.Clients.UI.App.Logger.TrackPage(AppPage.Login.ToString(), "navigation");
+            //XamarinEvolve.Clients.UI.App.Logger.TrackPage(AppPage.Login.ToString(), "navigation");
             MessagingService.Current.SendMessage(MessageKeys.NavigateLogin);
         }
 
@@ -69,6 +77,16 @@ namespace Chevron.ITC.AMAOC.Droid
                 UpdateName();
                 UpdateImage();
             }
+        }
+
+        void UpdateCAI()
+        {
+            profileCAI.Text = Settings.Current.CAI;
+        }
+
+        void UpdatePoints()
+        {
+            profilePoints.Text = $"{Settings.Current.TotalPoints} points";
         }
 
         void UpdateName()
@@ -90,7 +108,7 @@ namespace Chevron.ITC.AMAOC.Droid
 
         IMenuItem previousItem;
 
-        void NavView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
+        void NavView_NavigationItemSelected(object sender, Android.Support.Design.Widget.NavigationView.NavigationItemSelectedEventArgs e)
         {
 
 
@@ -106,36 +124,18 @@ namespace Chevron.ITC.AMAOC.Droid
             {
                 case Resource.Id.nav_feed:
                     id = (int)AppPage.Feed;
-                    break;
-                case Resource.Id.nav_sessions:
-                    id = (int)AppPage.Sessions;
-                    break;
+                    break;    
                 case Resource.Id.nav_events:
                     id = (int)AppPage.Events;
                     break;
-                case Resource.Id.nav_sponsors:
-                    id = (int)AppPage.Sponsors;
-                    break;
-                case Resource.Id.nav_venue:
-                    id = (int)AppPage.Venue;
-                    break;
-                case Resource.Id.nav_floor_map:
-                    id = (int)AppPage.FloorMap;
-                    break;
-                case Resource.Id.nav_conference_info:
-                    id = (int)AppPage.ConferenceInfo;
-                    break;
-                case Resource.Id.nav_mini_hacks:
-                    id = (int)AppPage.MiniHacks;
+                case Resource.Id.nav_ranking:
+                    id = (int)AppPage.Ranking;
                     break;
                 case Resource.Id.nav_settings:
                     id = (int)AppPage.Settings;
-                    break;
-                case Resource.Id.nav_evals:
-                    id = (int)AppPage.Evals;
-                    break;
+                    break;                
             }
-            this.Element.OnNavigationItemSelected(new XamarinEvolve.Clients.UI.NavigationItemSelectedEventArgs
+            this.Element.OnNavigationItemSelected(new Chevron.ITC.AMAOC.NavigationItemSelectedEventArgs
             {
 
                 Index = id
@@ -143,3 +143,4 @@ namespace Chevron.ITC.AMAOC.Droid
         }
 
     }
+}

@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Microsoft.Identity.Client;
 using Chevron.ITC.AMAOC.ViewModels;
+using Chevron.ITC.AMAOC.Interfaces;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Chevron.ITC.AMAOC
@@ -34,7 +35,10 @@ namespace Chevron.ITC.AMAOC
         public static UIParent UiParent = null;
 
         public static IDictionary<string, string> LoginParameters => null;
-        
+
+        static ILogger logger;
+        public static ILogger Logger => logger ?? (logger = DependencyService.Get<ILogger>());
+
         public App()
         {            
             InitializeComponent();
