@@ -29,5 +29,13 @@ namespace Chevron.ITC.AMAOC.Views
                 await Navigation.PopModalAsync();
             });
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            var items = StarGrid.Behaviors.Count;
+            for (int i = 0; i < items; i++)
+                StarGrid.Behaviors.RemoveAt(i);
+        }
     }
 }

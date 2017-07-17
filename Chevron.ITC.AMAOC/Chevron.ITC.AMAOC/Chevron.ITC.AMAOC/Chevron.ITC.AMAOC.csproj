@@ -66,6 +66,7 @@
     <Compile Include="Converters\StringConverters.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
+    <Compile Include="Helpers\ImageResourceExtension.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IPushNotifications.cs" />
     <Compile Include="Interfaces\ISSOClient.cs" />
@@ -273,6 +274,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\star_outline.png" />
+    <EmbeddedResource Include="Images\star_selected.png" />
   </ItemGroup>
   <Import Project="..\..\..\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.DataObjects\Chevron.ITC.AMAOC.DataObjects.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

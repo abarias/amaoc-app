@@ -8,11 +8,15 @@ using Android.Widget;
 using Android.OS;
 using Microsoft.Identity.Client;
 using Android.Content;
+using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms;
+using FormsToolkit.Droid;
+using Chevron.ITC.AMAOC;
 
 namespace Chevron.ITC.AMAOC.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,7 +25,12 @@ namespace Chevron.ITC.AMAOC.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, bundle);
+            Toolkit.Init();
+
+            
+
+            ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
 
             LoadApplication(new App());
             App.UiParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);

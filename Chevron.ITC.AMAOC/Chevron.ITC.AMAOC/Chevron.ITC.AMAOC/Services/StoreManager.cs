@@ -96,6 +96,7 @@ namespace Chevron.ITC.AMAOC.Services
         IFeedbackQuestionStore feedbackQuestionStore;
         IFeedbackAnswerStore feedbackAnswerStore;
         IFeedbackAnswerFreeTextStore feedbackAnswerFreeTextStore;
+        IEventRatingCommentStore eventRatingCommentStore;
 
         public IEventStore EventStore => eventStore ?? (eventStore = DependencyService.Get<IEventStore>());
         public IEmployeeStore EmployeeStore => employeeStore ?? (employeeStore = DependencyService.Get<IEmployeeStore>());
@@ -103,6 +104,7 @@ namespace Chevron.ITC.AMAOC.Services
         public IFeedbackQuestionStore FeedbackQuestionStore => feedbackQuestionStore ?? (feedbackQuestionStore = DependencyService.Get<IFeedbackQuestionStore>());
         public IFeedbackAnswerStore FeedbackAnswerStore => feedbackAnswerStore ?? (feedbackAnswerStore = DependencyService.Get<IFeedbackAnswerStore>());
         public IFeedbackAnswerFreeTextStore FeedbackAnswerFreeTextStore => feedbackAnswerFreeTextStore ?? (feedbackAnswerFreeTextStore = DependencyService.Get<IFeedbackAnswerFreeTextStore>());
+        public IEventRatingCommentStore EventRatingCommentStore => eventRatingCommentStore ?? (eventRatingCommentStore = DependencyService.Get<IEventRatingCommentStore>());
         #endregion
 
         public async Task<MobileServiceUser> LoginAsync(string accessToken)

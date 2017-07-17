@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
              xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit" 
-             x:Class="Chevron.ITC.AMAOC.Views.EventFeedbackPage">
+             x:Class="Chevron.ITC.AMAOC.Views.EventFeedbackPage"
+             BackgroundColor="{DynamicResource WindowBackground}"
+             Title="Rate Event">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:RatingVisibleConverter x:Key="RatingVisibleConverter" />
@@ -22,11 +24,11 @@
 
 
         <StackLayout VerticalOptions="Center" Spacing="{StaticResource StandardSpacing}">
-            <Image Source="icon_sessions_big_purple.png" HorizontalOptions="Center" />
-            <Label Text="{Binding Session.Title}" 
+            <Image Source="event_icon_big.png" HorizontalOptions="Center" />
+            <Label Text="{Binding OCEvent.Name}" 
                 HorizontalTextAlignment="Center" HorizontalOptions="Center" 
-                StyleId="LabelSessionName"
-                Style="{DynamicResource EvolveListItemTextStyle}"/>
+                StyleId="LabelEventName"
+                Style="{DynamicResource AMAOCListItemTextStyle}"/>
 
             <Grid RowSpacing="18" HorizontalOptions="Center">
                 <Grid.ColumnDefinitions>
@@ -45,10 +47,10 @@
                             <local:StarBehavior x:Name="starOne" GroupName="myStar"/>
                         </Grid.Behaviors>
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_outline.png}" />
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_outline.png}" />
 
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_selected.png}"
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_selected.png}"
                         IsVisible="{Binding Source={x:Reference starOne},
                                             Path=IsStarred}"/>
                     </Grid>
@@ -58,10 +60,10 @@
                             <local:StarBehavior x:Name="starTwo" GroupName="myStar"/>
                         </Grid.Behaviors>
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_outline.png}" />
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_outline.png}" />
 
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_selected.png}"
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_selected.png}"
                         IsVisible="{Binding Source={x:Reference starTwo},
                                             Path=IsStarred}"/>
                     </Grid>
@@ -71,10 +73,10 @@
                             <local:StarBehavior x:Name="starThree" GroupName="myStar"/>
                         </Grid.Behaviors>
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_outline.png}" />
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_outline.png}" />
 
                         <Image
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_selected.png}"
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_selected.png}"
                         IsVisible="{Binding Source={x:Reference starThree},
                                             Path=IsStarred}"/>
                     </Grid>
@@ -84,10 +86,10 @@
                             <local:StarBehavior x:Name="starFour" GroupName="myStar"/>
                         </Grid.Behaviors>
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_outline.png}" />
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_outline.png}" />
 
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_selected.png}"
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_selected.png}"
                         IsVisible="{Binding Source={x:Reference starFour},
                                             Path=IsStarred}"/>
                     </Grid>
@@ -97,10 +99,10 @@
                             <local:StarBehavior x:Name="starFive" GroupName="myStar"/>
                         </Grid.Behaviors>
                         <Image
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_outline.png}" />
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_outline.png}" />
 
                         <Image 
-                        Source="{local:ImageResource XamarinEvolve.Clients.UI.Images.star_selected.png}"
+                        Source="{local:ImageResource Chevron.ITC.AMAOC.Images.star_selected.png}"
                         IsVisible="{Binding Source={x:Reference starFive},
                                             Path=IsStarred}"/>
                     </Grid>
@@ -109,7 +111,7 @@
 
             <Label Text="{Binding Source={x:Reference starFive},
                    Path=Rating, Converter={StaticResource RatingConverter}}" 
-                   Style="{DynamicResource EvolveListItemDetailTextStyle}"
+                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"
                    StyleId="Status"
                    HorizontalOptions="Center"/>
         </StackLayout>

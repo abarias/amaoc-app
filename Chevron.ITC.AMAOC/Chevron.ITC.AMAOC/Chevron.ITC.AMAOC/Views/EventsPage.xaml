@@ -2,23 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chevron.ITC.AMAOC.Views.EventsPage"
-              Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
+    x:Name="EventsPage"
+    Title="OC Events"    
+    BackgroundColor="{DynamicResource WindowBackground}">
   <ContentPage.ToolbarItems>
   	<ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
-    <StackLayout>
-      <ListView x:Name="EventsListView"
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+            <ListView x:Name="EventsListView"
 				ItemsSource="{Binding Events}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
-                RefreshCommand="{Binding LoadItemsCommand}"
-                IsPullToRefreshEnabled="true"
+                RefreshCommand="{Binding ForceRefreshCommand}"
+                IsPullToRefreshEnabled="{Binding IsNotBusy}"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement"
-				ItemSelected="OnItemSelected">
-        <ListView.ItemTemplate>
+                IsVisible="{Binding IsNotBusy}">
+                <ListView.SeparatorColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                </ListView.SeparatorColor>
+                <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
               <StackLayout Orientation="Vertical">              
@@ -34,6 +43,29 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-    </StackLayout> 
-  </ContentPage.Content>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <StackLayout.Orientation>
+                    <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal"/>
+                </StackLayout.Orientation>
+                <ActivityIndicator IsRunning="{Binding IsBusy}" >
+                    <ActivityIndicator.Color>
+                        <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                    </ActivityIndicator.Color>
+                </ActivityIndicator>
+                <Label Text="Loading Events..." HorizontalOptions="Center" Style="{DynamicResource AMAOCListItemTextStyle}"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding NoEventsFound}"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    BackgroundColor="{DynamicResource WindowBackground}"
+                    Padding="16,0">
+                <Label Text="{Binding NoEventsFoundMessage}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="22" TextColor="#D3D2D2"/>
+            </StackLayout>
+        </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
