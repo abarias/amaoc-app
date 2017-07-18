@@ -169,7 +169,7 @@ namespace Chevron.ITC.AMAOC.Services
                     MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
                     {
                         Title = "No Calendar",
-                        Message = "We were unable to get or create the Evolve calendar, please check your calendar app and try again.",
+                        Message = "We were unable to get or create the AMA OC Events calendar, please check your calendar app and try again.",
                         Cancel = "OK"
                     });
                 }
@@ -231,7 +231,7 @@ namespace Chevron.ITC.AMAOC.Services
                     foreach (var calendar in calendars)
                     {
                         //find first calendar we can add stuff to
-                        if (calendar.CanEditEvents && calendar.Name == "Xamarin Evolve")
+                        if (calendar.CanEditEvents && calendar.Name == "AMA OC Events")
                         {
                             Settings.Current.AMAOCCalendarId = calendar.ExternalID;
                             return calendar;
@@ -245,8 +245,8 @@ namespace Chevron.ITC.AMAOC.Services
             }
 
             var evolveCalendar = new Calendar();
-            evolveCalendar.Color = "#7635EB";
-            evolveCalendar.Name = "Xamarin Evolve";
+            evolveCalendar.Color = "#2196F3";
+            evolveCalendar.Name = "AMA OC Events";
 
             try
             {

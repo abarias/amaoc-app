@@ -12,6 +12,7 @@ using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
 using FormsToolkit.Droid;
 using Chevron.ITC.AMAOC;
+using Plugin.Permissions;
 
 namespace Chevron.ITC.AMAOC.Droid
 {
@@ -31,6 +32,7 @@ namespace Chevron.ITC.AMAOC.Droid
             
 
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             LoadApplication(new App());
             App.UiParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
@@ -40,6 +42,12 @@ namespace Chevron.ITC.AMAOC.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
             AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            global::ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

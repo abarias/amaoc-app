@@ -1407,6 +1407,12 @@ namespace Chevron.ITC.AMAOC.Droid
 			global::Microsoft.Identity.Client.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Chevron.ITC.AMAOC.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::Microsoft.Identity.Client.Resource.Styleable.ViewStubCompat_android_layout = global::Chevron.ITC.AMAOC.Droid.Resource.Styleable.ViewStubCompat_android_layout;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Chevron.ITC.AMAOC.Droid.Resource.Attribute.actionBarSize;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::Chevron.ITC.AMAOC.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::Chevron.ITC.AMAOC.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::Chevron.ITC.AMAOC.Droid.Resource.String.library_name;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::Chevron.ITC.AMAOC.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Chevron.ITC.AMAOC.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Chevron.ITC.AMAOC.Droid.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation
@@ -3836,6 +3842,9 @@ namespace Chevron.ITC.AMAOC.Droid
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
 			
+			// aapt resource value: 0x7f0700bd
+			public const int contentFrame = 2131165373;
+			
 			// aapt resource value: 0x7f07004a
 			public const int contentPanel = 2131165258;
 			
@@ -4067,23 +4076,23 @@ namespace Chevron.ITC.AMAOC.Droid
 			// aapt resource value: 0x7f070016
 			public const int multiply = 2131165206;
 			
-			// aapt resource value: 0x7f0700c2
-			public const int nav_conference_info = 2131165378;
-			
-			// aapt resource value: 0x7f0700bf
-			public const int nav_events = 2131165375;
-			
-			// aapt resource value: 0x7f0700be
-			public const int nav_feed = 2131165374;
+			// aapt resource value: 0x7f0700c3
+			public const int nav_conference_info = 2131165379;
 			
 			// aapt resource value: 0x7f0700c0
-			public const int nav_ranking = 2131165376;
+			public const int nav_events = 2131165376;
 			
-			// aapt resource value: 0x7f0700bd
-			public const int nav_section_main = 2131165373;
+			// aapt resource value: 0x7f0700bf
+			public const int nav_feed = 2131165375;
 			
 			// aapt resource value: 0x7f0700c1
-			public const int nav_settings = 2131165377;
+			public const int nav_ranking = 2131165377;
+			
+			// aapt resource value: 0x7f0700be
+			public const int nav_section_main = 2131165374;
+			
+			// aapt resource value: 0x7f0700c2
+			public const int nav_settings = 2131165378;
 			
 			// aapt resource value: 0x7f0700ac
 			public const int nav_view = 2131165356;
@@ -4580,6 +4589,12 @@ namespace Chevron.ITC.AMAOC.Droid
 			// aapt resource value: 0x7f030041
 			public const int WebAuthenticationBroker = 2130903105;
 			
+			// aapt resource value: 0x7f030042
+			public const int zxingscanneractivitylayout = 2130903106;
+			
+			// aapt resource value: 0x7f030043
+			public const int zxingscannerfragmentlayout = 2130903107;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -4609,8 +4624,8 @@ namespace Chevron.ITC.AMAOC.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f080026
-			public const int ApplicationName = 2131230758;
+			// aapt resource value: 0x7f080027
+			public const int ApplicationName = 2131230759;
 			
 			// aapt resource value: 0x7f08000f
 			public const int abc_action_bar_home_description = 2131230735;
@@ -4924,8 +4939,8 @@ namespace Chevron.ITC.AMAOC.Droid
 			// aapt resource value: 0x7f080078
 			public const int hockeyapp_update_version_details_label = 2131230840;
 			
-			// aapt resource value: 0x7f080027
-			public const int library_name = 2131230759;
+			// aapt resource value: 0x7f080026
+			public const int library_name = 2131230758;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;
