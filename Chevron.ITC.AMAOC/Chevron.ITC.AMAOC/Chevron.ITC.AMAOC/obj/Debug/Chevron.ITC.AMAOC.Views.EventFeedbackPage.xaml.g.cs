@@ -11,8 +11,8 @@
 namespace Chevron.ITC.AMAOC.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("G:\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Views\\E" +
-        "ventFeedbackPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
+        "ITC.AMAOC\\Views\\EventFeedbackPage.xaml")]
     public partial class EventFeedbackPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -37,6 +37,9 @@ namespace Chevron.ITC.AMAOC.Views {
         private global::Chevron.ITC.AMAOC.StarBehavior starFive;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Editor Feedback;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(EventFeedbackPage));
             ToolbarDone = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "ToolbarDone");
@@ -46,6 +49,7 @@ namespace Chevron.ITC.AMAOC.Views {
             starThree = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Chevron.ITC.AMAOC.StarBehavior>(this, "starThree");
             starFour = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Chevron.ITC.AMAOC.StarBehavior>(this, "starFour");
             starFive = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Chevron.ITC.AMAOC.StarBehavior>(this, "starFive");
+            Feedback = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Editor>(this, "Feedback");
         }
     }
 }

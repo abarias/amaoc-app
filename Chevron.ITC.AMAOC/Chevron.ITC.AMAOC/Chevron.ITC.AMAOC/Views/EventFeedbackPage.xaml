@@ -115,7 +115,15 @@
                    StyleId="Status"
                    HorizontalOptions="Center"/>
         </StackLayout>
+
         <StackLayout Padding="{StaticResource StandardPadding}" Grid.Row="1">
+            <Label Text="Enter your feedback below:" 
+                HorizontalTextAlignment="Center" HorizontalOptions="Start" 
+                StyleId="LabelFeedbackName"
+                Style="{DynamicResource AMAOCListItemTextStyle}"/>
+
+            <Editor x:Name="Feedback" HeightRequest="120" />
+            
             <Button
                 Text="Submit"  
                 StyleId="ButtonSubmit"
