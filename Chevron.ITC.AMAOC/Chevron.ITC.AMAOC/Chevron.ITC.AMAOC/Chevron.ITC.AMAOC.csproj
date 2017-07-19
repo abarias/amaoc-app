@@ -57,9 +57,11 @@
       <DependentUpon>HeaderDivider.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\NavigationView.cs" />
+    <Compile Include="Controls\NonScrollableListView.cs" />
     <Compile Include="Controls\SectionDivider.xaml.cs">
       <DependentUpon>SectionDivider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TextViewValue1.cs" />
     <Compile Include="Converters\DateConverters.cs" />
     <Compile Include="Converters\ImageConverters.cs" />
     <Compile Include="Converters\RatingConverter.cs" />

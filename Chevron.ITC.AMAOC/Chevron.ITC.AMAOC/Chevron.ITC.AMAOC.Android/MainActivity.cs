@@ -13,6 +13,8 @@ using Xamarin.Forms;
 using FormsToolkit.Droid;
 using Chevron.ITC.AMAOC;
 using Plugin.Permissions;
+using Refractored.XamForms.PullToRefresh.Droid;
+using System.Reflection;
 
 namespace Chevron.ITC.AMAOC.Droid
 {
@@ -29,7 +31,8 @@ namespace Chevron.ITC.AMAOC.Droid
             Forms.Init(this, bundle);
             Toolkit.Init();
 
-            
+            PullToRefreshLayoutRenderer.Init();
+            typeof(Color).GetProperty("Accent", BindingFlags.Public | BindingFlags.Static).SetValue(null, Color.FromHex("#757575"));
 
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

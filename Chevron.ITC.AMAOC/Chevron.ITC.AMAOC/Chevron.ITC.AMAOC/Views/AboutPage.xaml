@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chevron.ITC.AMAOC.Views.AboutPage"
              xmlns:vm="clr-namespace:Chevron.ITC.AMAOC.ViewModels;"
+              Icon="tab_about.png"
              Title="{Binding Title}">
   <ContentPage.BindingContext>
     <vm:AboutViewModel />

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Chevron.ITC.AMAOC.iOS</string>
+	<string>AMA OC Event Tracker</string>
 	<key>Chevron.ITC.AMAOC.iOS</key>
 	<string>Chevron.ITC.AMAOC.iOS</string>
 	<key>CFBundleIdentifier</key>
@@ -30,14 +30,11 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
-  <key>UIStatusBarStyle</key>
-  <string>UIStatusBarStyleLightContent</string>
-  <key>UIViewControllerBasedStatusBarAppearance</key>
-  <false/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -45,6 +42,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSRemindersUsageDescription</key>
+	<string>Add reminders for events.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Scan Barcodes</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Add events to calendar.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

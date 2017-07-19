@@ -4,6 +4,7 @@
              x:Class="Chevron.ITC.AMAOC.Views.EventsPage"
     x:Name="EventsPage"
     Title="OC Events"    
+    Icon="tab_sessions.png"
     BackgroundColor="{DynamicResource WindowBackground}">
   <ContentPage.ToolbarItems>
   	<ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />
