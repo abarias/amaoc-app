@@ -188,12 +188,12 @@ namespace Chevron.ITC.AMAOC
                     sessions.OnResume();
                     return;
                 }
-                //var feed = rootNav.CurrentPage as FeedPage;
-                //if (feed != null)
-                //{
-                //    feed.OnResume();
-                //    return;
-                //}
+                var feed = rootNav.CurrentPage as FeedPage;
+                if (feed != null)
+                {
+                    feed.OnResume();
+                    return;
+                }
             }
             catch
             {

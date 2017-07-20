@@ -10,5 +10,6 @@ namespace Chevron.ITC.AMAOC.Abstractions
     public interface IEventStore : IBaseStore<Event>
     {
         Task<Event> GetAppIndexEvent(string id);
+        Task<IEnumerable<Event>> GetNextEvents();
     }
 }

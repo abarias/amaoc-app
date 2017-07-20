@@ -57,6 +57,27 @@ namespace Chevron.ITC.AMAOC.MockStores
             return Events.FirstOrDefault(s => s.Id == id);
         }
 
+        public async Task<IEnumerable<Event>> GetNextEvents()
+        {
+            if (!initialized)
+                await InitializeStore();
+
+            var date = DateTime.UtcNow.AddMinutes(-30);
+
+            var events = await GetItemsAsync();
+
+            var results = (from ocEvent in events
+                           where (ocEvent.StartTime.HasValue && ocEvent.StartTime.Value > date
+                           && !ocEvent.IsCompleted)
+                           orderby ocEvent.StartTime.Value
+                           select ocEvent).Take(2);
+
+
+            var enumerable = results as Event[] ?? results.ToArray();
+            return !enumerable.Any() ? null : enumerable;
+
+        }
+
         public override async Task InitializeStore()
         {
             if (initialized)

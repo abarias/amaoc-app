@@ -16,7 +16,7 @@ namespace Chevron.ITC.AMAOC.Views
         {
 
             NavigationPage.SetHasNavigationBar(this, false);
-            //Children.Add(new AMAOCNavigationPage(new FeedPage()));            
+            Children.Add(new AMAOCNavigationPage(new FeedPage()));            
             Children.Add(new AMAOCNavigationPage(new EventsPage()));            
             Children.Add(new AMAOCNavigationPage(new AboutPage()));
 
@@ -48,30 +48,25 @@ namespace Chevron.ITC.AMAOC.Views
         protected override void OnCurrentPageChanged()
         {
             base.OnCurrentPageChanged();
-            //switch (Children.IndexOf(CurrentPage))
-            //{
-            //    case 0:
-            //        App.Logger.TrackPage(AppPage.Feed.ToString());
-            //        break;
-            //    case 1:
-            //        App.Logger.TrackPage(AppPage.Sessions.ToString());
-            //        break;
-            //    case 2:
-            //        App.Logger.TrackPage(AppPage.Events.ToString());
-            //        break;
-            //    case 3:
-            //        App.Logger.TrackPage(AppPage.MiniHacks.ToString());
-            //        break;
-            //    case 4:
-            //        App.Logger.TrackPage(AppPage.Information.ToString());
-            //        break;
-            //}
+            switch (Children.IndexOf(CurrentPage))
+            {
+                case 0:
+                    App.Logger.TrackPage(AppPage.Feed.ToString());
+                    break;                
+                case 1:
+                    App.Logger.TrackPage(AppPage.Events.ToString());
+                    break;                
+                case 4:
+                    App.Logger.TrackPage(AppPage.Settings.ToString());
+                    break;
+            }
         }
 
         public void NavigateAsync(AppPage menuId)
         {
             switch ((int)menuId)
-            {                               
+            {
+                case (int)AppPage.Feed: CurrentPage = Children[0]; break;
                 case (int)AppPage.Events: CurrentPage = Children[1]; break;                
                 case (int)AppPage.Notification: CurrentPage = Children[0]; break;
             }

@@ -43,6 +43,11 @@ namespace Chevron.ITC.AMAOC.Stores
             throw new NotImplementedException();
         }
 
+        public Task<IEnumerable<Event>> GetNextEvents()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string Identifier => "Event";
         public EventStore()
         {

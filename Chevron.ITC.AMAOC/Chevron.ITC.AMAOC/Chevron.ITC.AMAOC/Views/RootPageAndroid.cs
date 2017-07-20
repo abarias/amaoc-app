@@ -21,7 +21,7 @@ namespace Chevron.ITC.AMAOC.Views
             pages = new Dictionary<int, AMAOCNavigationPage>();
             Master = new MenuPage(this);
 
-            pages.Add(0, new AMAOCNavigationPage(new EventsPage()));
+            pages.Add(0, new AMAOCNavigationPage(new FeedPage()));
 
             Detail = pages[0];
             MessagingService.Current.Subscribe<DeepLinkPage>("DeepLinkPage", async (m, p) =>
@@ -40,7 +40,10 @@ namespace Chevron.ITC.AMAOC.Views
             {
                 //only cache specific pages
                 switch (menuId)
-                {                    
+                {
+                    case (int)AppPage.Feed: //Feed
+                        pages.Add(menuId, new AMAOCNavigationPage(new FeedPage()));
+                        break;
                     case (int)AppPage.Events://events
                         pages.Add(menuId, new AMAOCNavigationPage(new EventsPage()));
                         break;

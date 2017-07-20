@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+             x:Class="Chevron.ITC.AMAOC.EventCellView"
+              x:Name="EventCell">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:EventDateDisplayConverter x:Key="EventDateDisplayConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid Padding="{DynamicResource StandardPadding}" 
+          ColumnSpacing="{StaticResource StandardSpacing}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Grid.Row="0"
+                   Grid.RowSpan="2"
+                   Text="{Binding Name}" 
+                   Style="{DynamicResource AMAOCListItemTextStyle}"
+                   StyleId="EventItem"/>
+
+
+        <Label Grid.Row="1"
+                   Text="{Binding Location}" 
+                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"
+                   StyleId="Location"/>
+
+        <Label Grid.Row="2"
+                   VerticalOptions="End"
+                   Text="{Binding ., Converter={StaticResource EventDateDisplayConverter}}" 
+                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"
+                   StyleId="EventTime"/>
+    </Grid>
+</ContentView>

@@ -11,13 +11,21 @@
 namespace Chevron.ITC.AMAOC.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
-        "ITC.AMAOC\\Views\\FeedPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("G:\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Views\\F" +
+        "eedPage.xaml")]
     public partial class FeedPage : global::Xamarin.Forms.ContentPage {
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout NotificationStack;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Chevron.ITC.AMAOC.NonScrollableListView ListViewEvents;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(FeedPage));
+            NotificationStack = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "NotificationStack");
+            ListViewEvents = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Chevron.ITC.AMAOC.NonScrollableListView>(this, "ListViewEvents");
         }
     }
 }

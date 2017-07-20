@@ -28,6 +28,16 @@ namespace Chevron.ITC.AMAOC.MockStores
                 {
                     Date = DateTime.UtcNow,
                     Text = "Welcome to AMA OC Event Tracker!"
+                },
+                new Notification
+                {
+                    Date = DateTime.UtcNow.AddMonths(-1),
+                    Text = "New Event scheduled!"
+                },
+                new Notification
+                {
+                    Date= DateTime.UtcNow.AddDays(-10),
+                    Text = "Don't forget to attend the AMA OC Event schedule for today!"
                 }
             };
             return Task.FromResult(items as IEnumerable<Notification>);

@@ -51,6 +51,9 @@
     <Compile Include="Cells\AMAOCGroupHeaderView.xaml.cs">
       <DependentUpon>AMAOCGroupHeaderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cells\EventCell.xaml.cs">
+      <DependentUpon>EventCell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cells\NotificationCell.xaml.cs">
       <DependentUpon>NotificationCell.xaml</DependentUpon>
     </Compile>
@@ -62,6 +65,9 @@
     </Compile>
     <Compile Include="Controls\HeaderDivider.xaml.cs">
       <DependentUpon>HeaderDivider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelSection.xaml.cs">
+      <DependentUpon>LabelSection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\NavigationView.cs" />
     <Compile Include="Controls\NonScrollableListView.cs" />
@@ -118,6 +124,7 @@
     <Compile Include="Utilities\Gravatar.cs" />
     <Compile Include="Utilities\MD5Core.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\FeedViewModel.cs" />
     <Compile Include="ViewModels\NotificationsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\EventDetailViewModel.cs" />
@@ -226,6 +233,9 @@
     <Reference Include="Plugin.Settings.Abstractions, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.1.0\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Refractored.XamForms.PullToRefresh, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Refractored.XamForms.PullToRefresh.1.1.0\lib\portable-net45+wp80+win8+wpa81\Refractored.XamForms.PullToRefresh.dll</HintPath>
+    </Reference>
     <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.0.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
     </Reference>
@@ -324,6 +334,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Cells\NotificationCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\LabelSection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cells\EventCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
