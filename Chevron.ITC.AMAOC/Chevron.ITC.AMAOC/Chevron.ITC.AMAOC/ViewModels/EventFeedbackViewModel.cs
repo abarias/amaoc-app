@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
-    public class EventFeedbackViewModel : BaseViewModel
+    public class EventFeedbackViewModel : ViewModelBase
     {
         Event ocEvent;
         public Event OCEvent

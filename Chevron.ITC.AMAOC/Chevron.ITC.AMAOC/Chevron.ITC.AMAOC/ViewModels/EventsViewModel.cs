@@ -12,7 +12,7 @@ using FormsToolkit;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
-    public class EventsViewModel : BaseViewModel
+    public class EventsViewModel : ViewModelBase
     {
         public ObservableRangeCollection<Event> Events { get; }  = new ObservableRangeCollection<Event>();
         public Command LoadItemsCommand { get; set; }

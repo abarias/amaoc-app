@@ -18,6 +18,7 @@ namespace Chevron.ITC.AMAOC.Abstractions
         IFeedbackAnswerStore FeedbackAnswerStore { get; }
         IFeedbackAnswerFreeTextStore FeedbackAnswerFreeTextStore { get; }
         IEventRatingCommentStore EventRatingCommentStore { get; }
+        INotificationStore NotificationStore { get; }
 
         Task<bool> SyncAllAsync(bool syncUserSpecific);
         Task DropEverythingAsync();

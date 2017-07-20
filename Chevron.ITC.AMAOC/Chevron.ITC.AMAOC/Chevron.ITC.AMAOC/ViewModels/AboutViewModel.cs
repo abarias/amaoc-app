@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel : ViewModelBase
     {
         public AboutViewModel()
         {

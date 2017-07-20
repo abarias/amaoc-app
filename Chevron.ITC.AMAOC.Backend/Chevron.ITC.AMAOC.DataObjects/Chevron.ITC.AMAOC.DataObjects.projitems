@@ -17,5 +17,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)FeedbackAnswer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FeedbackAnswerFreeText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EventAttendee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Notification.cs" />
   </ItemGroup>
 </Project>

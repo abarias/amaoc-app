@@ -12,7 +12,7 @@ using Chevron.ITC.AMAOC.Helpers;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
-    public class EventDetailViewModel : BaseViewModel
+    public class EventDetailViewModel : ViewModelBase
     {
         Event ocEvent;        
         public Event Event

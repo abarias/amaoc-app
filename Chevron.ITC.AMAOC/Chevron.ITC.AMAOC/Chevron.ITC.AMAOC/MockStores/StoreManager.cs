@@ -37,6 +37,7 @@ namespace Chevron.ITC.AMAOC.MockStores
         IFeedbackAnswerStore feedbackAnswerStore;
         IFeedbackAnswerFreeTextStore feedbackAnswerFreeTextStore;
         IEventRatingCommentStore eventRatingCommentStore;
+        INotificationStore notificationStore;
 
         public IEventStore EventStore => eventStore ?? (eventStore = DependencyService.Get<IEventStore>());
         public IEmployeeStore EmployeeStore => employeeStore ?? (employeeStore = DependencyService.Get<IEmployeeStore>());
@@ -45,6 +46,7 @@ namespace Chevron.ITC.AMAOC.MockStores
         public IFeedbackAnswerStore FeedbackAnswerStore => feedbackAnswerStore ?? (feedbackAnswerStore = DependencyService.Get<IFeedbackAnswerStore>());
         public IFeedbackAnswerFreeTextStore FeedbackAnswerFreeTextStore => feedbackAnswerFreeTextStore ?? (feedbackAnswerFreeTextStore = DependencyService.Get<IFeedbackAnswerFreeTextStore>());
         public IEventRatingCommentStore EventRatingCommentStore => eventRatingCommentStore ?? (eventRatingCommentStore = DependencyService.Get<IEventRatingCommentStore>());
+        public INotificationStore NotificationStore => notificationStore ?? (notificationStore = DependencyService.Get<INotificationStore>());
 
     }
 }

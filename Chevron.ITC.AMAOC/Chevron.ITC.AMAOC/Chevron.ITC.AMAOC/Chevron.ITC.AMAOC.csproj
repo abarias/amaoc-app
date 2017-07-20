@@ -42,11 +42,18 @@
     <Compile Include="Abstractions\IFeedbackAnswerFreeTextStore.cs" />
     <Compile Include="Abstractions\IFeedbackAnswerStore.cs" />
     <Compile Include="Abstractions\IFeedbackQuestionStore.cs" />
+    <Compile Include="Abstractions\INotificationStore.cs" />
     <Compile Include="Abstractions\IStoreManager.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\StarBehavior.cs" />
+    <Compile Include="Cells\AMAOCGroupHeaderView.xaml.cs">
+      <DependentUpon>AMAOCGroupHeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cells\NotificationCell.xaml.cs">
+      <DependentUpon>NotificationCell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AlwaysScrollView.cs" />
     <Compile Include="Controls\AMAOCNavigationPage.cs" />
     <Compile Include="Controls\CardView.cs" />
@@ -69,9 +76,11 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Helpers\ImageResourceExtension.cs" />
+    <Compile Include="Helpers\MessagingUtils.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IPushNotifications.cs" />
     <Compile Include="Interfaces\ISSOClient.cs" />
+    <Compile Include="Interfaces\IToast.cs" />
     <Compile Include="JwtClaimNames.cs" />
     <Compile Include="JwtUtility.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
@@ -87,6 +96,7 @@
     <Compile Include="MockStores\FeedbackAnswerFreeTextStore.cs" />
     <Compile Include="MockStores\FeedbackAnswerStore.cs" />
     <Compile Include="MockStores\FeedbackQuestionStore.cs" />
+    <Compile Include="MockStores\NotificationStore.cs" />
     <Compile Include="MockStores\Settings.cs" />
     <Compile Include="MockStores\SSOClient.cs" />
     <Compile Include="MockStores\StoreManager.cs" />
@@ -108,7 +118,8 @@
     <Compile Include="Utilities\Gravatar.cs" />
     <Compile Include="Utilities\MD5Core.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\NotificationsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\EventDetailViewModel.cs" />
     <Compile Include="ViewModels\EventFeedbackViewModel.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
@@ -124,6 +135,9 @@
     </Compile>
     <Compile Include="Views\EventsPage.xaml.cs">
       <DependentUpon>EventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedPage.xaml.cs">
+      <DependentUpon>FeedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -169,6 +183,9 @@
   <ItemGroup>
     <Reference Include="FormsToolkit, Version=1.1.18.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FormsToolkit.1.1.18\lib\portable-net45+wp8+win8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\FormsToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer, Version=1.37.7.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Humanizer.1.37.7\lib\portable-win+net40+sl50+wp8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Humanizer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Identity.Client, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Identity.Client.1.1.0-preview\lib\netstandard1.1\Microsoft.Identity.Client.dll</HintPath>
@@ -292,6 +309,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\star_outline.png" />
     <EmbeddedResource Include="Images\star_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FeedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cells\AMAOCGroupHeaderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cells\NotificationCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="..\..\..\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.DataObjects\Chevron.ITC.AMAOC.DataObjects.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

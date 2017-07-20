@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+             x:Class="Chevron.ITC.AMAOC.NotificationCell">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:HumanizeDateConverter x:Key="HumanizeDateConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout  HorizontalOptions="FillAndExpand" 
+                      Padding="{StaticResource StandardPadding}" StyleId="NotificationItem">
+        <Label Text="{Binding Text}" 
+                   Style="{DynamicResource AMAOCListItemTextStyle}"/>
+
+        <Label Text="{Binding Date, Converter={StaticResource HumanizeDateConverter}}"  
+                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
+
+    </StackLayout>
+</ContentView>

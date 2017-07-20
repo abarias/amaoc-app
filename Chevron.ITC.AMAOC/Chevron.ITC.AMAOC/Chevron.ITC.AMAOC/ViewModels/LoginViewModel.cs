@@ -18,7 +18,7 @@ using Chevron.ITC.AMAOC.Interfaces;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : ViewModelBase
     {
         static ISSOClient client;
         public LoginViewModel()
