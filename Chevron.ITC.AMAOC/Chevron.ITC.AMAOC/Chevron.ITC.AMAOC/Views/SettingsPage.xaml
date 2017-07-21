@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chevron.ITC.AMAOC.Views.SettingsPage"    
+             xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+            xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+            Title="Settings"    
+            BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <ContentPage.Title>
+        <OnPlatform x:TypeArguments="x:String" Android="Settings" WinPhone="Settings" iOS="About this app"/>
+    </ContentPage.Title>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <local:AlwaysScrollView Grid.RowSpan="2">
+        <StackLayout Spacing="0">
+
+            <StackLayout 
+                BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                Spacing="{DynamicResource CardSpacing}"
+                Padding="{DynamicResource CardPadding}">
+
+                <local:CardView>
+                    <local:CardView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false" WinPhone="true"/>
+                    </local:CardView.IsVisible>
+                    <StackLayout Spacing="0">
+                        <local:LabelSection Text="Data Sync"/>
+                        <local:HeaderDivider/>
+                        <!--<StackLayout BackgroundColor="White" 
+                                     Padding="{StaticResource StandardPadding}">
+                            <Label Text="Sign in with your account to save and sync favorites and session feedback across devices." 
+                                   HorizontalOptions="Center" 
+                                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
+
+                        </StackLayout>
+                        <local:SectionDivider/>-->
+                        <Grid Padding="{StaticResource StandardPadding}" 
+                               ColumnSpacing="{StaticResource StandardSpacing}" 
+                               BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Text="{Binding LoginText}" Command="{Binding LoginCommand}"
+                                    BackgroundColor="{StaticResource PrimaryDark}"
+                                    IsEnabled="{Binding IsNotBusy}"
+                                    TextColor="White"/>
+                            <Button Grid.Column="1"
+                                    Text="Sync Now" Command="{Binding SyncCommand}"
+                                    BackgroundColor="{StaticResource PrimaryDark}"
+                                    IsEnabled="{Binding IsNotBusy}"
+                                    TextColor="White"/>
+                        </Grid>
+
+                        <local:SectionDivider/>
+                        <Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="{Binding SyncText}" Style="{DynamicResource AMAOCListItemTextStyle}"/>
+                                <Label Text="{Binding LastSyncDisplay}"
+                                    Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
+                            </StackLayout>
+                            <ActivityIndicator Grid.Column="1" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" >
+                                <ActivityIndicator.Color>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                                </ActivityIndicator.Color>
+                            </ActivityIndicator>
+
+                        </Grid>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
+            </StackLayout>
+        </StackLayout>
+    </local:AlwaysScrollView>
+</ContentPage>

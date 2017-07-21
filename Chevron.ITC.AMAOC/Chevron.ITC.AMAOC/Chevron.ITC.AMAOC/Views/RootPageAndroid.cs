@@ -62,12 +62,12 @@ namespace Chevron.ITC.AMAOC.Views
                     //case (int)AppPage.FloorMap://Floor Maps
                     //    newPage = new AMAOCNavigationPage(new FloorMapsPage());
                     //    break;
-                    //case (int)AppPage.Settings://Settings
-                    //    newPage = new AMAOCNavigationPage(new SettingsPage());
-                    //    break;
-                    //case (int)AppPage.Evals:
-                    //    newPage = new AMAOCNavigationPage(new EvaluationsPage());
-                    //    break;
+                    case (int)AppPage.Settings://Settings
+                        newPage = new AMAOCNavigationPage(new SettingsPage());
+                        break;
+                        //case (int)AppPage.Evals:
+                        //    newPage = new AMAOCNavigationPage(new EvaluationsPage());
+                        //    break;
                 }
             }
 

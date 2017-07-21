@@ -55,11 +55,11 @@ namespace Chevron.ITC.AMAOC
             SetMainPage();
         }
 
-        public void SetMainPage()
+        public static void SetMainPage()
         {
             if (!Settings.Current.IsLoggedIn)
             {
-                MainPage = new AMAOCNavigationPage(new LoginPage());                
+                Current.MainPage = new AMAOCNavigationPage(new LoginPage());                
             }
             else
             {

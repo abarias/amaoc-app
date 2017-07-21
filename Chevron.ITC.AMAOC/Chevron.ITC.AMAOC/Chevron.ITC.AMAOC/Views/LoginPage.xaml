@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Chevron.ITC.AMAOC.ViewModels;"
              x:Class="Chevron.ITC.AMAOC.Views.LoginPage"
-             Title="Chevron.ITC.AMAOC">
+             Title="Sign In">
   <ContentPage.BindingContext>
     <vm:LoginViewModel/>
   </ContentPage.BindingContext>
@@ -15,37 +15,26 @@
         <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <StackLayout Spacing="30" Grid.ColumnSpan="2">
-       <!-- <Image  HorizontalOptions="Center"
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+      <StackLayout Spacing="30">
+       <Image  HorizontalOptions="Center"
                 VerticalOptions="Center"
                 WidthRequest="95" HeightRequest="95"
                 Source="profile_generic.png" 
                 Aspect="AspectFill"
-                x:Name="CircleImageAvatar"/> -->
+                x:Name="CircleImageAvatar"/>
 
         <Label HorizontalTextAlignment="Center"
                 HorizontalOptions="FillAndExpand"
                 LineBreakMode="WordWrap"
                 FontSize="Large"
-                Text="Sign in with your account to save and sync items"/>
+                Text="Sign in with your account to view and participate in AMA OC Events"/>
       </StackLayout>
 
-
-      <Button
-          Grid.Row="1"
-          Grid.Column="0"
-          Text="Not Now"
-          Command="{Binding NotNowCommand}"
-          x:Name="ButtonNowNow"
-          HorizontalOptions="FillAndExpand"
-          IsEnabled="{Binding IsNotBusy}"/>
 			
       <Button
           Grid.Row="1"
-          Grid.Column="1"
           Text="Sign In"
           Command="{Binding SignInCommand}"
           HorizontalOptions="FillAndExpand"
@@ -53,7 +42,7 @@
           TextColor="White"
           BackgroundColor="{StaticResource Primary}"/>
       
-      <StackLayout Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+      <StackLayout Grid.Row="2" VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
         <ActivityIndicator IsRunning="{Binding IsBusy}" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
           <ActivityIndicator.Color>
             <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>

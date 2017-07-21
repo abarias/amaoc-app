@@ -41,9 +41,13 @@ namespace Chevron.ITC.AMAOC.MockStores
         }
         
 
-        public Task LogoutAsync()
+        public async Task LogoutAsync()
         {
-            throw new NotImplementedException();
+            Chevron.ITC.AMAOC.Helpers.Settings.UserId = string.Empty;
+            Chevron.ITC.AMAOC.Helpers.Settings.AuthToken = string.Empty;
+            Chevron.ITC.AMAOC.Helpers.Settings.Current.CAI = string.Empty;
+            Chevron.ITC.AMAOC.Helpers.Settings.Current.FullName = string.Empty;
+            Chevron.ITC.AMAOC.Helpers.Settings.Current.Email = string.Empty;            
         }
     }
 }

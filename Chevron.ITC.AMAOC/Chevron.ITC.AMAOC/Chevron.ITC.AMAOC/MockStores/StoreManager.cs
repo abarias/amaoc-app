@@ -47,6 +47,5 @@ namespace Chevron.ITC.AMAOC.MockStores
         public IFeedbackAnswerFreeTextStore FeedbackAnswerFreeTextStore => feedbackAnswerFreeTextStore ?? (feedbackAnswerFreeTextStore = DependencyService.Get<IFeedbackAnswerFreeTextStore>());
         public IEventRatingCommentStore EventRatingCommentStore => eventRatingCommentStore ?? (eventRatingCommentStore = DependencyService.Get<IEventRatingCommentStore>());
         public INotificationStore NotificationStore => notificationStore ?? (notificationStore = DependencyService.Get<INotificationStore>());
-
     }
 }
