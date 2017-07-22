@@ -79,6 +79,7 @@
     <Compile Include="Converters\ImageConverters.cs" />
     <Compile Include="Converters\RatingConverter.cs" />
     <Compile Include="Converters\StringConverters.cs" />
+    <Compile Include="DataTemplates\RankingViewCellDataTemplateSelector.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Helpers\ImageResourceExtension.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\FeedViewModel.cs" />
     <Compile Include="ViewModels\NotificationsViewModel.cs" />
+    <Compile Include="ViewModels\RankingViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\EventDetailViewModel.cs" />
@@ -158,6 +160,9 @@
     </Compile>
     <Compile Include="Views\NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RankingPage.xaml.cs">
+      <DependentUpon>RankingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RootPageAndroid.cs" />
     <Compile Include="Views\RootPageiOS.cs" />
@@ -356,6 +361,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RankingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chevron.ITC.AMAOC.Views.RankingPage"
+             xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+             x:Name="RankingPage"
+            Title="Ranking"    
+            Icon="tab_ranking.png"
+            BackgroundColor="{DynamicResource WindowBackground}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ellipseTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <Label Text="..."
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="16"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="employeeTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <Image Source="profile_generic.png" />
+                            <Label Text="{Binding FullName}"
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="16"/>
+                            <Label Text="{Binding Rank}"
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="12"/>
+                            <Label Text="{Binding TotalPointsEarned}"
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="14"/>
+                            <Label Text="{Binding IsLoggedInUser}"
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="14"/>
+                            <Label Text="{Binding RankCounter}"
+                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="14"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <local:RankingViewCellDataTemplateSelector x:Key="rankingViewCellDataTemplateSelector"
+                EllipseTemplate="{StaticResource ellipseTemplate}"
+                EmployeeTemplate="{StaticResource employeeTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView x:Name="RankingListView"
+				ItemsSource="{Binding Employees}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding ForceRefreshCommand}"
+                IsPullToRefreshEnabled="{Binding IsNotBusy}"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                IsVisible="{Binding IsNotBusy}"
+                AbsoluteLayout.LayoutFlags="All" 
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      ItemTemplate="{StaticResource rankingViewCellDataTemplateSelector}">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Header"
+                            />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.Footer>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding TotalEmployees}"
+                            HorizontalTextAlignment="Center"
+                               FontSize="Large"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </ListView.Footer>
+                <ListView.SeparatorColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                </ListView.SeparatorColor>
+            </ListView>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <StackLayout.Orientation>
+                    <OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal"/>
+                </StackLayout.Orientation>
+                <ActivityIndicator IsRunning="{Binding IsBusy}" >
+                    <ActivityIndicator.Color>
+                        <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                    </ActivityIndicator.Color>
+                </ActivityIndicator>
+                <Label Text="Loading Employees..." HorizontalOptions="Center" Style="{DynamicResource AMAOCListItemTextStyle}"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding NoEmployeesFound}"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    BackgroundColor="{DynamicResource WindowBackground}"
+                    Padding="16,0">
+                <Label Text="{Binding NoEmployeesFoundMessage}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="22" TextColor="#D3D2D2"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

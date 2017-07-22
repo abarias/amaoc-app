@@ -23,5 +23,15 @@ namespace Chevron.ITC.AMAOC.Stores
             var emps = await GetItemsAsync().ConfigureAwait(false);
             return emps.FirstOrDefault(e => e.UserId == userId);
         }
+
+        public Task<IEnumerable<Employee>> GetEmployeesPrevAndNext(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Employee>> GetEmployeesTopTenByPoints(string userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

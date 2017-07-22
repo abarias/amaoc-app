@@ -28,5 +28,40 @@ namespace Chevron.ITC.AMAOC.DataObjects
             this.AttendedEvents = new List<EventAttendee>();
             this.FeedbackAnswers = new List<FeedbackAnswer>();
         }
+
+#if MOBILE
+        int rank;
+        [Newtonsoft.Json.JsonIgnore]
+        public int Rank
+        {
+            get { return rank; }
+            set
+            {
+                SetProperty(ref rank, value);
+            }
+        }
+
+        bool isLoggedInUser;
+        [Newtonsoft.Json.JsonIgnore]
+        public bool IsLoggedInUser
+        {
+            get { return isLoggedInUser; }
+            set
+            {
+                SetProperty(ref isLoggedInUser, value);
+            }
+        }
+
+        int rankCounter;
+        [Newtonsoft.Json.JsonIgnore]
+        public int RankCounter
+        {
+            get { return rankCounter; }
+            set
+            {
+                SetProperty(ref rankCounter, value);
+            }
+        }
+#endif
     }
 }

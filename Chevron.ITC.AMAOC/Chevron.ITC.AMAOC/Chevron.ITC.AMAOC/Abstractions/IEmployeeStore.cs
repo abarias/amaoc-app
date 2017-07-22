@@ -10,5 +10,7 @@ namespace Chevron.ITC.AMAOC.Abstractions
     public interface IEmployeeStore : IBaseStore<Employee>
     {
         Task<Employee> GetEmployeeByUserId(string email);
+        Task<IEnumerable<Employee>> GetEmployeesPrevAndNext(string userId);
+        Task<IEnumerable<Employee>> GetEmployeesTopTenByPoints(string userId);
     }
 }

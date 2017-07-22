@@ -17,7 +17,8 @@ namespace Chevron.ITC.AMAOC.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
             Children.Add(new AMAOCNavigationPage(new FeedPage()));            
-            Children.Add(new AMAOCNavigationPage(new EventsPage()));            
+            Children.Add(new AMAOCNavigationPage(new EventsPage()));
+            Children.Add(new AMAOCNavigationPage(new RankingPage()));
             Children.Add(new AMAOCNavigationPage(new SettingsPage()));
 
             MessagingService.Current.Subscribe<DeepLinkPage>("DeepLinkPage", async (m, p) =>
@@ -59,6 +60,9 @@ namespace Chevron.ITC.AMAOC.Views
                 case 4:
                     App.Logger.TrackPage(AppPage.Settings.ToString());
                     break;
+                case 2:
+                    App.Logger.TrackPage(AppPage.Ranking.ToString());
+                    break;
             }
         }
 
@@ -67,9 +71,10 @@ namespace Chevron.ITC.AMAOC.Views
             switch ((int)menuId)
             {
                 case (int)AppPage.Feed: CurrentPage = Children[0]; break;
-                case (int)AppPage.Events: CurrentPage = Children[1]; break;                
+                case (int)AppPage.Events: CurrentPage = Children[1]; break;
+                case (int)AppPage.Ranking: CurrentPage = Children[2]; break;
                 case (int)AppPage.Notification: CurrentPage = Children[0]; break;
-                case (int)AppPage.Settings: CurrentPage = Children[2]; break;
+                case (int)AppPage.Settings: CurrentPage = Children[3]; break;
             }
         }
 
