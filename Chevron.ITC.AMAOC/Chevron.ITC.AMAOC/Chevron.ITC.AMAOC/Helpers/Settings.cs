@@ -123,6 +123,43 @@ namespace Chevron.ITC.AMAOC.Helpers
             }
         }
 
+        const string GooglePlayCheckedKey = "play_checked";
+        static readonly bool GooglePlayCheckedDefault = false;
+
+        public bool GooglePlayChecked
+        {
+            get { return AppSettings.GetValueOrDefault<bool>(GooglePlayCheckedKey, GooglePlayCheckedDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<bool>(GooglePlayCheckedKey, value);
+            }
+        }
+
+        const string AttemptedPushKey = "attempted_push";
+        static readonly bool AttemptedPushDefault = false;
+
+        public bool AttemptedPush
+        {
+            get { return AppSettings.GetValueOrDefault<bool>(AttemptedPushKey, AttemptedPushDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<bool>(AttemptedPushKey, value);
+            }
+        }
+
+
+        const string PushRegisteredKey = "push_registered";
+        static readonly bool PushRegisteredDefault = false;
+
+        public bool PushRegistered
+        {
+            get { return AppSettings.GetValueOrDefault<bool>(PushRegisteredKey, PushRegisteredDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<bool>(PushRegisteredKey, value);
+            }
+        }
+
         public bool IsLoggedIn => !string.IsNullOrWhiteSpace(UserId);
         public static string UserId
         {

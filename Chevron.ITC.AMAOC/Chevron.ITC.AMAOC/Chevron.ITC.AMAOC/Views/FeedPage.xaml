@@ -14,6 +14,7 @@
         <ResourceDictionary>
             <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
             <local:HumanizeDateConverter x:Key="HumanizeDateConverter" />
+            <local:RankingAvatarImageConverter x:Key="rankingAvatarImageConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <pull:PullToRefreshLayout
@@ -28,6 +29,93 @@
           VerticalOptions="FillAndExpand">
             <StackLayout Spacing="{DynamicResource CardSpacing}"
                     Padding="{DynamicResource CardPadding}">
+                <local:CardView>
+                    <!--Employee Info-->
+                    <StackLayout Spacing="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="34"/>
+                            </Grid.ColumnDefinitions>
+                            <local:LabelSection Text="Profile"/>
+                        </Grid>
+                        <local:HeaderDivider/>
+                        <StackLayout IsVisible="{Binding LoadingEmployee}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}">
+                            <ActivityIndicator IsRunning="{Binding LoadingEmployee}">
+                                <ActivityIndicator.Color>
+                                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Accent}"/>
+                                </ActivityIndicator.Color>
+                            </ActivityIndicator>
+                            <Label Text="Loading profile..." 
+                               HorizontalOptions="Center" 
+                               Style="{DynamicResource AMAOCListItemTextStyle}"/>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding LoadingEmployee, Converter={StaticResource InvertedBooleanConverter}}}" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="Center" 
+                                  BackgroundColor="White"
+                                  Padding="{StaticResource StandardPadding}"
+                                  x:Name="ProfileStack"
+                                  StyleId="ProfileItem" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="75*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <imagecircle:CircleImage                                    
+                                    Grid.Column="0"                                          
+                                    Grid.RowSpan="4"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    WidthRequest="70" HeightRequest="70"
+                                    BorderColor="{StaticResource Primary}"
+                                    Aspect="AspectFill"
+                                    Source="{Binding Employee, Converter={StaticResource rankingAvatarImageConverter}}"
+                                    x:Name="CircleImageAvatar"/>
+
+                                <Label Text="{Binding FullName}" 
+                                       Grid.Row="0"                                       
+                                       Grid.Column="1"                                       
+                                   BindingContext="{Binding Employee}"
+                                   Style="{DynamicResource SubtitleStyle}"
+                                       FontAttributes="Bold"
+                                   StyleId="EmployeeName" />
+                                
+                                <Label Text="{Binding CAI}" 
+                                       Grid.Row="1"
+                                       Grid.Column="1"                                       
+                                   BindingContext="{Binding Employee}"
+                                   Style="{DynamicResource AMAOCListItemTextStyle}"
+                                   StyleId="EmployeeCAI" />
+
+                                <Label Text="{Binding Points}" 
+                                       Grid.Row="2"
+                                       Grid.Column="1"                                       
+                                   Style="{DynamicResource AMAOCListItemTextStyle}"
+                                   StyleId="EmployeePoints" />
+
+                                <Label Text="{Binding Rank}" 
+                                       Grid.Row="3"
+                                       Grid.Column="1"                                                
+                                   Style="{DynamicResource AMAOCListItemTextStyle}"
+                                   StyleId="EmployeeRank" />
+
+                            </Grid>
+                        </StackLayout>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
                 <local:CardView>
                     <!--Notifications-->
                     <StackLayout Spacing="0">

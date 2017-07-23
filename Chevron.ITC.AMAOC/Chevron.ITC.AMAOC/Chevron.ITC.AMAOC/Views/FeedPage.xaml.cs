@@ -85,6 +85,9 @@ namespace Chevron.ITC.AMAOC.Views
 
                 if (ViewModel.Notification == null)
                     ViewModel.LoadNotificationsCommand.Execute(null);
+
+                if (ViewModel.Employee == null)
+                    ViewModel.LoadEmployeeCommand.Execute(null);
             }
 
         }

@@ -96,7 +96,7 @@ namespace Chevron.ITC.AMAOC.Droid
 
         void UpdateImage()
         {
-            Koush.UrlImageViewHelper.SetUrlDrawable(profileImage, Settings.Current.UserAvatar, Resource.Drawable.profile_generic);
+            Koush.UrlImageViewHelper.SetUrlDrawable(profileImage, Gravatar.GetURL(Settings.Current.Email), Resource.Drawable.profile_generic);
         }
 
         public override void OnViewRemoved(Android.Views.View child)

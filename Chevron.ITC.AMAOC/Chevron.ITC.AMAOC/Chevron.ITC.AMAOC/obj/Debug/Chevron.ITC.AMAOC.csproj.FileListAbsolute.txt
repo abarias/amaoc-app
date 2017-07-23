@@ -249,3 +249,7 @@ C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.SettingsPage.xaml.g.cs
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.SettingsPage.xaml.g.cs
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.RankingPage.xaml.g.cs
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\bin\Debug\ImageCircle.Forms.Plugin.Abstractions.dll
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\bin\Debug\ImageCircle.Forms.Plugin.Abstractions.pdb
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\bin\Debug\ImageCircle.Forms.Plugin.Abstractions.xml
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\obj\Debug\Chevron.ITC.AMAOC.Views.AboutPageiOS.xaml.g.cs

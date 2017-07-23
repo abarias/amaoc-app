@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chevron.ITC.AMAOC.Views.RankingPage"
              xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+             xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Name="RankingPage"
             Title="Ranking"    
             Icon="tab_ranking.png"
@@ -11,48 +12,50 @@
         <ResourceDictionary>
             <DataTemplate x:Key="ellipseTemplate">
                 <ViewCell>
-                    <StackLayout Orientation="Vertical">
-                        <StackLayout Padding="10" Orientation="Horizontal">
-                            <Label Text="..."
+                    <StackLayout Padding="{DynamicResource StandardPadding}" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="..."
                        LineBreakMode="NoWrap" VerticalTextAlignment="Center"
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="16"/>
-                        </StackLayout>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
             <DataTemplate x:Key="employeeTemplate">
                 <ViewCell>
-                    <StackLayout Orientation="Vertical">
-                        <StackLayout Padding="10" Orientation="Horizontal">
-                            <Image Source="profile_generic.png" />
-                            <Label Text="{Binding FullName}"
-                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="16"/>
-                            <Label Text="{Binding Rank}"
-                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="12"/>
-                            <Label Text="{Binding TotalPointsEarned}"
-                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="14"/>
-                            <Label Text="{Binding IsLoggedInUser}"
-                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="14"/>
-                            <Label Text="{Binding RankCounter}"
-                       LineBreakMode="NoWrap" VerticalTextAlignment="Center"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="14"/>
-                        </StackLayout>
-                    </StackLayout>
+                    <Grid Padding="{DynamicResource MediumPadding}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Rank}" Grid.Column="0"
+                                   LineBreakMode="NoWrap" VerticalTextAlignment="Center"
+                                   HorizontalOptions="Center"                                   
+                                   Style="{DynamicResource ListItemTextStyle}"/>
+                        <imagecircle:CircleImage
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="63" HeightRequest="63"
+                            BorderColor="{StaticResource Primary}"
+                            Aspect="AspectFill"
+                            Source="{Binding ., Converter={StaticResource rankingAvatarImageConverter}}"
+                            x:Name="CircleImageAvatar"/>
+                        <Label Text="{Binding FullName}" Grid.Column="2"
+                                   LineBreakMode="WordWrap" VerticalTextAlignment="Center"
+                                       HorizontalOptions="StartAndExpand"                               
+                                   Style="{DynamicResource ListItemTextStyle}"/>
+                        <Label Text="{Binding TotalPointsEarned}" Grid.Column="3" HorizontalOptions="Center"
+                                   LineBreakMode="NoWrap" VerticalTextAlignment="Center"                                   
+                                   Style="{DynamicResource ListItemTextStyle}"/>
+                    </Grid>
                 </ViewCell>
             </DataTemplate>
             <local:RankingViewCellDataTemplateSelector x:Key="rankingViewCellDataTemplateSelector"
                 EllipseTemplate="{StaticResource ellipseTemplate}"
                 EmployeeTemplate="{StaticResource employeeTemplate}" />
+            <local:RankingAvatarImageConverter x:Key="rankingAvatarImageConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -70,17 +73,30 @@
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
                       ItemTemplate="{StaticResource rankingViewCellDataTemplateSelector}">
                 <ListView.Header>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Header"
-                            />
+                    <StackLayout VerticalOptions="Center" Padding="{DynamicResource MediumPadding}">
+                        <StackLayout.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color" Android="#DFDFDF" WinPhone="#DFDFDF" iOS="#DFDFDF"/>
+                        </StackLayout.BackgroundColor>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*" />
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Rank" Style="{DynamicResource AMAOCListItemTextStyleBold}"  Grid.Column="0" HorizontalOptions="Center"/>
+                            <Label Text="Name" Style="{DynamicResource AMAOCListItemTextStyleBold}" Grid.Column="2" />
+                            <Label Text="Points" Style="{DynamicResource AMAOCListItemTextStyleBold}" Grid.Column="3" HorizontalOptions="Center"/>
+                        </Grid>
                     </StackLayout>
                 </ListView.Header>
                 <ListView.Footer>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding TotalEmployees}"
-                            HorizontalTextAlignment="Center"
-                               FontSize="Large"
-                               FontAttributes="Bold"/>
+                    <StackLayout Padding="{DynamicResource MediumPadding}" HorizontalOptions="Center">
+                        <!--<StackLayout.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color" Android="#DFDFDF" WinPhone="#DFDFDF"/>
+                        </StackLayout.BackgroundColor>-->
+                        <Label Text="{Binding TotalEmployees}" HorizontalOptions="Center"
+                               Style="{DynamicResource AMAOCListItemTextStyleBold}"/>
                     </StackLayout>
                 </ListView.Footer>
                 <ListView.SeparatorColor>

@@ -15,11 +15,7 @@
         android:id="@+id/nav_ranking"
         android:icon="@drawable/menu_ranking"
         android:title="Ranking" />
-  </group>
-
-  <item android:title="Information" >
-    <menu>
-      <item
+    <item
           android:title="Settings"
           android:icon="@drawable/menu_settings"
           android:id="@+id/nav_settings"
@@ -29,6 +25,6 @@
           android:icon="@drawable/menu_info"
           android:title="About"
           android:checkable="true" />      
-    </menu>
-  </item>
+  </group>
+         
 </menu>

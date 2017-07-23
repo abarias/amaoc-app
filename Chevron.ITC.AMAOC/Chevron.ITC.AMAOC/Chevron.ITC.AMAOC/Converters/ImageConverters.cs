@@ -44,4 +44,29 @@ namespace Chevron.ITC.AMAOC
             throw new NotImplementedException();
         }
     }
+
+    class RankingAvatarImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {            
+            if (value == null)
+                return ImageSource.FromFile("profile_generic.png");
+            try
+            {
+                var emp = value as Employee;
+                    return ImageSource.FromUri(new Uri(Gravatar.GetURL(emp.Email)));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to convert image to URI: " + ex);
+            }
+
+            return ImageSource.FromFile("profile_generic.png");
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

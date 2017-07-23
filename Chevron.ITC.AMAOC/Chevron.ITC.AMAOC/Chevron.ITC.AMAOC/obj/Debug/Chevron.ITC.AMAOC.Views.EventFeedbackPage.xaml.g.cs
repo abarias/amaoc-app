@@ -11,8 +11,8 @@
 namespace Chevron.ITC.AMAOC.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
-        "ITC.AMAOC\\Views\\EventFeedbackPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("G:\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Views\\E" +
+        "ventFeedbackPage.xaml")]
     public partial class EventFeedbackPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

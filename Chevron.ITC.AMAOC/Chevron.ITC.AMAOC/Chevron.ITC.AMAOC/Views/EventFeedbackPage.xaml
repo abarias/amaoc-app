@@ -122,7 +122,7 @@
                 StyleId="LabelFeedbackName"
                 Style="{DynamicResource AMAOCListItemTextStyle}"/>
 
-            <Editor x:Name="Feedback" HeightRequest="120" />
+            <Editor x:Name="Feedback" HeightRequest="120" Text="{Binding EventComments}"/>
             
             <Button
                 Text="Submit"  

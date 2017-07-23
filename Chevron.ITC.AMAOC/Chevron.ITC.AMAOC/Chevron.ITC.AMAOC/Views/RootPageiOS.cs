@@ -19,7 +19,7 @@ namespace Chevron.ITC.AMAOC.Views
             Children.Add(new AMAOCNavigationPage(new FeedPage()));            
             Children.Add(new AMAOCNavigationPage(new EventsPage()));
             Children.Add(new AMAOCNavigationPage(new RankingPage()));
-            Children.Add(new AMAOCNavigationPage(new SettingsPage()));
+            Children.Add(new AMAOCNavigationPage(new AboutPageiOS()));
 
             MessagingService.Current.Subscribe<DeepLinkPage>("DeepLinkPage", async (m, p) =>
             {

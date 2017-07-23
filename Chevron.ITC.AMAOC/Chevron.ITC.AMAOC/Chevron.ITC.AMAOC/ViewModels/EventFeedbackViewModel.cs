@@ -21,9 +21,17 @@ namespace Chevron.ITC.AMAOC.ViewModels
             set { SetProperty(ref ocEvent, value); }
         }
 
+        string eventComments;
+        public string EventComments
+        {
+            get { return eventComments; }
+            set { SetProperty(ref eventComments, value); }
+        }
+
         public EventFeedbackViewModel(INavigation navigation, Event e) : base(navigation)
         {
-            OCEvent = e;            
+            OCEvent = e;
+            EventComments = string.Empty;
         }
 
         ICommand submitRatingCommand;
@@ -71,7 +79,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 {
                     EventId = OCEvent.Id,
                     EventRating = rating,
-                    EventComment = string.Empty
+                    EventComment = EventComments
                 });
             }
             catch (Exception ex)

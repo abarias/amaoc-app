@@ -33,7 +33,7 @@ namespace Chevron.ITC.AMAOC.MockStores
                 User = new User
                 {
                     CAI = "BOPD",
-                    Email = "ABArias@chevron.com",
+                    Email = "abarias23@gmail.com",
                     FullName = "Anthony Bernard C. Arias",
                     UserId = "001"
                 }

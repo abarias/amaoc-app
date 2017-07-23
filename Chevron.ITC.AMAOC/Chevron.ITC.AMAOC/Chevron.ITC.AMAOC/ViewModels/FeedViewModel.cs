@@ -34,6 +34,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 IsBusy = true;
                 var tasks = new Task[]
                     {
+                        ExecuteLoadEmployeeCommandAsync(),
                         ExecuteLoadNotificationsCommandAsync(),                        
                         ExecuteLoadEventsCommandAsync()
                     };
@@ -48,6 +49,67 @@ namespace Chevron.ITC.AMAOC.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        string points;
+        public string Points
+        {
+            get { return points; }
+            set { SetProperty(ref points, value); }
+        }
+
+        string rank;
+        public string Rank
+        {
+            get { return rank; }
+            set { SetProperty(ref rank, value); }
+        }
+
+        Employee employee;
+        public Employee Employee
+        {
+            get { return employee; }
+            set { SetProperty(ref employee, value); }
+        }
+
+        bool loadingEmployee;
+        public bool LoadingEmployee
+        {
+            get { return loadingEmployee; }
+            set { SetProperty(ref loadingEmployee, value); }
+        }
+
+        ICommand loadEmployeeCommand;
+        public ICommand LoadEmployeeCommand =>
+            loadEmployeeCommand ?? (loadEmployeeCommand = new Command(async () => await ExecuteLoadEmployeeCommandAsync()));
+
+        async Task ExecuteLoadEmployeeCommandAsync()
+        {
+            if (LoadingEmployee)
+                return;
+            LoadingEmployee = true;
+            Rank = string.Empty;
+#if DEBUG
+            await Task.Delay(1000);
+#endif
+
+            try
+            {
+                var rankedEmployees = await StoreManager.EmployeeStore.GetEmployeesTopTenByPoints(Chevron.ITC.AMAOC.Helpers.Settings.UserId);
+                var currentEmp = rankedEmployees.FirstOrDefault(e => e.UserId == Chevron.ITC.AMAOC.Helpers.Settings.UserId);
+                Rank = $"Ranked {currentEmp.Rank} out of {rankedEmployees.Count()}";
+                Points = $"{currentEmp.TotalPointsEarned} points";
+                Employee = currentEmp;
+            }
+            catch (Exception ex)
+            {
+                ex.Data["method"] = "ExecuteLoadEmployeeCommandAsync";
+                Logger.Report(ex);
+            }
+            finally
+            {
+                LoadingEmployee = false;
             }
         }
 
