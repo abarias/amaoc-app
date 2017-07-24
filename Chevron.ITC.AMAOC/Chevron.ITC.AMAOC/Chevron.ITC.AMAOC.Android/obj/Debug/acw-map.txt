@@ -1,3 +1,11 @@
+Chevron.ITC.AMAOC.Droid.DataRefreshService, Chevron.ITC.AMAOC.Android;com.Chevron.ITC.AMAOC.DataRefreshService
+Chevron.ITC.AMAOC.Droid.DataRefreshService, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;com.Chevron.ITC.AMAOC.DataRefreshService
+Chevron.ITC.AMAOC.Droid.DataRefreshService;com.Chevron.ITC.AMAOC.DataRefreshService
+com.Chevron.ITC.AMAOC.DataRefreshService;com.Chevron.ITC.AMAOC.DataRefreshService
+Chevron.ITC.AMAOC.Droid.DataRefreshServiceBinder, Chevron.ITC.AMAOC.Android;md5301e791be920327796ce3a6b98575c4d.DataRefreshServiceBinder
+Chevron.ITC.AMAOC.Droid.DataRefreshServiceBinder, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.DataRefreshServiceBinder
+Chevron.ITC.AMAOC.Droid.DataRefreshServiceBinder;md5301e791be920327796ce3a6b98575c4d.DataRefreshServiceBinder
+chevron.itc.amaoc.droid.DataRefreshServiceBinder;md5301e791be920327796ce3a6b98575c4d.DataRefreshServiceBinder
 Chevron.ITC.AMAOC.Droid.MainActivity, Chevron.ITC.AMAOC.Android;md5301e791be920327796ce3a6b98575c4d.MainActivity
 Chevron.ITC.AMAOC.Droid.MainActivity, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.MainActivity
 Chevron.ITC.AMAOC.Droid.MainActivity;md5301e791be920327796ce3a6b98575c4d.MainActivity
@@ -6,6 +14,14 @@ Chevron.ITC.AMAOC.Droid.MainApplication, Chevron.ITC.AMAOC.Android;md5301e791be9
 Chevron.ITC.AMAOC.Droid.MainApplication, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.MainApplication
 Chevron.ITC.AMAOC.Droid.MainApplication;md5301e791be920327796ce3a6b98575c4d.MainApplication
 chevron.itc.amaoc.droid.MainApplication;md5301e791be920327796ce3a6b98575c4d.MainApplication
+Chevron.ITC.AMAOC.Droid.GcmBroadcastReceiver, Chevron.ITC.AMAOC.Android;com.sample.evolve.GcmBroadcastReceiver
+Chevron.ITC.AMAOC.Droid.GcmBroadcastReceiver, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;com.sample.evolve.GcmBroadcastReceiver
+Chevron.ITC.AMAOC.Droid.GcmBroadcastReceiver;com.sample.evolve.GcmBroadcastReceiver
+com.sample.evolve.GcmBroadcastReceiver;com.sample.evolve.GcmBroadcastReceiver
+Chevron.ITC.AMAOC.Droid.GcmService, Chevron.ITC.AMAOC.Android;com.sample.amaoc.GcmService
+Chevron.ITC.AMAOC.Droid.GcmService, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;com.sample.amaoc.GcmService
+Chevron.ITC.AMAOC.Droid.GcmService;com.sample.amaoc.GcmService
+com.sample.amaoc.GcmService;com.sample.amaoc.GcmService
 Chevron.ITC.AMAOC.Droid.NavigationViewRenderer, Chevron.ITC.AMAOC.Android;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
 Chevron.ITC.AMAOC.Droid.NavigationViewRenderer, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
 Chevron.ITC.AMAOC.Droid.NavigationViewRenderer;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
@@ -26,6 +42,14 @@ Microsoft.Identity.Client.BrowserTabActivity, Microsoft.Identity.Client;md546a18
 Microsoft.Identity.Client.BrowserTabActivity, Microsoft.Identity.Client, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae;md546a182019d6511bfce654d61824a1f9f.BrowserTabActivity
 Microsoft.Identity.Client.BrowserTabActivity;md546a182019d6511bfce654d61824a1f9f.BrowserTabActivity
 microsoft.identity.client.BrowserTabActivity;md546a182019d6511bfce654d61824a1f9f.BrowserTabActivity
+Gcm.GcmBroadcastReceiverBase`1, Microsoft.WindowsAzure.Messaging.Android;md5595da4d4e7cb22fe6af1e179e7257f69.GcmBroadcastReceiverBase_1
+Gcm.GcmBroadcastReceiverBase`1, Microsoft.WindowsAzure.Messaging.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5595da4d4e7cb22fe6af1e179e7257f69.GcmBroadcastReceiverBase_1
+Gcm.GcmBroadcastReceiverBase`1;md5595da4d4e7cb22fe6af1e179e7257f69.GcmBroadcastReceiverBase_1
+gcm.GcmBroadcastReceiverBase_1;md5595da4d4e7cb22fe6af1e179e7257f69.GcmBroadcastReceiverBase_1
+Gcm.GcmServiceBase, Microsoft.WindowsAzure.Messaging.Android;md5595da4d4e7cb22fe6af1e179e7257f69.GcmServiceBase
+Gcm.GcmServiceBase, Microsoft.WindowsAzure.Messaging.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5595da4d4e7cb22fe6af1e179e7257f69.GcmServiceBase
+Gcm.GcmServiceBase;md5595da4d4e7cb22fe6af1e179e7257f69.GcmServiceBase
+gcm.GcmServiceBase;md5595da4d4e7cb22fe6af1e179e7257f69.GcmServiceBase
 Xamarin.Auth._MobileServices.AndroidAccountStore/SecretAccount, Microsoft.WindowsAzure.Mobile.Ext;md5901e742fdf284ed0df9a9602f1963168.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore+SecretAccount, Microsoft.WindowsAzure.Mobile.Ext, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md5901e742fdf284ed0df9a9602f1963168.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore.SecretAccount;md5901e742fdf284ed0df9a9602f1963168.AndroidAccountStore_SecretAccount
@@ -638,6 +662,34 @@ Xamarin.Forms.Platform.Android.AppCompat.FormsFragmentPagerAdapter`1, Xamarin.Fo
 Xamarin.Forms.Platform.Android.AppCompat.FormsFragmentPagerAdapter`1, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5270abb39e60627f0f200893b490a1ade.FormsFragmentPagerAdapter_1
 Xamarin.Forms.Platform.Android.AppCompat.FormsFragmentPagerAdapter`1;md5270abb39e60627f0f200893b490a1ade.FormsFragmentPagerAdapter_1
 xamarin.forms.platform.android.appcompat.FormsFragmentPagerAdapter_1;md5270abb39e60627f0f200893b490a1ade.FormsFragmentPagerAdapter_1
+Android.Gms.Common.Images.ImageManager/IOnImageLoadedListenerImplementor, Xamarin.GooglePlayServices.Base;mono.com.google.android.gms.common.images.ImageManager_OnImageLoadedListenerImplementor
+Android.Gms.Common.Images.ImageManager+IOnImageLoadedListenerImplementor, Xamarin.GooglePlayServices.Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.com.google.android.gms.common.images.ImageManager_OnImageLoadedListenerImplementor
+Android.Gms.Common.Images.ImageManager.IOnImageLoadedListenerImplementor;mono.com.google.android.gms.common.images.ImageManager_OnImageLoadedListenerImplementor
+mono.com.google.android.gms.common.images.ImageManager_OnImageLoadedListenerImplementor;mono.com.google.android.gms.common.images.ImageManager_OnImageLoadedListenerImplementor
+Android.Gms.Common.Apis.ResultCallback`1, Xamarin.GooglePlayServices.Basement;md531f8cc8d4d39b2fa02686ee0eb368905.ResultCallback_1
+Android.Gms.Common.Apis.ResultCallback`1, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md531f8cc8d4d39b2fa02686ee0eb368905.ResultCallback_1
+Android.Gms.Common.Apis.ResultCallback`1;md531f8cc8d4d39b2fa02686ee0eb368905.ResultCallback_1
+android.gms.common.apis.ResultCallback_1;md531f8cc8d4d39b2fa02686ee0eb368905.ResultCallback_1
+Android.Gms.Common.Apis.AwaitableResultCallback`1, Xamarin.GooglePlayServices.Basement;md531f8cc8d4d39b2fa02686ee0eb368905.AwaitableResultCallback_1
+Android.Gms.Common.Apis.AwaitableResultCallback`1, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md531f8cc8d4d39b2fa02686ee0eb368905.AwaitableResultCallback_1
+Android.Gms.Common.Apis.AwaitableResultCallback`1;md531f8cc8d4d39b2fa02686ee0eb368905.AwaitableResultCallback_1
+android.gms.common.apis.AwaitableResultCallback_1;md531f8cc8d4d39b2fa02686ee0eb368905.AwaitableResultCallback_1
+Android.Gms.Common.Apis.GoogleApiClient/IOnConnectionFailedListenerImplementor, Xamarin.GooglePlayServices.Basement;mono.com.google.android.gms.common.api.GoogleApiClient_OnConnectionFailedListenerImplementor
+Android.Gms.Common.Apis.GoogleApiClient+IOnConnectionFailedListenerImplementor, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.com.google.android.gms.common.api.GoogleApiClient_OnConnectionFailedListenerImplementor
+Android.Gms.Common.Apis.GoogleApiClient.IOnConnectionFailedListenerImplementor;mono.com.google.android.gms.common.api.GoogleApiClient_OnConnectionFailedListenerImplementor
+mono.com.google.android.gms.common.api.GoogleApiClient_OnConnectionFailedListenerImplementor;mono.com.google.android.gms.common.api.GoogleApiClient_OnConnectionFailedListenerImplementor
+Android.Gms.Common.Apis.GoogleApiClientConnectionCallbacksImpl, Xamarin.GooglePlayServices.Basement;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientConnectionCallbacksImpl
+Android.Gms.Common.Apis.GoogleApiClientConnectionCallbacksImpl, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientConnectionCallbacksImpl
+Android.Gms.Common.Apis.GoogleApiClientConnectionCallbacksImpl;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientConnectionCallbacksImpl
+android.gms.common.apis.GoogleApiClientConnectionCallbacksImpl;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientConnectionCallbacksImpl
+Android.Gms.Common.Apis.GoogleApiClientOnConnectionFailedListenerImpl, Xamarin.GooglePlayServices.Basement;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientOnConnectionFailedListenerImpl
+Android.Gms.Common.Apis.GoogleApiClientOnConnectionFailedListenerImpl, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientOnConnectionFailedListenerImpl
+Android.Gms.Common.Apis.GoogleApiClientOnConnectionFailedListenerImpl;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientOnConnectionFailedListenerImpl
+android.gms.common.apis.GoogleApiClientOnConnectionFailedListenerImpl;md531f8cc8d4d39b2fa02686ee0eb368905.GoogleApiClientOnConnectionFailedListenerImpl
+Android.Gms.Security.ProviderInstaller/IProviderInstallListenerImplementor, Xamarin.GooglePlayServices.Basement;mono.com.google.android.gms.security.ProviderInstaller_ProviderInstallListenerImplementor
+Android.Gms.Security.ProviderInstaller+IProviderInstallListenerImplementor, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.com.google.android.gms.security.ProviderInstaller_ProviderInstallListenerImplementor
+Android.Gms.Security.ProviderInstaller.IProviderInstallListenerImplementor;mono.com.google.android.gms.security.ProviderInstaller_ProviderInstallListenerImplementor
+mono.com.google.android.gms.security.ProviderInstaller_ProviderInstallListenerImplementor;mono.com.google.android.gms.security.ProviderInstaller_ProviderInstallListenerImplementor
 ZXing.Net.Mobile.Forms.Android.ZXingScannerViewRenderer, ZXing.Net.Mobile.Forms.Android;md5fbb80ec618683c883ff3d11f39672892.ZXingScannerViewRenderer
 ZXing.Net.Mobile.Forms.Android.ZXingScannerViewRenderer, ZXing.Net.Mobile.Forms.Android, Version=2.2.9.0, Culture=neutral, PublicKeyToken=null;md5fbb80ec618683c883ff3d11f39672892.ZXingScannerViewRenderer
 ZXing.Net.Mobile.Forms.Android.ZXingScannerViewRenderer;md5fbb80ec618683c883ff3d11f39672892.ZXingScannerViewRenderer

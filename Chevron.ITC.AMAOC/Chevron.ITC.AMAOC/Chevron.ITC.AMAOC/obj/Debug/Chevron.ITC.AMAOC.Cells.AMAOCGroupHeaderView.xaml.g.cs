@@ -11,8 +11,8 @@
 namespace Chevron.ITC.AMAOC {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\bopd\\Source\\Repos\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron." +
-        "ITC.AMAOC\\Cells\\AMAOCGroupHeaderView.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("G:\\GitHub\\amaoc-app\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Chevron.ITC.AMAOC\\Cells\\A" +
+        "MAOCGroupHeaderView.xaml")]
     public partial class AMAOCGroupHeaderView : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

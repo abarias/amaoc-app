@@ -10,6 +10,10 @@
     <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.v7.MediaRouter\23.3.0.0\embedded</AdditionalAndroidResourcePath>
     <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.v7.RecyclerView\23.3.0.0\embedded</AdditionalAndroidResourcePath>
     <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.Vector.Drawable\23.3.0.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Base\8.4.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Basement\8.4.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Gcm\8.4.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Measurement\8.4.0\embedded</AdditionalAndroidResourcePath>
   </AdditionalAndroidResourcePaths>
   <AdditionalJavaLibraryReferences>
     <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.Animated.Vector.Drawable\23.3.0.0\embedded\classes.jar</AdditionalJavaLibraryReference>
@@ -23,6 +27,10 @@
     <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.v7.MediaRouter\23.3.0.0\embedded\libs\internal_impl-23.3.0.jar</AdditionalJavaLibraryReference>
     <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.v7.RecyclerView\23.3.0.0\embedded\classes.jar</AdditionalJavaLibraryReference>
     <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.Android.Support.Vector.Drawable\23.3.0.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Base\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Basement\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Gcm\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\AnthonyBernard\AppData\Local\Xamarin\Xamarin.GooglePlayServices.Measurement\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
   </AdditionalJavaLibraryReferences>
   <AdditionalNativeLibraryReferences />
 </Paths>

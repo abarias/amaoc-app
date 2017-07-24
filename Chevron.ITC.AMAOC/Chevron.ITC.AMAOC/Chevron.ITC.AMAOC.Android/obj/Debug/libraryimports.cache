@@ -11,6 +11,7 @@
   <Jars>
     <Jar>obj\Debug\__library_projects__\FormsViewGroup\library_project_imports\formsviewgroup.jar</Jar>
     <Jar>obj\Debug\__library_projects__\HockeySDK.AndroidBindings\library_project_imports\bin\classes.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Microsoft.WindowsAzure.Messaging.Android\library_project_imports\notification-hubs-0.4.jar</Jar>
     <Jar>obj\Debug\__library_projects__\Refractored.Controls.CircleImageView\library_project_imports\bin\classes.jar</Jar>
     <Jar>obj\Debug\__library_projects__\UrlImageViewHelper\library_project_imports\bin\classes.jar</Jar>
   </Jars>
