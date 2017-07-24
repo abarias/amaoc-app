@@ -120,7 +120,9 @@
     <Compile Include="Services\StoreManager.cs" />
     <Compile Include="Stores\EmployeeStore.cs" />
     <Compile Include="Stores\EventAttendeeStore.cs" />
+    <Compile Include="Stores\EventRatingCommentStore.cs" />
     <Compile Include="Stores\EventStore.cs" />
+    <Compile Include="Stores\NotificationStore.cs" />
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\Gravatar.cs" />
     <Compile Include="Utilities\MD5Core.cs" />
