@@ -25,53 +25,27 @@ namespace Chevron.ITC.AMAOC.Stores
             foreach (var ev in events)
             {
                 string statusImage = "check.png";
-                Event.EventStatus eventStatus = Event.EventStatus.Completed;
                 var isAttended = await eventAttendeeStore.IsAttended(ev.Id).ConfigureAwait(false);
                 if (!isAttended && ev.IsCompleted)
-                {
                     statusImage = "minus.png";
-                    eventStatus = Event.EventStatus.Missed;
-                }
                 else if (!isAttended && !ev.IsCompleted)
-                {
                     statusImage = "detail.png";
-                    eventStatus = Event.EventStatus.NotStarted;
-                }
 
                 ev.StatusImage = statusImage;
-                ev.OCEventStatus = eventStatus;
             }
 
             return events;
         
         }
 
-        public async Task<Event> GetAppIndexEvent(string id)
+        public Task<Event> GetAppIndexEvent(string id)
         {
-            await InitializeStore().ConfigureAwait(false);
-            var events = await Table.Where(s => s.Id == id || s.RemoteId == id).ToListAsync();
-
-            if (events == null || events.Count == 0)
-                return null;
-
-            return events[0];
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Event>> GetNextEvents()
+        public Task<IEnumerable<Event>> GetNextEvents()
         {
-            var date = DateTime.UtcNow.AddMinutes(-30);
-
-            var events = await GetItemsAsync().ConfigureAwait(false);
-
-            var results = (from ocEvent in events
-                           where (ocEvent.StartTime.HasValue && ocEvent.StartTime.Value > date
-                           && !ocEvent.IsCompleted)
-                           orderby ocEvent.StartTime.Value
-                           select ocEvent).Take(2);
-
-
-            var enumerable = results as Event[] ?? results.ToArray();
-            return !enumerable.Any() ? null : enumerable;
+            throw new NotImplementedException();
         }
 
         public override string Identifier => "Event";
