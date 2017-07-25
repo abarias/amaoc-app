@@ -83,9 +83,9 @@ namespace Chevron.ITC.AMAOC.ViewModels
             
             try
             {
-                //AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), UIBehavior.ForceLogin, string.Empty, null, App.Authority, App.UiParent);                          
-                //result = await client.LoginAsync(ar.IdToken, ar.AccessToken);sss
-                result = await client.LoginAsync("TestIdToken", "TestAccessToken");
+                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), UIBehavior.ForceLogin, string.Empty, null, App.Authority, App.UiParent);                          
+                result = await client.LoginAsync(ar.IdToken, ar.AccessToken);
+                //result = await client.LoginAsync("TestIdToken", "TestAccessToken");
 
                 if (result?.Success ?? false)
                 {
@@ -103,7 +103,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     catch (Exception ex)
                     {
                         //if sync doesn't work don't worry it is alright we can recover later
-                        //Logger.Report(ex);
+                        Logger.Report(ex);
                     }
                     
                     Settings.FirstRun = false;

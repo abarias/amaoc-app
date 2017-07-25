@@ -46,7 +46,7 @@ namespace Chevron.ITC.AMAOC
         {            
             InitializeComponent();
 
-            ViewModelBase.Init(true);
+            ViewModelBase.Init(false);
 
             PCA = new PublicClientApplication(ClientId, Authority);
             

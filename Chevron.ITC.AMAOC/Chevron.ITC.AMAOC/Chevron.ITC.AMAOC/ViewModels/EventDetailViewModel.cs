@@ -95,6 +95,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
                 IsReminderSet = await ReminderService.HasReminderAsync(Event.Id);
                 Event.FeedbackLeft = await StoreManager.EventRatingCommentStore.LeftFeedback(Event);
+                Event.IsAttended = Settings.Current.IsEventAttended(Event.Id);
+                
 
 
             }
@@ -108,6 +110,17 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 IsBusy = false;
             }
 
+        }
+
+        public async Task AttendEvent()
+        {            
+            Event.IsAttended = true;
+            Settings.Current.AttendEvent(Event.Id);
+            await StoreManager.EventAttendeeStore.InsertAsync(new EventAttendee
+            {
+                EventId = Event.Id,
+                EmployeeId = Settings.UserId
+            });
         }
     }
 }

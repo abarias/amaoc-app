@@ -31,8 +31,7 @@ namespace Chevron.ITC.AMAOC.Services
             var taskList = new List<Task<bool>>();
             taskList.Add(EventStore.SyncAsync());
             taskList.Add(EmployeeStore.SyncAsync());
-            taskList.Add(EventAttendeeStore.SyncAsync());
-
+            taskList.Add(EventAttendeeStore.SyncAsync());            
 
             //if (syncUserSpecific)
             //{
@@ -53,7 +52,7 @@ namespace Chevron.ITC.AMAOC.Services
             Settings.UpdateDatabaseId();
             EventStore.DropTable();
             EmployeeStore.DropTable();
-            EventAttendeeStore.DropTable();
+            EventAttendeeStore.DropTable();            
             IsInitialized = false;
             return Task.FromResult(true);
         }
@@ -81,7 +80,7 @@ namespace Chevron.ITC.AMAOC.Services
                 store.DefineTable<Event>();
                 store.DefineTable<Employee>();
                 store.DefineTable<StoreSettings>();
-                store.DefineTable<EventAttendee>();
+                store.DefineTable<EventAttendee>();                
             }
 
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler()).ConfigureAwait(false);

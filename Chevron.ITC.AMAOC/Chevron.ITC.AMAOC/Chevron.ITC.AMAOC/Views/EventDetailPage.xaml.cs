@@ -136,17 +136,23 @@ namespace Chevron.ITC.AMAOC.Views
                 await Navigation.PopAsync();
 
                 //admin app will append on evolve to the end to it is unique.
-                if (vm.Event.Name + "amaoc" == result.Text)
-                {
-                    //vm.FinishHack();
-                    App.Logger.Track("AttendedEvent", "Name", vm.Event.Name);
-                    await DisplayAlert("Congratulations", "You have confirmed your attendance for this event!", "OK");
+                try
+                { 
+                    if (vm.Event.Name + "amaoc" == result.Text)
+                    {
+                        await vm.AttendEvent();
+                        App.Logger.Track("AttendedEvent", "Name", vm.Event.Name);
+                        await DisplayAlert("Congratulations", "You have confirmed your attendance for this event!", "OK");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Event Issue", "That doesn't seem to be the right code. Please see your speaker to confirm your attendance.", "OK");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Event Issue", "That doesn't seem to be the right code. Please see your speaker to confirm your attendance.", "OK");
-                }
 
+                }
             });
         }
     }

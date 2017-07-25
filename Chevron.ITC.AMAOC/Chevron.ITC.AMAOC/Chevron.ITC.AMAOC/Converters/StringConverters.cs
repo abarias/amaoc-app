@@ -134,7 +134,9 @@ namespace Chevron.ITC.AMAOC
         {
             try
             {
-                if ((Event.EventStatus)value != Event.EventStatus.Completed)
+                var ocEvent = value as Event;
+                if (ocEvent.OCEventStatus != Event.EventStatus.Completed ||
+                    ocEvent.FeedbackLeft)
                     return false;
 
             }
@@ -154,10 +156,14 @@ namespace Chevron.ITC.AMAOC
     class EventAttendanceVisibleConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
+        {            
             try
             {
                 var ocEvent = value as Event;
+
+                if (ocEvent.IsAttended)
+                    return false;
+
                 if (DateTime.Today.DayOfYear == ocEvent.StartTime?.DayOfYear &&
                     ocEvent.OCEventStatus == Event.EventStatus.NotStarted)
                     return true;

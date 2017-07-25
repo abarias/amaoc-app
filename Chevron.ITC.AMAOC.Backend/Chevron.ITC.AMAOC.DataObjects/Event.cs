@@ -41,6 +41,17 @@ namespace Chevron.ITC.AMAOC.DataObjects
             }
         }
 
+        bool isAttended;
+        [Newtonsoft.Json.JsonIgnore]
+        public bool IsAttended
+        {
+            get { return isAttended; }
+            set
+            {
+                SetProperty(ref isAttended, value);
+            }
+        }
+
         bool feedbackLeft;
         [Newtonsoft.Json.JsonIgnore]
         public bool FeedbackLeft

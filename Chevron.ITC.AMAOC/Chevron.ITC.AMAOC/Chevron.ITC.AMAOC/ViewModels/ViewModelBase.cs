@@ -49,6 +49,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 DependencyService.Register<IEventStore, Chevron.ITC.AMAOC.Stores.EventStore>();
                 DependencyService.Register<IEmployeeStore, Chevron.ITC.AMAOC.Stores.EmployeeStore>();
                 DependencyService.Register<IEventAttendeeStore, Chevron.ITC.AMAOC.Stores.EventAttendeeStore>();
+                DependencyService.Register<IEventRatingCommentStore, Chevron.ITC.AMAOC.Stores.EventRatingCommentStore>();
+                DependencyService.Register<INotificationStore, Chevron.ITC.AMAOC.Stores.NotificationStore>();
                 DependencyService.Register<ISSOClient, Chevron.ITC.AMAOC.Services.SSOClient>();
                 DependencyService.Register<IStoreManager, Chevron.ITC.AMAOC.Services.StoreManager>();
             }

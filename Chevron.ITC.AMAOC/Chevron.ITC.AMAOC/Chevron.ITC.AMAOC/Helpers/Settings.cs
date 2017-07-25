@@ -84,6 +84,16 @@ namespace Chevron.ITC.AMAOC.Helpers
             }
         }
 
+        public bool IsEventAttended(string id)
+        {
+            return AppSettings.GetValueOrDefault("event_attended_" + id, false);
+        }
+
+        public void AttendEvent(string id)
+        {
+            AppSettings.AddOrUpdateValue("event_attended_" + id, true);
+        }
+
         const string AMAOCCalendarIdKey = "amaoc_calendar";
         static readonly string AMAOCCalendarIdDefault = string.Empty;
         public string AMAOCCalendarId

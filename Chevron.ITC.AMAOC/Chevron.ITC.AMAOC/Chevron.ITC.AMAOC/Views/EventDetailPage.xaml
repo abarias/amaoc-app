@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chevron.ITC.AMAOC.Views.EventDetailPage"
              xmlns:local="clr-namespace:Chevron.ITC.AMAOC;assembly=Chevron.ITC.AMAOC"
+             xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
              Title="OC Event Details"
              NavigationPage.BackButtonTitle="OC Events"
              BackgroundColor="{DynamicResource WindowBackgroundTable}">
@@ -17,6 +18,7 @@
             <local:EventFeedbackVisibleConverter x:Key="EventFeedbackVisibleConverter" />
             <local:EventAttendanceVisibleConverter x:Key="EventAttendanceVisibleConverter" />
             <local:HasReminderTextConverter x:Key="HasReminderTextConverter" />
+            <toolkit:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <local:AlwaysScrollView>
@@ -102,10 +104,15 @@
                         </StackLayout>
                         
                         <!-- feedback button -->
-                        <local:SectionDivider IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventFeedbackVisibleConverter}}"></local:SectionDivider>
+                        <local:SectionDivider IsVisible="{Binding Event, Converter={StaticResource EventFeedbackVisibleConverter}}"></local:SectionDivider>
                         <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White" 
-                            IsVisible="{Binding Event.OCEventStatus, Converter={StaticResource EventFeedbackVisibleConverter}}">
+                            IsVisible="{Binding Event, Converter={StaticResource EventFeedbackVisibleConverter}}">
+                            <Label Text="Thanks for your feedback!" 
+                                                   HorizontalOptions="Center" 
+                                                   IsVisible="{Binding Event.FeedbackLeft}"
+                                                   Style="{DynamicResource AMAOCListItemTextStyle}"/>
                             <Button
+                                IsVisible="{Binding Event.FeedbackLeft, Converter={StaticResource InvertedBooleanConverter}}"
                              Text="Give Feedback"                                     
                             x:Name="ButtonFeedback"
                             StyleId="FeedbackButton">
