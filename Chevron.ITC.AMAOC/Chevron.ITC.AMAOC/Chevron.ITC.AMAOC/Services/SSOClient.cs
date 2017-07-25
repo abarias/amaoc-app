@@ -2,6 +2,8 @@
 using Chevron.ITC.AMAOC.Interfaces;
 using Chevron.ITC.AMAOC.Models;
 using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,18 +55,27 @@ namespace Chevron.ITC.AMAOC.Services
         }
 
         private AccountResponse AccountFromMobileServiceUser(string idToken)
-        {            
-            IDictionary<string, string> claims = JwtUtility.GetClaims(idToken);
-
+        {
             var account = new AccountResponse();
-            account.Success = true;
-            account.User = new User
+            try
             {
-                UserId = claims[JwtClaimNames.Subject],
-                FullName = claims[JwtClaimNames.FullName],
-                CAI = claims[JwtClaimNames.CAI],
-                Email = claims[JwtClaimNames.Email][0].ToString()
-            };
+                IDictionary<string, object> claims = JwtUtility.GetClaims(idToken);
+
+                var emailArray = (JArray)claims[JwtClaimNames.Email];
+
+                account.Success = true;
+                account.User = new User
+                {
+                    UserId = claims[JwtClaimNames.Subject].ToString(),
+                    FullName = claims[JwtClaimNames.FullName].ToString(),
+                    CAI = claims[JwtClaimNames.CAI].ToString(),
+                    Email = emailArray.ToObject<string[]>()[0].ToString()
+                };
+            }
+            catch (Exception jex)
+            {
+
+            }                                   
 
             return account;
         }

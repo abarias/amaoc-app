@@ -26,7 +26,7 @@ namespace Chevron.ITC.AMAOC.Backend.Helpers
             var identity = (ClaimsIdentity)context.Principal.Identity;
             var claims = identity.Claims;
                       
-            var claimType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
+            var claimType = "http://schemas.microsoft.com/identity/claims/objectidentifier";
 
             return (from c in claims
                     where c.Type == claimType

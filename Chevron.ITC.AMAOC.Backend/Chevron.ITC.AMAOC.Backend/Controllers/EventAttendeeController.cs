@@ -27,15 +27,16 @@ namespace Chevron.ITC.AMAOC.Backend.Controllers
         
         public IQueryable<EventAttendee> GetAllEventAttendee()
         {
+            
             var items = Query();            
-            var claimsPrincipal = new ClaimsPrincipal(this.User);
-            var userId = claimsPrincipal.FindFirst(ClaimTypes.Email).Value;
-            Trace.TraceInformation("UserId 1: " + userId);
+            //var claimsPrincipal = new ClaimsPrincipal(this.User);
+            //var userId = claimsPrincipal.FindFirst(ClaimTypes.Email).Value;
+            //Trace.TraceInformation("UserId 1: " + userId);
 
             var userId2 = UserHelper.GetAuthenticatedUserUserId(RequestContext);                        
             Trace.TraceInformation("UserId 2: " + userId2);            
 
-            var final = items.Where(e => e.EmployeeId == userId);
+            var final = items.Where(e => e.EmployeeId == userId2);
 
             return final;
         }

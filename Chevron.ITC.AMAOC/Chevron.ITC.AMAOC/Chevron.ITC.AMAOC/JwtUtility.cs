@@ -11,7 +11,7 @@ namespace Chevron.ITC.AMAOC
     {
         public static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
-        public static IDictionary<string, string> GetClaims(string rawToken)
+        public static IDictionary<string, object> GetClaims(string rawToken)
         {
             string[] tokenParts = rawToken.Split('.');
 
@@ -22,16 +22,16 @@ namespace Chevron.ITC.AMAOC
 
             string mobileAppToken = GetDecodedPayload(tokenParts[1]);
 
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(mobileAppToken);
+            return JsonConvert.DeserializeObject<Dictionary<string, object>>(mobileAppToken);
         }
 
         public static DateTime? GetTokenExpiration(string token)
         {
-            IDictionary<string, string> claims = GetClaims(token);
+            IDictionary<string, object> claims = GetClaims(token);
 
             if (claims.ContainsKey(JwtClaimNames.Expiration))
             {
-                int secondsFromEpoch = int.Parse(claims[JwtClaimNames.Expiration]);
+                int secondsFromEpoch = int.Parse(claims[JwtClaimNames.Expiration].ToString());
 
                 return (UnixEpoch + TimeSpan.FromSeconds(secondsFromEpoch)).ToUniversalTime();
             }

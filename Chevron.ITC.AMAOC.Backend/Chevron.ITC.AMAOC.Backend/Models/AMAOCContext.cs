@@ -35,5 +35,9 @@ namespace Chevron.ITC.AMAOC.Backend.Models
         public DbSet<FeedbackAnswerFreeText> FeedbackAnswerFreeTexts { get; set; }
 
         public DbSet<FeedbackQuestion> FeedbackQuestions { get; set; }
+
+        public DbSet<Notification> Notifications { get; set; }
+
+        public DbSet<EventRatingComment> EventRatingComments { get; set; }
     }
 }

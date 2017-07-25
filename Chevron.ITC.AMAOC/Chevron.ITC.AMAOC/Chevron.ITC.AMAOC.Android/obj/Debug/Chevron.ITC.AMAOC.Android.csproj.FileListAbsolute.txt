@@ -257,6 +257,14 @@ C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\zh-Hant\Humanizer.resources.dll
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Humanizer.dll.mdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Humanizer.dll.mdb
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\com.Chevron.ITC.AMAOC.apk
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\com.Chevron.ITC.AMAOC-Signed.apk
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Microsoft.WindowsAzure.Messaging.Android.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Base.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Gcm.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Measurement.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\bin\com.Chevron.ITC.AMAOC.apk
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.Android.dll.config
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.Android.dll
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Chevron.ITC.AMAOC.Android.pdb
@@ -524,11 +532,3 @@ G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Androi
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\com.Chevron.ITC.AMAOC.apk
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\com.Chevron.ITC.AMAOC-Signed.apk
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Microsoft.WindowsAzure.Messaging.Android.dll
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Base.dll
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Gcm.dll
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Debug\Xamarin.GooglePlayServices.Measurement.dll
-C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\android\bin\com.Chevron.ITC.AMAOC.apk

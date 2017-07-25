@@ -290,6 +290,7 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\EventRatingCommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Helpers\QueryableExpandAttribute.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
