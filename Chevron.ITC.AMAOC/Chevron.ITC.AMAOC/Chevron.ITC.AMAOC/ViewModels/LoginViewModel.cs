@@ -15,6 +15,7 @@ using System.Text;
 using System.Linq;
 using Chevron.ITC.AMAOC.Abstractions;
 using Chevron.ITC.AMAOC.Interfaces;
+using FormsToolkit;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
@@ -93,6 +94,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     Settings.Email = result.User?.Email ?? string.Empty;
                     Settings.FullName = result.User?.FullName ?? string.Empty;
                     Settings.CAI = result.User?.CAI ?? string.Empty;
+                    MessagingService.Current.SendMessage(MessageKeys.LoggedIn);
+                    Logger.Track(AMAOCLoggerKeys.LoginSuccess);
                     try
                     {
                         await StoreManager.SyncAllAsync(true);
@@ -108,6 +111,20 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     
                     Settings.FirstRun = false;
                 }
+                else
+                {
+                    Logger.Track(AMAOCLoggerKeys.LoginFailure, "Reason", result.Error);
+                    MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
+                    {
+                        Title = "Unable to Sign in",
+                        Message = result.Error,
+                        Cancel = "OK"
+                    });
+                }
+            }
+            catch(MsalException mex)
+            {
+
             }
             catch (Exception ex)
             {
@@ -139,22 +156,24 @@ namespace Chevron.ITC.AMAOC.ViewModels
         async Task Finish()
         {
             var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
-            if (Settings.FirstRun)
-            {                
-                if (emp == null)
+            
+            if (emp == null)
+            {
+                var newEmp = new Employee
                 {
-                    var newEmp = new Employee
-                    {
-                        CAI = Settings.CAI,
-                        Email = Settings.Email,
-                        FullName = Settings.FullName,
-                        UserId = Settings.UserId,
-                        Id = Settings.UserId
-                    };
-                    await StoreManager.EmployeeStore.InsertAsync(newEmp);
-                }                
+                    CAI = Settings.CAI,
+                    Email = Settings.Email,
+                    FullName = Settings.FullName,
+                    UserId = Settings.UserId,
+                    Id = Settings.UserId
+                };
+                await StoreManager.EmployeeStore.InsertAsync(newEmp);
+
+            }   
+            else
+            {
+                Settings.TotalPoints = emp.TotalPointsEarned.ToString();
             }
-            Settings.TotalPoints = emp.TotalPointsEarned.ToString();
         }
     }
 }

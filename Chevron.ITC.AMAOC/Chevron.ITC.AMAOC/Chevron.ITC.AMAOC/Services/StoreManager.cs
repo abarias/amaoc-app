@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Chevron.ITC.AMAOC.Abstractions;
 using Chevron.ITC.AMAOC.DataObjects;
 using Chevron.ITC.AMAOC.Helpers;
+using Microsoft.Identity.Client;
 
 namespace Chevron.ITC.AMAOC.Services
 {
@@ -31,7 +32,8 @@ namespace Chevron.ITC.AMAOC.Services
             var taskList = new List<Task<bool>>();
             taskList.Add(EventStore.SyncAsync());
             taskList.Add(EmployeeStore.SyncAsync());
-            taskList.Add(EventAttendeeStore.SyncAsync());            
+            taskList.Add(EventAttendeeStore.SyncAsync());
+            taskList.Add(NotificationStore.SyncAsync());
 
             //if (syncUserSpecific)
             //{
@@ -52,7 +54,8 @@ namespace Chevron.ITC.AMAOC.Services
             Settings.UpdateDatabaseId();
             EventStore.DropTable();
             EmployeeStore.DropTable();
-            EventAttendeeStore.DropTable();            
+            EventAttendeeStore.DropTable();
+            NotificationStore.DropTable();
             IsInitialized = false;
             return Task.FromResult(true);
         }
@@ -80,7 +83,8 @@ namespace Chevron.ITC.AMAOC.Services
                 store.DefineTable<Event>();
                 store.DefineTable<Employee>();
                 store.DefineTable<StoreSettings>();
-                store.DefineTable<EventAttendee>();                
+                store.DefineTable<EventAttendee>();
+                store.DefineTable<Notification>();
             }
 
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler()).ConfigureAwait(false);
@@ -119,10 +123,21 @@ namespace Chevron.ITC.AMAOC.Services
             credentials["access_token"] = accessToken;            
             
             MobileServiceUser user = await MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, credentials);
-
+            
             await CacheToken(user);
 
             return user;
+        }
+
+        private static IUser GetUserByPolicy(IEnumerable<IUser> users, string policy)
+        {
+            foreach (var user in users)
+            {
+                string userIdentifier = JwtUtility.GetDecodedPayload(user.Identifier.Split('.')[0]);
+                if (userIdentifier.EndsWith(policy.ToLower())) return user;
+            }
+
+            return null;
         }
 
         public async Task LogoutAsync()
@@ -133,7 +148,8 @@ namespace Chevron.ITC.AMAOC.Services
             }
 
             await MobileService.LogoutAsync();
-
+            App.PCA.Remove(GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn));
+                        
             var settings = await ReadSettingsAsync();
 
             if (settings != null)
