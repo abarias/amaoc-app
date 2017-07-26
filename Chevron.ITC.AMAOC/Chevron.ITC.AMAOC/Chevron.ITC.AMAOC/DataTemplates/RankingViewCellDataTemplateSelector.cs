@@ -1,4 +1,5 @@
 ﻿using Chevron.ITC.AMAOC.DataObjects;
+using Chevron.ITC.AMAOC.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Chevron.ITC.AMAOC
             var currentEmp = item as Employee;
 
             if (currentEmp.RankCounter == 11)
-                return currentEmp.UserId == Chevron.ITC.AMAOC.Helpers.Settings.UserId ? EmployeeTemplate : EllipseTemplate;
+                return currentEmp.UserId == Settings.Current.UserId ? EmployeeTemplate : EllipseTemplate;
             else
                 return EmployeeTemplate;            
         }

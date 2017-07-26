@@ -46,7 +46,7 @@ namespace Chevron.ITC.AMAOC.Services
                 throw new ArgumentNullException(nameof(user));
             }
 
-            return AccountFromMobileServiceUser(idToken);
+            return AccountFromMobileServiceUser(idToken, user);
         }
 
         public async Task LogoutAsync()
@@ -54,7 +54,7 @@ namespace Chevron.ITC.AMAOC.Services
             await storeManager.LogoutAsync();
         }
 
-        private AccountResponse AccountFromMobileServiceUser(string idToken)
+        private AccountResponse AccountFromMobileServiceUser(string idToken, MobileServiceUser user)
         {
             var account = new AccountResponse();
             try
@@ -66,7 +66,7 @@ namespace Chevron.ITC.AMAOC.Services
                 account.Success = true;
                 account.User = new User
                 {
-                    UserId = claims[JwtClaimNames.Subject].ToString(),
+                    UserId = user.UserId,
                     FullName = claims[JwtClaimNames.FullName].ToString(),
                     CAI = claims[JwtClaimNames.CAI].ToString(),
                     Email = emailArray.ToObject<string[]>()[0].ToString()

@@ -117,7 +117,7 @@ namespace Chevron.ITC.AMAOC.Services
 
             var credentials = new JObject();
             credentials["access_token"] = accessToken;            
-
+            
             MobileServiceUser user = await MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, credentials);
 
             await CacheToken(user);

@@ -105,7 +105,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 {
                     await ssoClient.LogoutAsync();
                 }
-
+                
                 Settings.FullName = string.Empty;
                 Settings.CAI = string.Empty;
                 Settings.Email = string.Empty; //this triggers login text changed!

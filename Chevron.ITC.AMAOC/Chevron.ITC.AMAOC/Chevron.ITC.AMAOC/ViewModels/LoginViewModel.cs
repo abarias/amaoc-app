@@ -83,7 +83,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             
             try
             {
-                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), UIBehavior.ForceLogin, string.Empty, null, App.Authority, App.UiParent);                          
+                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
                 result = await client.LoginAsync(ar.IdToken, ar.AccessToken);
                 //result = await client.LoginAsync("TestIdToken", "TestAccessToken");
 

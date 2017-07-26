@@ -14,6 +14,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using Chevron.ITC.AMAOC.Backend.App_Start;
+using System.Diagnostics;
 
 namespace Chevron.ITC.AMAOC.Backend
 {
@@ -33,8 +34,8 @@ namespace Chevron.ITC.AMAOC.Backend
             config.EnableSystemDiagnosticsTracing();
 
             new MobileAppConfiguration()
-            .UseDefaultConfiguration()            
-            .ApplyTo(config);
+            .UseDefaultConfiguration()
+            .ApplyTo(config);            
 
 
             // Use Entity Framework Code First to create database tables based on your DbContext
@@ -45,23 +46,36 @@ namespace Chevron.ITC.AMAOC.Backend
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
+            TokenValidationParameters tvps = new TokenValidationParameters
+            {
+                // Accept only those tokens where the audience of the token is equal to the client ID of this app
+                ValidAudience = ClientId,
+                AuthenticationType = Startup.DefaultPolicy
+            };
+
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+            {
+                // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+                AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(AadInstance, Tenant, DefaultPolicy)))
+            });
+
             // This middleware is intended to be used locally for debugging. By default, HostName will
             // only have a value when running in an App Service application.
-            if (string.IsNullOrEmpty(settings.HostName))
-            {
-                TokenValidationParameters tvps = new TokenValidationParameters
-                {
-                    // Accept only those tokens where the audience of the token is equal to the client ID of this app
-                    ValidAudience = ClientId,
-                    AuthenticationType = Startup.DefaultPolicy
-                };
+            //if (string.IsNullOrEmpty(settings.HostName))
+            //{
+            //    TokenValidationParameters tvps = new TokenValidationParameters
+            //    {
+            //        // Accept only those tokens where the audience of the token is equal to the client ID of this app
+            //        ValidAudience = ClientId,
+            //        AuthenticationType = Startup.DefaultPolicy
+            //    };
 
-                app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-                {
-                    // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
-                    AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(AadInstance, Tenant, DefaultPolicy)))
-                });
-            }
+            //    app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+            //    {
+            //        // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+            //        AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(AadInstance, Tenant, DefaultPolicy)))
+            //    });
+            //}
 
             app.UseWebApi(config);
         }

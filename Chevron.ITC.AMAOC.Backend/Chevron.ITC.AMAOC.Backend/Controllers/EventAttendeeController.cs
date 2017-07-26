@@ -12,6 +12,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
+using Microsoft.Owin.Security.Jwt;
+using System.IdentityModel.Tokens;
 
 namespace Chevron.ITC.AMAOC.Backend.Controllers
 {
@@ -26,17 +28,10 @@ namespace Chevron.ITC.AMAOC.Backend.Controllers
         }
         
         public IQueryable<EventAttendee> GetAllEventAttendee()
-        {
-            
-            var items = Query();            
-            //var claimsPrincipal = new ClaimsPrincipal(this.User);
-            //var userId = claimsPrincipal.FindFirst(ClaimTypes.Email).Value;
-            //Trace.TraceInformation("UserId 1: " + userId);
-
-            var userId2 = UserHelper.GetAuthenticatedUserUserId(RequestContext);                        
-            Trace.TraceInformation("UserId 2: " + userId2);            
-
-            var final = items.Where(e => e.EmployeeId == userId2);
+        {                        
+            var items = Query();                        
+            var userId = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;                      
+            var final = items.Where(e => e.EmployeeId == userId);
 
             return final;
         }

@@ -31,15 +31,9 @@ namespace Chevron.ITC.AMAOC.Helpers
         {
             get { return settings ?? (settings = new Settings()); }
         }
-
-        #region Setting Constants
-        const string UserIdKey = "userid";
-        static readonly string UserIdDefault = string.Empty;
-
+               
         const string AuthTokenKey = "authtoken";
-        static readonly string AuthTokenDefault = string.Empty;
-        #endregion
-
+        static readonly string AuthTokenDefault = string.Empty;        
         public static string AuthToken
         {
             get
@@ -170,8 +164,11 @@ namespace Chevron.ITC.AMAOC.Helpers
             }
         }
 
-        public bool IsLoggedIn => !string.IsNullOrWhiteSpace(UserId);
-        public static string UserId
+        public bool IsLoggedIn => !string.IsNullOrWhiteSpace(Email);
+
+        const string UserIdKey = "userid";
+        static readonly string UserIdDefault = string.Empty;
+        public string UserId
         {
             get
             {

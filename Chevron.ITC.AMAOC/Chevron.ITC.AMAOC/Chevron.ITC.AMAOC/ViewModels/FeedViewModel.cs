@@ -96,8 +96,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             try
             {
-                var rankedEmployees = await StoreManager.EmployeeStore.GetEmployeesTopTenByPoints(Chevron.ITC.AMAOC.Helpers.Settings.UserId);
-                var currentEmp = rankedEmployees.FirstOrDefault(e => e.UserId == Chevron.ITC.AMAOC.Helpers.Settings.UserId);
+                var rankedEmployees = await StoreManager.EmployeeStore.GetEmployeesTopTenByPoints(Chevron.ITC.AMAOC.Helpers.Settings.Current.UserId);
+                var currentEmp = rankedEmployees.FirstOrDefault(e => e.UserId == Chevron.ITC.AMAOC.Helpers.Settings.Current.UserId);
                 Rank = $"Ranked {currentEmp.Rank} out of {rankedEmployees.Count()}";
                 Points = $"{currentEmp.TotalPointsEarned} points";
                 Employee = currentEmp;

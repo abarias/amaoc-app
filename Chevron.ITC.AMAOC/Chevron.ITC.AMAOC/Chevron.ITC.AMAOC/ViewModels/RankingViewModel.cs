@@ -71,7 +71,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 return false;
 
             bool isCurrentUserInTopTen = false;
-            string currentUserId = Chevron.ITC.AMAOC.Helpers.Settings.UserId;
+            string currentUserId = Chevron.ITC.AMAOC.Helpers.Settings.Current.UserId;
             try
             {
                 NextForceRefresh = DateTime.UtcNow.AddMinutes(45);

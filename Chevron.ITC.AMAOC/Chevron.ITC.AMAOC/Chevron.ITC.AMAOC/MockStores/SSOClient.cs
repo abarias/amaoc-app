@@ -43,7 +43,7 @@ namespace Chevron.ITC.AMAOC.MockStores
 
         public async Task LogoutAsync()
         {
-            Chevron.ITC.AMAOC.Helpers.Settings.UserId = string.Empty;
+            Chevron.ITC.AMAOC.Helpers.Settings.Current.UserId = string.Empty;
             Chevron.ITC.AMAOC.Helpers.Settings.AuthToken = string.Empty;
             Chevron.ITC.AMAOC.Helpers.Settings.Current.CAI = string.Empty;
             Chevron.ITC.AMAOC.Helpers.Settings.Current.FullName = string.Empty;
