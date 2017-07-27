@@ -12,5 +12,6 @@ namespace Chevron.ITC.AMAOC.Abstractions
         Task<Employee> GetEmployeeByUserId(string email);
         Task<IEnumerable<Employee>> GetEmployeesPrevAndNext(string userId);
         Task<IEnumerable<Employee>> GetEmployeesTopTenByPoints(string userId);
+        Task<bool> UpdateEmployeeAsyncWithoutSync(Employee employee);
     }
 }

@@ -18,6 +18,7 @@ using Refractored.XamForms.PullToRefresh.Droid;
 using System.Reflection;
 using Gcm;
 using Android.Gms.Common;
+using System.Net;
 
 namespace Chevron.ITC.AMAOC.Droid
 {
@@ -30,7 +31,7 @@ namespace Chevron.ITC.AMAOC.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-
+            //System.Net.ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
             Forms.Init(this, bundle);
             Toolkit.Init();
 

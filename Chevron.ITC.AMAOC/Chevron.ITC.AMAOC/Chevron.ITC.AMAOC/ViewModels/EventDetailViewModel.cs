@@ -123,18 +123,19 @@ namespace Chevron.ITC.AMAOC.ViewModels
             Event.IsAttended = true;
             Event.OCEventStatus = Event.EventStatus.Completed;
 
+            int totalPoints = Convert.ToInt32(Settings.TotalPoints) + Event.Points;
+            var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
+
+            emp.TotalPointsEarned = totalPoints;
+            Settings.TotalPoints = totalPoints.ToString();
+            await StoreManager.EmployeeStore.UpdateAsync(emp);
+
             //Settings.Current.AttendEvent(Event.Id);
             await StoreManager.EventAttendeeStore.InsertAsync(new EventAttendee
             {
                 EventId = Event.Id,
                 EmployeeId = Settings.UserId
-            });
-
-            int totalPoints = Convert.ToInt32(Settings.TotalPoints) + Event.Points;
-            var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
-            emp.TotalPointsEarned = totalPoints;
-            Settings.TotalPoints = totalPoints.ToString();
-            await StoreManager.EmployeeStore.UpdateAsync(emp);
+            });            
         }
     }
 }

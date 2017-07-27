@@ -52,6 +52,8 @@ namespace Chevron.ITC.AMAOC
             
             PCA.RedirectUri = $"com.onmicrosoft.chevronitcama.amaocapp://auth";
 
+            
+
             SetMainPage();
         }
 

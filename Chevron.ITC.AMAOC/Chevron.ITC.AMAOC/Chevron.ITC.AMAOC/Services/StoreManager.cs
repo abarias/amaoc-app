@@ -11,6 +11,8 @@ using Chevron.ITC.AMAOC.Abstractions;
 using Chevron.ITC.AMAOC.DataObjects;
 using Chevron.ITC.AMAOC.Helpers;
 using Microsoft.Identity.Client;
+using System.Net.Http;
+using Chevron.ITC.AMAOC.Helpers.Proxy;
 
 namespace Chevron.ITC.AMAOC.Services
 {
@@ -74,7 +76,14 @@ namespace Chevron.ITC.AMAOC.Services
                 IsInitialized = true;
                 var dbId = Settings.DatabaseId;
                 var path = $"syncstore{dbId}.db";
+                //HttpClientHandler handler = new HttpClientHandler()
+                //{
+                //    Proxy = new WebProxy(new Uri("http://192.168.1.116:8888")),
+                //    UseProxy = true
+                //};
+                //MobileService = new MobileServiceClient(App.AzureMobileAppUrl, handler);
                 MobileService = new MobileServiceClient(App.AzureMobileAppUrl);
+
                 store = new MobileServiceSQLiteStore(path);                
                 store.DefineTable<Event>();
                 store.DefineTable<Employee>();

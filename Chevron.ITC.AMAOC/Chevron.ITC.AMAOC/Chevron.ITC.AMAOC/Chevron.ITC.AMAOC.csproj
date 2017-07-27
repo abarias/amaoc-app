@@ -84,6 +84,7 @@
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Helpers\ImageResourceExtension.cs" />
     <Compile Include="Helpers\MessagingUtils.cs" />
+    <Compile Include="Helpers\WebProxy.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IPushNotifications.cs" />
     <Compile Include="Interfaces\ISSOClient.cs" />

@@ -250,5 +250,10 @@ namespace Chevron.ITC.AMAOC.MockStores
                 Id = "015"
             });
         }
+
+        public Task<bool> UpdateEmployeeAsyncWithoutSync(Employee employee)
+        {
+            return Task.FromResult(true);
+        }
     }
 }

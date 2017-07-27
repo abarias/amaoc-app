@@ -17,8 +17,15 @@ namespace Chevron.ITC.AMAOC.Stores
 
         }
 
-        public async Task<Employee> GetEmployeeByUserId(string userId)
+        public async Task<bool> UpdateEmployeeAsyncWithoutSync(Employee employee)
         {
+            await InitializeStore().ConfigureAwait(false);
+            await Table.UpdateAsync(employee).ConfigureAwait(false);
+            return true;
+        }
+
+        public async Task<Employee> GetEmployeeByUserId(string userId)
+        {            
             await InitializeStore().ConfigureAwait(false);
             var emps = await GetItemsAsync().ConfigureAwait(false);
             return emps.FirstOrDefault(e => e.UserId == userId);
