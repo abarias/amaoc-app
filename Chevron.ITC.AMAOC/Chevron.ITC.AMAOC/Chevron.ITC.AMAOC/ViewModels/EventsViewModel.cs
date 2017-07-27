@@ -18,6 +18,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
         public Command LoadItemsCommand { get; set; }
         public DateTime NextForceRefresh { get; set; }
 
+        public static bool ForceRefresh { get; set; }
+
         bool noEventsFound;
         public bool NoEventsFound
         {

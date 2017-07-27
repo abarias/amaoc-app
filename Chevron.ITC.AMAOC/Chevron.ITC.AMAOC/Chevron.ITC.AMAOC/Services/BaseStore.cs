@@ -127,6 +127,10 @@ namespace Chevron.ITC.AMAOC.Services
                 if (!(await PullLatestAsync().ConfigureAwait(false)))
                     return false;
             }
+            catch (MobileServicePushFailedException mex)
+            {
+
+            }
             catch (Exception ex)
             {
                 Debug.WriteLine("Unable to sync items, that is alright as we have offline capabilities: " + ex);

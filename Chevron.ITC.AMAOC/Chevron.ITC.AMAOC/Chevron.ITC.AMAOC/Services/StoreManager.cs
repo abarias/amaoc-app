@@ -34,12 +34,7 @@ namespace Chevron.ITC.AMAOC.Services
             taskList.Add(EmployeeStore.SyncAsync());
             taskList.Add(EventAttendeeStore.SyncAsync());
             taskList.Add(NotificationStore.SyncAsync());
-
-            //if (syncUserSpecific)
-            //{
-            //    taskList.Add(FeedbackStore.SyncAsync());
-            //    taskList.Add(FavoriteStore.SyncAsync());
-            //}
+            taskList.Add(EventRatingCommentStore.SyncAsync());
 
             var successes = await Task.WhenAll(taskList).ConfigureAwait(false);
             return successes.Any(x => !x);//if any were a failure.
@@ -56,6 +51,7 @@ namespace Chevron.ITC.AMAOC.Services
             EmployeeStore.DropTable();
             EventAttendeeStore.DropTable();
             NotificationStore.DropTable();
+            EventRatingCommentStore.DropTable();
             IsInitialized = false;
             return Task.FromResult(true);
         }
@@ -85,6 +81,7 @@ namespace Chevron.ITC.AMAOC.Services
                 store.DefineTable<StoreSettings>();
                 store.DefineTable<EventAttendee>();
                 store.DefineTable<Notification>();
+                store.DefineTable<EventRatingComment>();
             }
 
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler()).ConfigureAwait(false);

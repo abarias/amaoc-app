@@ -16,6 +16,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
         
         public ObservableRangeCollection<Event> Events { get; } = new ObservableRangeCollection<Event>();
         public DateTime NextForceRefresh { get; set; }
+        public static bool ForceRefresh { get; set; }
         public FeedViewModel()
         {
             NextForceRefresh = DateTime.UtcNow.AddMinutes(45);
@@ -96,8 +97,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             try
             {
-                var rankedEmployees = await StoreManager.EmployeeStore.GetEmployeesTopTenByPoints(Chevron.ITC.AMAOC.Helpers.Settings.Current.UserId);
-                var currentEmp = rankedEmployees.FirstOrDefault(e => e.UserId == Chevron.ITC.AMAOC.Helpers.Settings.Current.UserId);
+                var rankedEmployees = await StoreManager.EmployeeStore.GetEmployeesTopTenByPoints(Settings.UserId);
+                var currentEmp = rankedEmployees.FirstOrDefault(e => e.UserId == Settings.UserId);
                 Rank = $"Ranked {currentEmp.Rank} out of {rankedEmployees.Count()}";
                 Points = $"{currentEmp.TotalPointsEarned} points";
                 Employee = currentEmp;

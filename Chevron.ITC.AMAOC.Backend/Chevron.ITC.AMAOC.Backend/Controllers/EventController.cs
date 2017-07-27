@@ -28,8 +28,7 @@ namespace Chevron.ITC.AMAOC.Backend.Controllers
         {
             return Query();
         }
-
-        [QueryableExpand("FeedbackQuestions")]
+        
         public SingleResult<Event> GetEvent(string id)
         {
             return Lookup(id);

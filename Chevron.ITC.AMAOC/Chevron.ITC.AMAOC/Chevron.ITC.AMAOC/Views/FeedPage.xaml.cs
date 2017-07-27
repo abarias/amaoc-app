@@ -58,13 +58,19 @@ namespace Chevron.ITC.AMAOC.Views
         {
             base.OnAppearing();
 
+            if (Device.OS == TargetPlatform.Android)
+                MessagingService.Current.Subscribe("eventstatus_changed", (d) => ViewModel.LoadEmployeeCommand.Execute(null));
+
             UpdatePage();       
 
         }
 
         protected override void OnDisappearing()
         {
-            base.OnDisappearing();            
+            base.OnDisappearing();
+
+            if (Device.OS == TargetPlatform.Android)
+                MessagingService.Current.Unsubscribe("eventstatus_changed");
         }
 
         
@@ -86,10 +92,10 @@ namespace Chevron.ITC.AMAOC.Views
                 if (ViewModel.Notification == null)
                     ViewModel.LoadNotificationsCommand.Execute(null);
 
-                if (ViewModel.Employee == null)
+                if (ViewModel.Employee == null || FeedViewModel.ForceRefresh)
                     ViewModel.LoadEmployeeCommand.Execute(null);
             }
-
+            FeedViewModel.ForceRefresh = false;
         }
 
 

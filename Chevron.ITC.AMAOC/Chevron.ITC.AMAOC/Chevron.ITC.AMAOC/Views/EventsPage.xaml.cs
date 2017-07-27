@@ -44,18 +44,6 @@ namespace Chevron.ITC.AMAOC.Views
             list.SelectedItem = null;
         }
 
-        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        //{
-        //    var item = args.SelectedItem as Event;
-        //    if (item == null)
-        //        return;
-
-        //    await Navigation.PushAsync(new EventDetailPage(item));
-
-        //    // Manually deselect item
-        //    EventsListView.SelectedItem = null;
-        //}
-
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewEventPage());
@@ -68,7 +56,7 @@ namespace Chevron.ITC.AMAOC.Views
             EventsListView.ItemTapped += ListViewTapped;
 
             if (Device.OS == TargetPlatform.Android)
-                MessagingService.Current.Subscribe("filter_changed", (d) => UpdatePage());
+                MessagingService.Current.Subscribe("eventstatus_changed", (d) => UpdatePage());
 
             UpdatePage();
 
@@ -80,10 +68,11 @@ namespace Chevron.ITC.AMAOC.Views
             bool forceRefresh = (DateTime.UtcNow > (ViewModel?.NextForceRefresh ?? DateTime.UtcNow));
             
             //Load if none, or if 45 minutes has gone by
-            if ((ViewModel?.Events?.Count ?? 0) == 0 || forceRefresh)
+            if ((ViewModel?.Events?.Count ?? 0) == 0 || forceRefresh || EventsViewModel.ForceRefresh)
             {
                 ViewModel?.LoadEventsCommand?.Execute(forceRefresh);
-            }            
+            }
+            EventsViewModel.ForceRefresh = false;
         }
 
         protected override void OnDisappearing()
@@ -92,7 +81,7 @@ namespace Chevron.ITC.AMAOC.Views
             base.OnDisappearing();
             EventsListView.ItemTapped -= ListViewTapped;
             if (Device.OS == TargetPlatform.Android)
-                MessagingService.Current.Unsubscribe("filter_changed");
+                MessagingService.Current.Unsubscribe("eventstatus_changed");
         }
 
         public void OnResume()

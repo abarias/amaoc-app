@@ -58,7 +58,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     return;
                 }
 
-                //EvaluationsViewModel.ForceRefresh = true;
+                FeedViewModel.ForceRefresh = true;
                 Logger.Track(AMAOCLoggerKeys.LeaveFeedback, "Title", rating.ToString());
 
                 MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
@@ -70,17 +70,22 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     {
                         await Navigation.PopModalAsync();
                         if (Device.OS == TargetPlatform.Android)
-                            MessagingService.Current.SendMessage("eval_finished");
+                            MessagingService.Current.SendMessage("eventstatus_changed");
                     }
                 });
 
                 OCEvent.FeedbackLeft = true;
                 await StoreManager.EventRatingCommentStore.InsertAsync(new EventRatingComment
                 {
+                    EmployeeId = Settings.UserId,
                     EventId = OCEvent.Id,
                     EventRating = rating,
                     EventComment = EventComments
                 });
+                var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
+                int totalPoints = emp.TotalPointsEarned + 5;
+                Settings.TotalPoints = totalPoints.ToString();
+                await StoreManager.EmployeeStore.UpdateAsync(emp);
             }
             catch (Exception ex)
             {

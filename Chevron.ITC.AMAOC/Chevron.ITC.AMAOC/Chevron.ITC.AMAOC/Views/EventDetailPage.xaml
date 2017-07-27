@@ -139,8 +139,16 @@
                         <local:SectionDivider IsVisible="{Binding Event, Converter={StaticResource EventAttendanceVisibleConverter}}"></local:SectionDivider>
                         <StackLayout Padding="{StaticResource StandardPadding}" Spacing="{StaticResource StandardSpacing}" BackgroundColor="White" 
                             IsVisible="{Binding Event, Converter={StaticResource EventAttendanceVisibleConverter}}">
-                            <Label Text="To confirm your attendance, please approach your speaker to scan the unlock code and earn points." Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
+                            <Label Text="Thanks for attending!" 
+                                                   HorizontalOptions="Center" 
+                                                   IsVisible="{Binding Event.IsAttended}"
+                                                   Style="{DynamicResource AMAOCListItemTextStyle}"/>
+                            
+                            <Label Text="To confirm your attendance, please approach your speaker to scan the unlock code and earn points." 
+                                   IsVisible="{Binding Event.IsAttended, Converter={StaticResource InvertedBooleanConverter}}"
+                                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
                             <Button
+                                IsVisible="{Binding Event.IsAttended, Converter={StaticResource InvertedBooleanConverter}}"
                              Text="Confirm Attendance"                                     
                             x:Name="ButtonAttendance"
                             StyleId="AttendanceButton">

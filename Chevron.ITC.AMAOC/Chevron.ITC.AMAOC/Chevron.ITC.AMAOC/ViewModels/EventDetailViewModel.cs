@@ -113,9 +113,17 @@ namespace Chevron.ITC.AMAOC.ViewModels
         }
 
         public async Task AttendEvent()
-        {            
+        {
+            EventsViewModel.ForceRefresh = true;
+            FeedViewModel.ForceRefresh = true;
+            
+            if (Device.OS == TargetPlatform.Android)
+                MessagingService.Current.SendMessage("eventstatus_changed");
+
             Event.IsAttended = true;
-            Settings.Current.AttendEvent(Event.Id);
+            Event.OCEventStatus = Event.EventStatus.Completed;
+
+            //Settings.Current.AttendEvent(Event.Id);
             await StoreManager.EventAttendeeStore.InsertAsync(new EventAttendee
             {
                 EventId = Event.Id,

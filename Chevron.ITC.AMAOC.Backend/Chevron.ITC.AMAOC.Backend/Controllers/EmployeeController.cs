@@ -28,8 +28,7 @@ namespace Chevron.ITC.AMAOC.Backend.Controllers
         {
             return Query();
         }
-
-        [QueryableExpand("EventAttendees")]
+        
         public SingleResult<Employee> GetEmployee(string id)
         {
             return Lookup(id);

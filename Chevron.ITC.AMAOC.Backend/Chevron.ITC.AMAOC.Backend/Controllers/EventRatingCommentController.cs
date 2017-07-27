@@ -4,6 +4,7 @@ using Microsoft.Azure.Mobile.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -25,7 +26,11 @@ namespace Chevron.ITC.AMAOC.Backend.Controllers
         [EnableQuery(MaxTop = 500)]
         public IQueryable<EventRatingComment> GetAllEventRatingComment()
         {
-            return Query();
+            var items = Query();
+            var userId = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var final = items.Where(e => e.EmployeeId == userId);
+
+            return final;            
         }
 
         
