@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Chevron.ITC.AMAOC.DataObjects
 {
@@ -17,10 +18,13 @@ namespace Chevron.ITC.AMAOC.DataObjects
 
         public int TotalPointsEarned { get; set; }
 
+        [IgnoreDataMember]
         public virtual FeedbackAnswerFreeText EventComments { get; set; }
 
+        [IgnoreDataMember]
         public virtual ICollection<EventAttendee> AttendedEvents { get; set; }
 
+        [IgnoreDataMember]
         public virtual ICollection<FeedbackAnswer> FeedbackAnswers { get; set; }
 
         public Employee()

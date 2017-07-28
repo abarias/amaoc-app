@@ -164,8 +164,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     CAI = Settings.CAI,
                     Email = Settings.Email,
                     FullName = Settings.FullName,
-                    UserId = Settings.UserId,
-                    Id = Settings.UserId
+                    UserId = Settings.UserId                    
                 };
                 await StoreManager.EmployeeStore.InsertAsync(newEmp);
 

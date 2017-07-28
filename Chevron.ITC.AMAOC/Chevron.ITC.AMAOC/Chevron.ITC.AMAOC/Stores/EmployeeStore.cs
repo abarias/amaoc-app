@@ -64,7 +64,7 @@ namespace Chevron.ITC.AMAOC.Stores
                                  Rank = (from emp in emps
                                          group emp by emp.TotalPointsEarned into ee
                                          select ee).Count(s => s.Key > e.Key.TotalPointsEarned) + 1,
-                                 IsLoggedInUser = e.Key.Id == userId ? true : false
+                                 IsLoggedInUser = e.Key.UserId == userId ? true : false
                              };
 
             //need to reproject for index / counter

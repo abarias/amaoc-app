@@ -30,8 +30,9 @@ namespace Chevron.ITC.AMAOC.Backend.Controllers
         public IQueryable<EventAttendee> GetAllEventAttendee()
         {                        
             var items = Query();                        
-            var userId = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;                      
-            var final = items.Where(e => e.EmployeeId == userId);
+            var userId = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;      
+            
+            var final = items.Where(e => e.Employee.UserId == userId);
 
             return final;
         }

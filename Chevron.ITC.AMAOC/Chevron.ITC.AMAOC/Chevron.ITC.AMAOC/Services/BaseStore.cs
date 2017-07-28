@@ -129,7 +129,8 @@ namespace Chevron.ITC.AMAOC.Services
             }
             catch (MobileServicePushFailedException mex)
             {
-
+                Debug.WriteLine("Unable to sync items, that is alright as we have offline capabilities: " + mex);
+                return false;
             }
             catch (Exception ex)
             {

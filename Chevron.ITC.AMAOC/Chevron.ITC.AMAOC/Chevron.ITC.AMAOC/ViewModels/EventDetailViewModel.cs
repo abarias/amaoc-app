@@ -128,13 +128,13 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             emp.TotalPointsEarned = totalPoints;
             Settings.TotalPoints = totalPoints.ToString();
-            await StoreManager.EmployeeStore.UpdateAsync(emp);
+            await StoreManager.EmployeeStore.UpdateEmployeeAsyncWithoutSync(emp);
 
             //Settings.Current.AttendEvent(Event.Id);
             await StoreManager.EventAttendeeStore.InsertAsync(new EventAttendee
             {
                 EventId = Event.Id,
-                EmployeeId = Settings.UserId
+                EmployeeId = emp.Id
             });            
         }
     }
