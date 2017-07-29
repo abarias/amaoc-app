@@ -18,13 +18,11 @@ namespace Chevron.ITC.AMAOC.DataObjects
 
         public int TotalPointsEarned { get; set; }
 
-        [IgnoreDataMember]
+        [Newtonsoft.Json.JsonIgnore]
         public virtual FeedbackAnswerFreeText EventComments { get; set; }
-
-        [IgnoreDataMember]
+        [Newtonsoft.Json.JsonIgnore]
         public virtual ICollection<EventAttendee> AttendedEvents { get; set; }
-
-        [IgnoreDataMember]
+        [Newtonsoft.Json.JsonIgnore]
         public virtual ICollection<FeedbackAnswer> FeedbackAnswers { get; set; }
 
         public Employee()

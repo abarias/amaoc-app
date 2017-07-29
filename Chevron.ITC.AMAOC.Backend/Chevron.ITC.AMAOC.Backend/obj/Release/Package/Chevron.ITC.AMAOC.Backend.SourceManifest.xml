@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Release\Package\PackageTmp" />
-  <setAcl path="C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Release\Package\PackageTmp" />
+  <setAcl path="G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

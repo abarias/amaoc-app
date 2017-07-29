@@ -130,7 +130,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             Settings.TotalPoints = totalPoints.ToString();
             await StoreManager.EmployeeStore.UpdateEmployeeAsyncWithoutSync(emp);
 
-            //Settings.Current.AttendEvent(Event.Id);
+            Settings.Current.AttendEvent(Event.Id);
             await StoreManager.EventAttendeeStore.InsertAsync(new EventAttendee
             {
                 EventId = Event.Id,

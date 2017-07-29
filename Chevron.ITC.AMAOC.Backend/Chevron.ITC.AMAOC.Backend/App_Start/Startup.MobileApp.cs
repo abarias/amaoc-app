@@ -32,7 +32,7 @@ namespace Chevron.ITC.AMAOC.Backend
 
             //For more information on Web API tracing, see http://go.microsoft.com/fwlink/?LinkId=620686 
             config.EnableSystemDiagnosticsTracing();
-            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;            
 
             new MobileAppConfiguration()
             .UseDefaultConfiguration()

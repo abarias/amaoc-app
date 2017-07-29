@@ -771,3 +771,5 @@ G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Debu
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\obj\Debug\Chevron.ITC.AMAOC.Backend.pdb
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\bin\Microsoft.ApplicationInsights.TraceListener.dll
 C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\bin\Microsoft.ApplicationInsights.TraceListener.xml
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\bin\Microsoft.ApplicationInsights.TraceListener.dll
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC.Backend\Chevron.ITC.AMAOC.Backend\bin\Microsoft.ApplicationInsights.TraceListener.xml

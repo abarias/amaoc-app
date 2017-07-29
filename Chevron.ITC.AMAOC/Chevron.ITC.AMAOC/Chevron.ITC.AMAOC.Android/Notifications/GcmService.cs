@@ -10,7 +10,7 @@ using Chevron.ITC.AMAOC.Helpers;
 
 namespace Chevron.ITC.AMAOC.Droid
 {
-    [Service(Name = "com.sample.amaoc.GcmService")] //Must use the service tag
+    [Service] //Must use the service tag
     public class GcmService : GcmServiceBase
     {
         static NotificationHub hub;
