@@ -4,6 +4,7 @@ G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Androi
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\FormsToolkit.Android.dll
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\FormsToolkit.dll
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\FormsViewGroup.dll
+G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\GCM.Client.dll
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\HockeySDK.AndroidBindings.dll
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\HockeySDK.dll
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\Humanizer.dll

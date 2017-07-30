@@ -20,6 +20,7 @@ namespace Chevron.ITC.AMAOC.Droid
         {
             base.OnCreate();
             RegisterActivityLifecycleCallbacks(this);
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             //A great place to initialize Xamarin.Insights and Dependency Services!
         }
 
@@ -54,10 +55,9 @@ namespace Chevron.ITC.AMAOC.Droid
         public void OnActivityStarted(Activity activity)
         {
             CrossCurrentActivity.Current.Activity = activity;
+            HockeyApp.Android.Tracking.StartUsage(activity);
         }
 
-        public void OnActivityStopped(Activity activity)
-        {
-        }
+        public void OnActivityStopped(Activity activity) => HockeyApp.Android.Tracking.StopUsage(activity);
     }
 }

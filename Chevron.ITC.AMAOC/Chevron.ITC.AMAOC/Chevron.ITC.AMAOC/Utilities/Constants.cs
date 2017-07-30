@@ -9,7 +9,7 @@ namespace Chevron.ITC.AMAOC
     public static class ApiKeys
     {
         public const string HockeyAppiOS = "HockeyAppiOS";
-        public const string HockeyAppAndroid = "HockeyAppAndroid";
+        public const string HockeyAppAndroid = "c28a234ebba34b3b8507b08b0c5dbf27";
         public const string HockeyAppUWP = "HockeyAppUWP";
 
         public const string AzureServiceBusName = "Endpoint=sb://com-chevron-itc-amaoc.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=MddcFqufUATN+M5sD/3Mr2XOPvQ3OAGRQv13YEqGC0g=";
@@ -18,6 +18,10 @@ namespace Chevron.ITC.AMAOC
         public const string GoogleSenderId = "848667847225";
         public const string AzureHubName = "cvxitcamaocevents";
         public const string AzureListenConneciton = "AzureListenConneciton";
+
+        public const string SenderID = "848667847225"; // Google API Project Number
+        public const string ListenConnectionString = "Endpoint=sb://com-chevron-itc-amaoc.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=ybwh2jTTsZBNIhC1WUZ7Oxuoxxpb9h/+z1HwlZGdJ/o=";
+        public const string NotificationHubName = "cvxitcamaocevents";
     }
     public static class MessageKeys
     {

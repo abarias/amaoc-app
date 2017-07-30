@@ -15,7 +15,7 @@ namespace Chevron.ITC.AMAOC.Backend.Models
 
         public AMAOCNotifications()
         {
-            //Hub = NotificationHubClient.CreateClientFromConnectionString(ConfigurationManager.AppSettings["HubConnection"], ConfigurationManager.AppSettings["HubEndpiont"]);
+            //Hub = NotificationHubClient.CreateClientFromConnectionString(ConfigurationManager.AppSettings["HubConnection"], ConfigurationManager.AppSettings["HubEndpiont"]);            
             Hub = NotificationHubClient.CreateClientFromConnectionString(ConfigurationManager.ConnectionStrings["MS_NotificationHubConnectionString"].ConnectionString, ConfigurationManager.AppSettings["HubEndpoint"]);
         }
     }

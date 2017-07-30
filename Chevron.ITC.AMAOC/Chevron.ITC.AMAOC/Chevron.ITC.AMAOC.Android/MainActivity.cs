@@ -25,11 +25,14 @@ namespace Chevron.ITC.AMAOC.Droid
     [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
     {
+        public static MainActivity CurrentActivity { get; private set; }
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            CurrentActivity = this;
             base.OnCreate(bundle);
             //System.Net.ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
             Forms.Init(this, bundle);
@@ -83,8 +86,9 @@ namespace Chevron.ITC.AMAOC.Droid
 
             // Register for push notifications
             System.Diagnostics.Debug.WriteLine("MainActivity", "Registering...");
-            GcmService.Initialize(this);
-            GcmService.Register(this);
+            //GcmService.Initialize(this);
+            //GcmService.Register(this);
+            GcmClient.Register(this, ApiKeys.SenderID);
         }
 
         public bool IsPlayServicesAvailable()

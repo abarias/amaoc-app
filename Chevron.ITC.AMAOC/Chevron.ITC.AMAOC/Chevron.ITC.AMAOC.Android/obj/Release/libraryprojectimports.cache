@@ -2,6 +2,7 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\GCM.Client\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\HockeySDK.AndroidBindings\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\HockeySDK\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\Microsoft.Identity.Client\library_project_imports\res</ResolvedResourceDirectory>
@@ -9,9 +10,12 @@
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\ZXing.Net.Mobile.Forms.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\ZXingNetMobile\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
-  <ResolvedAssetDirectories />
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\GCM.Client\library_project_imports\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\GCM.Client.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\HockeySDK.AndroidBindings.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\HockeySDK.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\__library_projects__\Microsoft.Identity.Client.stamp</ResolvedResourceDirectoryStamp>

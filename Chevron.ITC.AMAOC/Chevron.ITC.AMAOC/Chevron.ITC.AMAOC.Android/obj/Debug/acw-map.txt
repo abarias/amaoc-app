@@ -14,18 +14,26 @@ Chevron.ITC.AMAOC.Droid.MainApplication, Chevron.ITC.AMAOC.Android;md5301e791be9
 Chevron.ITC.AMAOC.Droid.MainApplication, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.MainApplication
 Chevron.ITC.AMAOC.Droid.MainApplication;md5301e791be920327796ce3a6b98575c4d.MainApplication
 chevron.itc.amaoc.droid.MainApplication;md5301e791be920327796ce3a6b98575c4d.MainApplication
-Chevron.ITC.AMAOC.Droid.GcmBroadcastReceiver, Chevron.ITC.AMAOC.Android;com.sample.evolve.GcmBroadcastReceiver
-Chevron.ITC.AMAOC.Droid.GcmBroadcastReceiver, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;com.sample.evolve.GcmBroadcastReceiver
-Chevron.ITC.AMAOC.Droid.GcmBroadcastReceiver;com.sample.evolve.GcmBroadcastReceiver
-com.sample.evolve.GcmBroadcastReceiver;com.sample.evolve.GcmBroadcastReceiver
-Chevron.ITC.AMAOC.Droid.GcmService, Chevron.ITC.AMAOC.Android;com.sample.amaoc.GcmService
-Chevron.ITC.AMAOC.Droid.GcmService, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;com.sample.amaoc.GcmService
-Chevron.ITC.AMAOC.Droid.GcmService;com.sample.amaoc.GcmService
-com.sample.amaoc.GcmService;com.sample.amaoc.GcmService
+Chevron.ITC.AMAOC.Droid.MyBroadcastReceiver, Chevron.ITC.AMAOC.Android;md5301e791be920327796ce3a6b98575c4d.MyBroadcastReceiver
+Chevron.ITC.AMAOC.Droid.MyBroadcastReceiver, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.MyBroadcastReceiver
+Chevron.ITC.AMAOC.Droid.MyBroadcastReceiver;md5301e791be920327796ce3a6b98575c4d.MyBroadcastReceiver
+chevron.itc.amaoc.droid.MyBroadcastReceiver;md5301e791be920327796ce3a6b98575c4d.MyBroadcastReceiver
+Chevron.ITC.AMAOC.Droid.PushHandlerService, Chevron.ITC.AMAOC.Android;md5301e791be920327796ce3a6b98575c4d.PushHandlerService
+Chevron.ITC.AMAOC.Droid.PushHandlerService, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.PushHandlerService
+Chevron.ITC.AMAOC.Droid.PushHandlerService;md5301e791be920327796ce3a6b98575c4d.PushHandlerService
+chevron.itc.amaoc.droid.PushHandlerService;md5301e791be920327796ce3a6b98575c4d.PushHandlerService
 Chevron.ITC.AMAOC.Droid.NavigationViewRenderer, Chevron.ITC.AMAOC.Android;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
 Chevron.ITC.AMAOC.Droid.NavigationViewRenderer, Chevron.ITC.AMAOC.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
 Chevron.ITC.AMAOC.Droid.NavigationViewRenderer;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
 chevron.itc.amaoc.droid.NavigationViewRenderer;md5301e791be920327796ce3a6b98575c4d.NavigationViewRenderer
+Gcm.Client.GcmBroadcastReceiverBase`1, GCM.Client;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
+Gcm.Client.GcmBroadcastReceiverBase`1, GCM.Client, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
+Gcm.Client.GcmBroadcastReceiverBase`1;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
+gcm.client.GcmBroadcastReceiverBase_1;md5214eafb7e7b3b7fcc363a68a6358563f.GcmBroadcastReceiverBase_1
+Gcm.Client.GcmServiceBase, GCM.Client;md5214eafb7e7b3b7fcc363a68a6358563f.GcmServiceBase
+Gcm.Client.GcmServiceBase, GCM.Client, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md5214eafb7e7b3b7fcc363a68a6358563f.GcmServiceBase
+Gcm.Client.GcmServiceBase;md5214eafb7e7b3b7fcc363a68a6358563f.GcmServiceBase
+gcm.client.GcmServiceBase;md5214eafb7e7b3b7fcc363a68a6358563f.GcmServiceBase
 HockeyApp.Android.PrivateEventManager/IHockeyEventListenerImplementor, HockeySDK.AndroidBindings;mono.net.hockeyapp.android.PrivateEventManager_HockeyEventListenerImplementor
 HockeyApp.Android.PrivateEventManager+IHockeyEventListenerImplementor, HockeySDK.AndroidBindings, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.net.hockeyapp.android.PrivateEventManager_HockeyEventListenerImplementor
 HockeyApp.Android.PrivateEventManager.IHockeyEventListenerImplementor;mono.net.hockeyapp.android.PrivateEventManager_HockeyEventListenerImplementor

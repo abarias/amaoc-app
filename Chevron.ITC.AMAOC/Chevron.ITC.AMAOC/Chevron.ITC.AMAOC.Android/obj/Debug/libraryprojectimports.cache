@@ -4,6 +4,7 @@
   <ResolvedResourceDirectories>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\FastAndroidCamera\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\FormsToolkit.Android\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\GCM.Client\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\HockeySDK.AndroidBindings\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\HockeySDK\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\ImageCircle.Forms.Plugin.Android\library_project_imports\res</ResolvedResourceDirectory>
@@ -31,6 +32,7 @@
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FastAndroidCamera\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\FormsToolkit.Android\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\__library_projects__\GCM.Client\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\HockeySDK.AndroidBindings\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\HockeySDK\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\ImageCircle.Forms.Plugin.Android\library_project_imports\assets</ResolvedAssetDirectory>
@@ -59,6 +61,7 @@
   <ResolvedResourceDirectoryStamps>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\FastAndroidCamera.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\FormsToolkit.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\GCM.Client.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\HockeySDK.AndroidBindings.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\HockeySDK.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Debug\__library_projects__\ImageCircle.Forms.Plugin.Android.stamp</ResolvedResourceDirectoryStamp>

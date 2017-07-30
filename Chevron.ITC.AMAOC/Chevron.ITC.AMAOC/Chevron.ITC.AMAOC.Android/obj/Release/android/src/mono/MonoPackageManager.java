@@ -104,6 +104,7 @@ class MonoPackageManager_Resources {
 		"FormsToolkit.Android.dll",
 		"FormsToolkit.dll",
 		"FormsViewGroup.dll",
+		"GCM.Client.dll",
 		"HockeySDK.AndroidBindings.dll",
 		"HockeySDK.dll",
 		"Humanizer.dll",
