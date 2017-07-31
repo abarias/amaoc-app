@@ -54,7 +54,8 @@ namespace Chevron.ITC.AMAOC
             try
             {
                 var emp = value as Employee;
-                    return ImageSource.FromUri(new Uri(Gravatar.GetURL(emp.Email)));
+                var avatarUri = new Uri(Gravatar.GetURL(emp.Email));
+                return ImageSource.FromUri(avatarUri);
             }
             catch (Exception ex)
             {

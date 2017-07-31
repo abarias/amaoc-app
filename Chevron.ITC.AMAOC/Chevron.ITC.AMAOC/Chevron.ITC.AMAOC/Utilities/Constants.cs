@@ -38,4 +38,25 @@ namespace Chevron.ITC.AMAOC
         public const string Question = "question";
         public const string Choice = "choice";
     }
+
+    public static class AzureB2CCoordinates
+    {                        
+        public const string Tenant = "chevronitcama.onmicrosoft.com";
+        public const string ClientId = "7493eff3-078c-4f58-a5f2-effaa18acbfb";
+        public const string PolicySignUpSignIn = "B2C_1_AMAOCAppSignUp";
+        public const string PolicyEditProfile = "B2C_1_AMAOCAppEditProfile";
+        public const string PolicyResetPassword = "B2C_1_AMAOCAppPassReset";
+        public const string DefaultPolicy = PolicySignUpSignIn;
+        public const string RedirectUri = "com.onmicrosoft.chevronitcama.amaocapp://auth";
+
+        public static string[] Scopes = { "https://chevronitcama.onmicrosoft.com/amaocapp/read" };
+
+        public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";
+        public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
+    }
+
+    public static class AppConfig
+    {
+        public const string AzureMobileAppUrl = "https://cvxitcamaocapp.azurewebsites.net";
+    }
 }

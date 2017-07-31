@@ -10,5 +10,6 @@ namespace Chevron.ITC.AMAOC.Abstractions
     public interface IEventAttendeeStore : IBaseStore<EventAttendee>
     { 
         Task<bool> IsAttended(string eventId);
+        Task DropAttended();
     }
 }

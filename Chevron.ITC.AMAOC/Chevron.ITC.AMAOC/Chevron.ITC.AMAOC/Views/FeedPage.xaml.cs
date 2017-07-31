@@ -27,7 +27,7 @@ namespace Chevron.ITC.AMAOC.Views
 
             ViewModel.Events.CollectionChanged += (sender, e) =>
             {
-                var adjust = Device.OS != TargetPlatform.Android ? 1 : -ViewModel.Events.Count + 1;
+                var adjust = Device.RuntimePlatform != Device.Android ? 1 : -ViewModel.Events.Count + 1;
                 ListViewEvents.HeightRequest = (ViewModel.Events.Count * ListViewEvents.RowHeight) - adjust;
             };
 
@@ -58,7 +58,7 @@ namespace Chevron.ITC.AMAOC.Views
         {
             base.OnAppearing();
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Subscribe("eventstatus_changed", (d) => ViewModel.LoadEmployeeCommand.Execute(null));
 
             UpdatePage();       
@@ -69,7 +69,7 @@ namespace Chevron.ITC.AMAOC.Views
         {
             base.OnDisappearing();
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Unsubscribe("eventstatus_changed");
         }
 

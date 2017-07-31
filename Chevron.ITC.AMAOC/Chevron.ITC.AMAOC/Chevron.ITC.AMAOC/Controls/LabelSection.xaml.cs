@@ -31,7 +31,7 @@ namespace Chevron.ITC.AMAOC
             base.OnPropertyChanged(propertyName);
             if (propertyName == TextProperty.PropertyName)
             {
-                Section.Text = Device.OS == TargetPlatform.iOS ? Text.ToUpperInvariant() : Text;
+                Section.Text = Device.RuntimePlatform == Device.iOS ? Text.ToUpperInvariant() : Text;
             }
         }
     }

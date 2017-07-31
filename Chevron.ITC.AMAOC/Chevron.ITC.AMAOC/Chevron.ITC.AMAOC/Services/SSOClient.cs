@@ -56,6 +56,11 @@ namespace Chevron.ITC.AMAOC.Services
 
         private AccountResponse AccountFromMobileServiceUser(string idToken, MobileServiceUser user)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
             var account = new AccountResponse();
             try
             {
@@ -73,8 +78,8 @@ namespace Chevron.ITC.AMAOC.Services
                 };
             }
             catch (Exception jex)
-            {
-
+            {                
+                account.Success = false;
             }                                   
 
             return account;

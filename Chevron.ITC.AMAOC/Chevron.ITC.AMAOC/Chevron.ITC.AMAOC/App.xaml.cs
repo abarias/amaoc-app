@@ -18,27 +18,8 @@ namespace Chevron.ITC.AMAOC
     public partial class App : Application
     {
         public static PublicClientApplication PCA = null;
-        //MUST use HTTPS, neglecting to do so will result in runtime errors on iOS
-        public static bool AzureNeedsSetup => AzureMobileAppUrl == "https://cvxitcamaocapp.azurewebsites.net";
-        public static string AzureMobileAppUrl = "https://cvxitcamaocapp.azurewebsites.net";
-        // Azure AD B2C Coordinates
-        public static string Tenant = "chevronitcama.onmicrosoft.com";
-        public static string ClientId = "7493eff3-078c-4f58-a5f2-effaa18acbfb";
-        public static string PolicySignUpSignIn = "B2C_1_AMAOCAppSignUp";
-        public static string PolicyEditProfile = "B2C_1_AMAOCAppEditProfile";
-        public static string PolicyResetPassword = "B2C_1_AMAOCAppPassReset";        
-        public static string DefaultPolicy = PolicySignUpSignIn;
-
-
-        public static string[] Scopes = { "https://chevronitcama.onmicrosoft.com/amaocapp/read" };
-
-        public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";        
-        public static string Authority = $"{AuthorityBase}{PolicySignUpSignIn}";
-
         public static UIParent UiParent = null;
-
         public static IDictionary<string, string> LoginParameters => null;
-
         static ILogger logger;
         public static ILogger Logger => logger ?? (logger = DependencyService.Get<ILogger>());
 
@@ -46,14 +27,11 @@ namespace Chevron.ITC.AMAOC
         {            
             InitializeComponent();
 
-            ViewModelBase.Init(false);
+            ViewModelBase.Init(true);
 
-            PCA = new PublicClientApplication(ClientId, Authority);
+            PCA = new PublicClientApplication(AzureB2CCoordinates.ClientId, AzureB2CCoordinates.Authority);            
+            PCA.RedirectUri = AzureB2CCoordinates.RedirectUri;
             
-            PCA.RedirectUri = $"com.onmicrosoft.chevronitcama.amaocapp://auth";
-
-            
-
             SetMainPage();
         }
 
@@ -71,16 +49,16 @@ namespace Chevron.ITC.AMAOC
 
         public static void GoToMainPage()
         {
-            switch (Device.OS)
+            switch (Device.RuntimePlatform)
             {
-                case TargetPlatform.Android:
+                case Device.Android:
                     Current.MainPage = new RootPageAndroid();
                     break;
-                case TargetPlatform.iOS:
+                case Device.iOS:
                     Current.MainPage = new AMAOCNavigationPage(new RootPageiOS());
                     break;
-                case TargetPlatform.Windows:
-                case TargetPlatform.WinPhone:                    
+                case Device.Windows:
+                case Device.WinPhone:                    
                 default:
                     throw new NotImplementedException();
             }
@@ -140,13 +118,13 @@ namespace Chevron.ITC.AMAOC
 
             MessagingService.Current.Subscribe(MessageKeys.NavigateLogin, async m =>
             {
-                if (Device.OS == TargetPlatform.Android)
+                if (Device.RuntimePlatform == Device.Android)
                 {
                     ((RootPageAndroid)MainPage).IsPresented = false;
                 }
 
                 Page page = null;
-                if (Settings.Current.FirstRun && Device.OS == TargetPlatform.Android)
+                if (Settings.Current.FirstRun && Device.RuntimePlatform == Device.Android)
                     page = new LoginPage();
                 else
                     page = new AMAOCNavigationPage(new LoginPage());
@@ -162,7 +140,7 @@ namespace Chevron.ITC.AMAOC
 
             try
             {
-                if (firstRun || Device.OS != TargetPlatform.iOS)
+                if (firstRun || Device.RuntimePlatform != Device.iOS)
                     return;
 
                 var mainNav = MainPage as NavigationPage;

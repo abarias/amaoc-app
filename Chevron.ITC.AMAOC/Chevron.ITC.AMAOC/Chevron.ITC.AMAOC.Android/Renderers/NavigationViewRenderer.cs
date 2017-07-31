@@ -25,8 +25,7 @@ namespace Chevron.ITC.AMAOC.Droid
         Android.Support.Design.Widget.NavigationView navView;
         ImageView profileImage;
         TextView profileName;
-        TextView profileCAI;
-        TextView profilePoints;
+        TextView profileCAI;        
         protected override void OnElementChanged(ElementChangedEventArgs<Chevron.ITC.AMAOC.NavigationView> e)
         {
 
@@ -47,16 +46,14 @@ namespace Chevron.ITC.AMAOC.Droid
             var header = navView.GetHeaderView(0);
             profileImage = header.FindViewById<ImageView>(Resource.Id.profile_image);
             profileName = header.FindViewById<TextView>(Resource.Id.profile_name);
-            profileCAI = header.FindViewById<TextView>(Resource.Id.cai);
-            profilePoints = header.FindViewById<TextView>(Resource.Id.total_points);
+            profileCAI = header.FindViewById<TextView>(Resource.Id.cai);            
 
             profileImage.Click += (sender, e2) => NavigateToLogin();
             profileName.Click += (sender, e2) => NavigateToLogin();
 
             UpdateName();
             UpdateImage();
-            UpdateCAI();
-            UpdatePoints();
+            UpdateCAI();            
 
             navView.SetCheckedItem(Resource.Id.nav_feed);
         }
@@ -82,12 +79,7 @@ namespace Chevron.ITC.AMAOC.Droid
         void UpdateCAI()
         {
             profileCAI.Text = Settings.Current.CAI;
-        }
-
-        void UpdatePoints()
-        {
-            profilePoints.Text = $"{Settings.Current.TotalPoints} points";
-        }
+        }        
 
         void UpdateName()
         {

@@ -69,7 +69,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     OnCompleted = async () =>
                     {
                         await Navigation.PopModalAsync();
-                        if (Device.OS == TargetPlatform.Android)
+                        if (Device.RuntimePlatform == Device.Android)
                             MessagingService.Current.SendMessage("eventstatus_changed");
                     }
                 });

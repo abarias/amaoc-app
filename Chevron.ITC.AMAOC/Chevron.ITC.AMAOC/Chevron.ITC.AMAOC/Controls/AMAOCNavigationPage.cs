@@ -23,7 +23,7 @@ namespace Chevron.ITC.AMAOC
 
         void Init()
         {
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
             {
                 BarBackgroundColor = Color.FromHex("FAFAFA");
             }

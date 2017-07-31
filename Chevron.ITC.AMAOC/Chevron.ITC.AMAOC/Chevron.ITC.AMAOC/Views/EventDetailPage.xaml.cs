@@ -53,7 +53,7 @@ namespace Chevron.ITC.AMAOC.Views
                 })
             };
 
-            if (Device.OS != TargetPlatform.iOS)
+            if (Device.RuntimePlatform != Device.iOS)
                 item.Icon = "toolbar_close.png";
 
             scanPage.ToolbarItems.Add(item);
@@ -73,7 +73,7 @@ namespace Chevron.ITC.AMAOC.Views
             bool request = false;
             if (status == PermissionStatus.Denied)
             {
-                if (Device.OS == TargetPlatform.iOS)
+                if (Device.RuntimePlatform == Device.iOS)
                 {
                     MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
                     {

@@ -23,5 +23,10 @@ namespace Chevron.ITC.AMAOC.Stores
             var items = await Table.Where(e => e.EventId == eventId).ToListAsync().ConfigureAwait(false);
             return items.Count > 0;
         }
+
+        public Task DropAttended()
+        {
+            return Task.FromResult(true);
+        }
     }
 }

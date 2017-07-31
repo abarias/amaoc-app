@@ -30,16 +30,6 @@
                 local:civ_border_color="#FFFFFFFF"
                 android:layout_gravity="left"
                 android:clickable="true" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-            <ImageView
-                android:layout_gravity="right"
-                android:src="@drawable/trophy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/trophy_image" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -53,15 +43,6 @@
                 android:id="@+id/cai"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-            <TextView
-                android:layout_weight="1"
-                android:gravity="right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="0 points"
-                android:id="@+id/total_points"
-                android:textColor="@color/pointsText"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"

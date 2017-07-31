@@ -55,7 +55,7 @@ namespace Chevron.ITC.AMAOC.Views
 
             EventsListView.ItemTapped += ListViewTapped;
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Subscribe("eventstatus_changed", (d) => UpdatePage());
 
             UpdatePage();
@@ -80,7 +80,7 @@ namespace Chevron.ITC.AMAOC.Views
         {
             base.OnDisappearing();
             EventsListView.ItemTapped -= ListViewTapped;
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Unsubscribe("eventstatus_changed");
         }
 

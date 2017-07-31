@@ -96,8 +96,6 @@ namespace Chevron.ITC.AMAOC.ViewModels
         {
             Logger.Track(AMAOCLoggerKeys.Logout);
 
-
-
             try
             {
                 ISSOClient ssoClient = DependencyService.Get<ISSOClient>();
@@ -105,17 +103,15 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 {
                     await ssoClient.LogoutAsync();
                 }
-
+                
                 Settings.TotalPoints = string.Empty;
                 Settings.FullName = string.Empty;
                 Settings.CAI = string.Empty;
                 Settings.Email = string.Empty; //this triggers login text changed!
-
-                //drop favorites and feedback because we logged out.
-                //await StoreManager.FavoriteStore.DropFavorites();
-                //await StoreManager.FeedbackStore.DropFeedback();
-                await StoreManager.DropEverythingAsync();
-                //await ExecuteSyncCommandAsync();
+                
+                await StoreManager.EventAttendeeStore.DropAttended();
+                await StoreManager.EventRatingCommentStore.DropFeedback();
+                await StoreManager.DropEverythingAsync();                
                 App.SetMainPage();
             }
             catch (Exception ex)
@@ -156,8 +152,6 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             try
             {
-
-
 #if DEBUG
                 await Task.Delay(1000);
 #endif
@@ -166,16 +160,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 Settings.LastSync = DateTime.UtcNow;
                 OnPropertyChanged("LastSyncDisplay");
 
-                await StoreManager.SyncAllAsync(Settings.Current.IsLoggedIn);
-                if (!Settings.Current.IsLoggedIn)
-                {
-                    MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.Message, new MessagingServiceAlert
-                    {
-                        Title = "AMA OC Event Tracker Data Synced",
-                        Message = "You now have the latest conference data, however to sync your favorites and feedback you must sign in with your account.",
-                        Cancel = "OK"
-                    });
-                }
+                await StoreManager.SyncAllAsync(Settings.Current.IsLoggedIn);                
 
             }
             catch (Exception ex)

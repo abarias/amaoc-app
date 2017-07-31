@@ -88,17 +88,10 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
             try
             {
-
-
                 IsBusy = true;
-
-
                 IsReminderSet = await ReminderService.HasReminderAsync(Event.Id);
                 Event.FeedbackLeft = await StoreManager.EventRatingCommentStore.LeftFeedback(Event);
-                Event.IsAttended = Settings.Current.IsEventAttended(Event.Id);
-                
-
-
+                Event.IsAttended = await StoreManager.EventAttendeeStore.IsAttended(Event.Id);                
             }
             catch (Exception ex)
             {
@@ -117,7 +110,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             EventsViewModel.ForceRefresh = true;
             FeedViewModel.ForceRefresh = true;
             
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.SendMessage("eventstatus_changed");
 
             Event.IsAttended = true;
@@ -129,8 +122,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             emp.TotalPointsEarned = totalPoints;
             Settings.TotalPoints = totalPoints.ToString();
             await StoreManager.EmployeeStore.UpdateEmployeeAsyncWithoutSync(emp);
-
-            Settings.Current.AttendEvent(Event.Id);
+            
             await StoreManager.EventAttendeeStore.InsertAsync(new EventAttendee
             {
                 EventId = Event.Id,

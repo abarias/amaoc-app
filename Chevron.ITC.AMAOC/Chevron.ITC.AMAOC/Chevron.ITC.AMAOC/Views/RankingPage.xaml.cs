@@ -57,7 +57,7 @@ namespace Chevron.ITC.AMAOC.Views
 
             RankingListView.ItemTapped += ListViewTapped;
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Subscribe("filter_changed", (d) => UpdatePage());
 
             UpdatePage();
@@ -81,7 +81,7 @@ namespace Chevron.ITC.AMAOC.Views
         {
             base.OnDisappearing();
             RankingListView.ItemTapped -= ListViewTapped;
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
                 MessagingService.Current.Unsubscribe("filter_changed");
         }
 

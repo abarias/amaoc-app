@@ -82,7 +82,7 @@ namespace Chevron.ITC.AMAOC.Services
                 //    UseProxy = true
                 //};
                 //MobileService = new MobileServiceClient(App.AzureMobileAppUrl, handler);
-                MobileService = new MobileServiceClient(App.AzureMobileAppUrl);
+                MobileService = new MobileServiceClient(AppConfig.AzureMobileAppUrl);
 
                 store = new MobileServiceSQLiteStore(path);                
                 store.DefineTable<Event>();
@@ -154,7 +154,7 @@ namespace Chevron.ITC.AMAOC.Services
             }
 
             await MobileService.LogoutAsync();
-            App.PCA.Remove(GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn));
+            App.PCA.Remove(GetUserByPolicy(App.PCA.Users, AzureB2CCoordinates.PolicySignUpSignIn));
                         
             var settings = await ReadSettingsAsync();
 

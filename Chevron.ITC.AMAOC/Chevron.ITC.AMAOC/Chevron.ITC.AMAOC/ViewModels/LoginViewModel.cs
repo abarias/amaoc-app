@@ -84,9 +84,9 @@ namespace Chevron.ITC.AMAOC.ViewModels
             
             try
             {
-                AuthenticationResult ar = await App.PCA.AcquireTokenAsync(App.Scopes, GetUserByPolicy(App.PCA.Users, App.PolicySignUpSignIn), App.UiParent);
-                result = await client.LoginAsync(ar.IdToken, ar.AccessToken);
-                //result = await client.LoginAsync("TestIdToken", "TestAccessToken");
+                //AuthenticationResult ar = await App.PCA.AcquireTokenAsync(AzureB2CCoordinates.Scopes, GetUserByPolicy(App.PCA.Users, AzureB2CCoordinates.PolicySignUpSignIn), App.UiParent);
+                //result = await client.LoginAsync(ar.IdToken, ar.AccessToken);
+                result = await client.LoginAsync("TestIdToken", "TestAccessToken");
 
                 if (result?.Success ?? false)
                 {

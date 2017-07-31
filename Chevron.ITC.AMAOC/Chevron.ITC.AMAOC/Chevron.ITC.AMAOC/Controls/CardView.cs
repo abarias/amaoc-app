@@ -12,7 +12,7 @@ namespace Chevron.ITC.AMAOC
         public CardView()
         {
             Padding = 0;
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
             {
                 HasShadow = false;
                 OutlineColor = Color.Transparent;

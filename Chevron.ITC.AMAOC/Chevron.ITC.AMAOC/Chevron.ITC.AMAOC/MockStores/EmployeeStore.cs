@@ -20,16 +20,14 @@ namespace Chevron.ITC.AMAOC.MockStores
         public override async Task<IEnumerable<Employee>> GetItemsAsync(bool forceRefresh = false)
         {
             await InitializeStore();
-
-            //var json = Newtonsoft.Json.JsonConvert.SerializeObject(Employees);
+            
             return Employees;
         }
 
         public async Task<IEnumerable<Employee>> GetEmployeesTopTenByPoints(string userId)
         {
             var emps = await GetItemsAsync();
-
-            int counter = 0;
+            
             var rankedEmps = from emp in emps
                              group emp by new { emp.TotalPointsEarned, emp.Id, emp.UserId, emp.FullName, emp.CAI, emp.Email }
                              into e
@@ -46,12 +44,7 @@ namespace Chevron.ITC.AMAOC.MockStores
                                          group emp by emp.TotalPointsEarned into ee
                                          select ee).Count(s => s.Key > e.Key.TotalPointsEarned) + 1,
                                  IsLoggedInUser = e.Key.Id == userId ? true : false                                 
-                             };
-
-            //(from emp in emps
-            // where emp.TotalPointsEarned == e.Key.TotalPointsEarned
-            // && emp.Id == e.Key.Id
-            // select emp.FullName).FirstOrDefault(),                        
+                             };                     
 
             var rankedWithCounter = rankedEmps.Select((a, index) => new Employee {
                 UserId = a.UserId,
@@ -66,9 +59,6 @@ namespace Chevron.ITC.AMAOC.MockStores
             });
 
             return rankedWithCounter;
-            //return (from emp in emps
-            //        orderby emp.TotalPointsEarned descending, emp.FullName
-            //        select emp).Take(10);
         }
 
         public async Task<IEnumerable<Employee>> GetEmployeesPrevAndNext(string userId)

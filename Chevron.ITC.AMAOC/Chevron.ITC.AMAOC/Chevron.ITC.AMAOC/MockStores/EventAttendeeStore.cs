@@ -17,11 +17,15 @@ namespace Chevron.ITC.AMAOC.MockStores
             EventAttendees = new List<EventAttendee>();
         }
 
-        public async Task<bool> IsAttended(string eventId)
+        public Task<bool> IsAttended(string eventId)
         {
-            await InitializeStore();
-            var items = EventAttendees.Where(e => e.EventId == eventId).ToList();
-            return items.Count > 0;
+            return Task.FromResult(Settings.IsEventAttended(eventId));
+        }
+
+        public override Task<bool> InsertAsync(EventAttendee item)
+        {
+            Settings.AttendEvent(item.EventId);
+            return Task.FromResult(true);
         }
 
         public override async Task<IEnumerable<EventAttendee>> GetItemsAsync(bool forceRefresh = false)
@@ -50,6 +54,9 @@ namespace Chevron.ITC.AMAOC.MockStores
             });
         }
 
-        
+        public async Task DropAttended()
+        {
+           await Settings.ClearAttended();
+        }
     }
 }

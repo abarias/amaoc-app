@@ -20,6 +20,12 @@ namespace Chevron.ITC.AMAOC.MockStores
             }
         }
 
+        public static void AttendEvent(string id) =>
+        AppSettings.AddOrUpdateValue("event_attended_" + id, true); 
+
+        public static bool IsEventAttended(string id) =>       
+        AppSettings.GetValueOrDefault("event_attended_" + id, false);        
+
         public static bool LeftFeedback(string id) =>
         AppSettings.GetValueOrDefault<bool>("feed_" + id, false);
 
@@ -30,7 +36,14 @@ namespace Chevron.ITC.AMAOC.MockStores
         {
             var events = await DependencyService.Get<IEventStore>().GetItemsAsync();
             foreach (var ocEvent in events)
-                AppSettings.Remove("feed_" + ocEvent.Id);
+                AppSettings.Remove("feed_" + ocEvent.Id);            
+        }
+
+        public static async Task ClearAttended()
+        {
+            var events = await DependencyService.Get<IEventAttendeeStore>().GetItemsAsync();
+            foreach (var ocEvent in events)
+                AppSettings.Remove("event_attended_" + ocEvent.Id);
         }
 
     }

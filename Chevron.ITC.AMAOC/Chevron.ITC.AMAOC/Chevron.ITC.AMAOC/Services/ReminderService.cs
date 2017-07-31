@@ -128,7 +128,7 @@ namespace Chevron.ITC.AMAOC.Services
                 {
                     if (alert)
                     {
-                        if (Device.OS == TargetPlatform.iOS)
+                        if (Device.RuntimePlatform == Device.iOS)
                         {
                             MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
                             {
@@ -201,7 +201,7 @@ namespace Chevron.ITC.AMAOC.Services
             }
 
             //if for some reason the calendar does not exist then simply create a enw one.
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
             {
                 //On android it is really hard to delete a calendar made by an app, so just add to default calendar.
                 try
