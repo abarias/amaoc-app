@@ -16,6 +16,7 @@ using System.Linq;
 using Chevron.ITC.AMAOC.Abstractions;
 using Chevron.ITC.AMAOC.Interfaces;
 using FormsToolkit;
+using Plugin.Connectivity;
 
 namespace Chevron.ITC.AMAOC.ViewModels
 {
@@ -80,6 +81,12 @@ namespace Chevron.ITC.AMAOC.ViewModels
 
         public async Task<bool> TryLoginAsync()
         {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                MessagingUtils.SendOfflineMessage();
+                return false;
+            }
+
             AccountResponse result = null;              
             
             try

@@ -23,8 +23,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             {
                 if (e.PropertyName == "Email")
                 {
-                    Settings.NeedsSync = true;
-                    OnPropertyChanged("LoginText");
+                    Settings.NeedsSync = true;                    
                     OnPropertyChanged("AccountItems");
                     //if logged in you should go ahead and sync data.
                     if (Settings.IsLoggedIn)
@@ -33,9 +32,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                     }
                 }
             };
-        }
-
-        public string LoginText => Settings.IsLoggedIn ? "Sign Out" : "Sign In";
+        }        
 
         public string LastSyncDisplay
         {
@@ -48,48 +45,29 @@ namespace Chevron.ITC.AMAOC.ViewModels
             }
         }
 
-        ICommand loginCommand;
-        public ICommand LoginCommand =>
-            loginCommand ?? (loginCommand = new Command(ExecuteLoginCommand));
+        ICommand logoutCommand;
+        public ICommand LogoutCommand =>
+            logoutCommand ?? (logoutCommand = new Command(ExecuteLogoutCommand));
 
-        void ExecuteLoginCommand()
+        void ExecuteLogoutCommand()
         {
-
-            if (!CrossConnectivity.Current.IsConnected)
-            {
-                MessagingUtils.SendOfflineMessage();
-                return;
-            }
-
-
             if (IsBusy)
                 return;
-
-
-            if (Settings.IsLoggedIn)
+        
+            MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
             {
-
-                MessagingService.Current.SendMessage<MessagingServiceQuestion>(MessageKeys.Question, new MessagingServiceQuestion
+                Title = "Logout?",
+                Question = "Are you sure you want to logout? You can only view and participate in AMA OC Events when logged in.",
+                Positive = "Yes, Logout",
+                Negative = "Cancel",
+                OnCompleted = async (result) =>
                 {
-                    Title = "Logout?",
-                    Question = "Are you sure you want to logout? You can only view and participate in AMA OC Events when logged in.",
-                    Positive = "Yes, Logout",
-                    Negative = "Cancel",
-                    OnCompleted = async (result) =>
-                    {
-                        if (!result)
-                            return;
+                    if (!result)
+                        return;
 
-                        await Logout();
-                    }
-                });
-
-                return;
-            }
-
-            Logger.TrackPage(AppPage.Login.ToString(), "Settings");
-            MessagingService.Current.SendMessage(MessageKeys.NavigateLogin);
-
+                    await Logout();
+                }
+            });                
         }
 
         async Task Logout()

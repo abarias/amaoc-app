@@ -30,14 +30,6 @@
                     <StackLayout Spacing="0">
                         <local:LabelSection Text="Data Sync"/>
                         <local:HeaderDivider/>
-                        <!--<StackLayout BackgroundColor="White" 
-                                     Padding="{StaticResource StandardPadding}">
-                            <Label Text="Sign in with your account to save and sync favorites and session feedback across devices." 
-                                   HorizontalOptions="Center" 
-                                   Style="{DynamicResource AMAOCListItemDetailTextStyle}"/>
-
-                        </StackLayout>
-                        <local:SectionDivider/>-->
                         <Grid Padding="{StaticResource StandardPadding}" 
                                ColumnSpacing="{StaticResource StandardSpacing}" 
                                BackgroundColor="White">
@@ -45,7 +37,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Text="{Binding LoginText}" Command="{Binding LoginCommand}"
+                            <Button Text="Sign Out" Command="{Binding LogoutCommand}"
                                     BackgroundColor="{StaticResource PrimaryDark}"
                                     IsEnabled="{Binding IsNotBusy}"
                                     TextColor="White"/>
