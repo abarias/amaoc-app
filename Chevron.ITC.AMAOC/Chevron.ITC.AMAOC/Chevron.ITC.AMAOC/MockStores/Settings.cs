@@ -41,7 +41,7 @@ namespace Chevron.ITC.AMAOC.MockStores
 
         public static async Task ClearAttended()
         {
-            var events = await DependencyService.Get<IEventAttendeeStore>().GetItemsAsync();
+            var events = await DependencyService.Get<IEventStore>().GetItemsAsync();
             foreach (var ocEvent in events)
                 AppSettings.Remove("event_attended_" + ocEvent.Id);
         }

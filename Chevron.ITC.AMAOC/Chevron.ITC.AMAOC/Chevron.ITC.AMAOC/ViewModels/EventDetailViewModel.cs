@@ -39,6 +39,27 @@ namespace Chevron.ITC.AMAOC.ViewModels
             set { SetProperty(ref isReminderSet, value); }
         }
 
+        bool showFeedback;
+        public bool ShowFeedback
+        {
+            get { return showFeedback; }
+            set { SetProperty(ref showFeedback, value); }
+        }
+
+        bool showAttendance;
+        public bool ShowAttendance
+        {
+            get { return showAttendance; }
+            set { SetProperty(ref showAttendance, value); }
+        }
+
+        Event.EventViewState eventViewState;
+        public Event.EventViewState EventViewState
+        {
+            get { return eventViewState; }
+            set { SetProperty(ref eventViewState, value); }
+        }
+
         ICommand reminderCommand;
         public ICommand ReminderCommand =>
             reminderCommand ?? (reminderCommand = new Command(async () => await ExecuteReminderCommandAsync()));
@@ -90,8 +111,8 @@ namespace Chevron.ITC.AMAOC.ViewModels
             {
                 IsBusy = true;
                 IsReminderSet = await ReminderService.HasReminderAsync(Event.Id);
-                Event.FeedbackLeft = await StoreManager.EventRatingCommentStore.LeftFeedback(Event);
-                Event.IsAttended = await StoreManager.EventAttendeeStore.IsAttended(Event.Id);                
+                //Event.FeedbackLeft = await StoreManager.EventRatingCommentStore.LeftFeedback(Event);
+                //Event.IsAttended = await StoreManager.EventAttendeeStore.IsAttended(Event.Id);                
             }
             catch (Exception ex)
             {
@@ -102,7 +123,22 @@ namespace Chevron.ITC.AMAOC.ViewModels
             {
                 IsBusy = false;
             }
+            ChangeViewState();
+        }
 
+        void ChangeViewState()
+        {
+            Event.EventViewState viewState = Event.EventViewState.NotStarted;
+            if (Event.OCEventStatus == Event.EventStatus.NotStarted && DateTime.Today.DayOfYear == ocEvent.StartTime?.DayOfYear)
+                viewState = Event.EventViewState.Today;
+            else if (Event.OCEventStatus == Event.EventStatus.Missed)
+                viewState = Event.EventViewState.Missed;
+            else if (Event.OCEventStatus == Event.EventStatus.Completed && Event.IsAttended && !Event.FeedbackLeft)
+                viewState = Event.EventViewState.AttendedNoFeedback;
+            else if (Event.OCEventStatus == Event.EventStatus.Completed && Event.IsAttended && Event.FeedbackLeft)
+                viewState = Event.EventViewState.AttendedHasFeedback;
+
+            EventViewState = viewState;
         }
 
         public async Task AttendEvent()
@@ -114,7 +150,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
                 MessagingService.Current.SendMessage("eventstatus_changed");
 
             Event.IsAttended = true;
-            Event.OCEventStatus = Event.EventStatus.Completed;
+            Event.OCEventStatus = Event.EventStatus.Completed;            
 
             int totalPoints = Convert.ToInt32(Settings.TotalPoints) + Event.Points;
             var emp = await StoreManager.EmployeeStore.GetEmployeeByUserId(Settings.UserId);
@@ -127,7 +163,11 @@ namespace Chevron.ITC.AMAOC.ViewModels
             {
                 EventId = Event.Id,
                 EmployeeId = emp.Id
-            });            
+            });
+
+            ChangeViewState();
         }
+
+
     }
 }

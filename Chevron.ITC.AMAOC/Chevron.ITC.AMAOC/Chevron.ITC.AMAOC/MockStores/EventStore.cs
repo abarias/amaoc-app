@@ -13,11 +13,13 @@ namespace Chevron.ITC.AMAOC.MockStores
     {
         List<Event> Events { get; }
         IEventAttendeeStore eventAttendees;
+        IEventRatingCommentStore eventComment;
         bool initialized = false;
         public EventStore()
         {
             Events = new List<Event>();
             eventAttendees = DependencyService.Get<IEventAttendeeStore>();
+            eventComment = DependencyService.Get<IEventRatingCommentStore>();
         }
 
         public override async Task<IEnumerable<Event>> GetItemsAsync(bool forceRefresh = false)
@@ -30,6 +32,9 @@ namespace Chevron.ITC.AMAOC.MockStores
             {
                 string statusImage = "check.png";
                 Event.EventStatus eventStatus = Event.EventStatus.Completed;
+                if (DateTimeOffset.Compare(DateTimeOffset.Now, ev.EndTime.Value) > 0)
+                    ev.IsCompleted = true;
+
                 var isAttended = await eventAttendees.IsAttended(ev.Id);
                 if (!isAttended && ev.IsCompleted)
                 {
@@ -42,6 +47,8 @@ namespace Chevron.ITC.AMAOC.MockStores
                     eventStatus = Event.EventStatus.NotStarted;
                 }
 
+                ev.IsAttended = isAttended;
+                ev.FeedbackLeft = await eventComment.LeftFeedback(ev);
                 ev.StatusImage = statusImage;
                 ev.OCEventStatus = eventStatus;
             }

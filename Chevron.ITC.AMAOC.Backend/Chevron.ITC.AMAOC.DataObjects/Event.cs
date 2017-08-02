@@ -79,7 +79,16 @@ namespace Chevron.ITC.AMAOC.DataObjects
             Completed,
             Missed,
             NotStarted
-        }                
+        } 
+        
+        public enum EventViewState
+        {
+            NotStarted,
+            Missed,            
+            Today,
+            AttendedNoFeedback,
+            AttendedHasFeedback
+        }
 #endif
     }
 }

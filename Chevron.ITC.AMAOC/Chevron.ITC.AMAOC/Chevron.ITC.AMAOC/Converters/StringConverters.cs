@@ -35,6 +35,10 @@ namespace Chevron.ITC.AMAOC
                     default:
                         return string.Empty;
                 }
+                //var eventState = (Event.EventViewState)value;
+                //if (eventState == Event.EventViewState.AttendedNoFeedback || 
+                //    eventState == Event.EventViewState.AttendedHasFeedback)
+                //    return "You have completed " + ocEvent.Name;
             }
             catch (Exception ex)
             {

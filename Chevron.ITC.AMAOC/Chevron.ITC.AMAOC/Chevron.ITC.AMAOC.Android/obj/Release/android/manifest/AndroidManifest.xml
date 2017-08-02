@@ -40,7 +40,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="md5301e791be920327796ce3a6b98575c4d.PushHandlerBroadcastReceiver">
+    <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="md5301e791be920327796ce3a6b98575c4d.MyBroadcastReceiver">
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
         <category android:name="com.Chevron.ITC.AMAOC" />
@@ -54,7 +54,7 @@
         <category android:name="com.Chevron.ITC.AMAOC" />
       </intent-filter>
     </receiver>
-    <service android:name="md5301e791be920327796ce3a6b98575c4d.GcmService" />
+    <service android:name="md5301e791be920327796ce3a6b98575c4d.PushHandlerService" />
     <activity android:name="microsoft.identity.client.AuthenticationActivity" />
     <activity android:label="Web Authenticator" android:name="md5901e742fdf284ed0df9a9602f1963168.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md5901e742fdf284ed0df9a9602f1963168.WebAuthenticatorActivity" />

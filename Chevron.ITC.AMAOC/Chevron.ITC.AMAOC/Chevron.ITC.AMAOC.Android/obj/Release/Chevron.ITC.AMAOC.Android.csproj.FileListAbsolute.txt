@@ -537,3 +537,9 @@ G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Androi
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\android\assets\Xamarin.Forms.Xaml.dll.mdb
 G:\GitHub\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Release\GCM.Client.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\bin\Release\GCM.Client.dll
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\res\drawable-hdpi\ic_notification.png
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\res\drawable-mdpi\ic_notification.png
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\res\drawable-xhdpi\ic_notification.png
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\res\drawable-xxhdpi\ic_notification.png
+C:\Users\bopd\Source\Repos\amaoc-app\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC\Chevron.ITC.AMAOC.Android\obj\Release\res\drawable-xxxhdpi\ic_notification.png

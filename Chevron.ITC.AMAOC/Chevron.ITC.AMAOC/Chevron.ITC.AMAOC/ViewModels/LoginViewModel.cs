@@ -25,8 +25,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
         static ISSOClient client;
         public LoginViewModel()
         {
-            SignInCommand = new Command(async () => await SignIn());
-            NotNowCommand = new Command(App.GoToMainPage);
+            SignInCommand = new Command(async () => await SignIn());            
 
             client = DependencyService.Get<ISSOClient>();
         }
@@ -44,8 +43,7 @@ namespace Chevron.ITC.AMAOC.ViewModels
             get { return email; }
             set { SetProperty(ref email, value); }
         }
-
-        public ICommand NotNowCommand { get; }
+        
         public ICommand SignInCommand { get; }
 
         async Task SignIn()
